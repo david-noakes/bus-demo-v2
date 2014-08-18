@@ -31,10 +31,10 @@ package transit_realtime;
 message FeedMessage {
 
   // Metadata about this feed and feed message.
-  required FeedHeader header = 1;
+  optional FeedHeader header = 1;
 
   // Contents of the feed.
-  repeated FeedEntity entity = 2;
+  optional FeedEntity entity = 2;
 }
 
 // Metadata about a feed, included in feed messages.

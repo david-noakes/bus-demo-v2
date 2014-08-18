@@ -11,9 +11,9 @@ public final class GtfsRealtime {
   public interface FeedMessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .transit_realtime.FeedHeader header = 1;
+    // optional .transit_realtime.FeedHeader header = 1;
     /**
-     * <code>required .transit_realtime.FeedHeader header = 1;</code>
+     * <code>optional .transit_realtime.FeedHeader header = 1;</code>
      *
      * <pre>
      * Metadata about this feed and feed message.
@@ -21,7 +21,7 @@ public final class GtfsRealtime {
      */
     boolean hasHeader();
     /**
-     * <code>required .transit_realtime.FeedHeader header = 1;</code>
+     * <code>optional .transit_realtime.FeedHeader header = 1;</code>
      *
      * <pre>
      * Metadata about this feed and feed message.
@@ -29,7 +29,7 @@ public final class GtfsRealtime {
      */
     com.google.transit.realtime.GtfsRealtime.FeedHeader getHeader();
     /**
-     * <code>required .transit_realtime.FeedHeader header = 1;</code>
+     * <code>optional .transit_realtime.FeedHeader header = 1;</code>
      *
      * <pre>
      * Metadata about this feed and feed message.
@@ -37,50 +37,31 @@ public final class GtfsRealtime {
      */
     com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder getHeaderOrBuilder();
 
-    // repeated .transit_realtime.FeedEntity entity = 2;
+    // optional .transit_realtime.FeedEntity entity = 2;
     /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+     * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
      *
      * <pre>
      * Contents of the feed.
      * </pre>
      */
-    java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity> 
-        getEntityList();
+    boolean hasEntity();
     /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+     * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
      *
      * <pre>
      * Contents of the feed.
      * </pre>
      */
-    com.google.transit.realtime.GtfsRealtime.FeedEntity getEntity(int index);
+    com.google.transit.realtime.GtfsRealtime.FeedEntity getEntity();
     /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+     * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
      *
      * <pre>
      * Contents of the feed.
      * </pre>
      */
-    int getEntityCount();
-    /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-     *
-     * <pre>
-     * Contents of the feed.
-     * </pre>
-     */
-    java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
-        getEntityOrBuilderList();
-    /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-     *
-     * <pre>
-     * Contents of the feed.
-     * </pre>
-     */
-    com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder getEntityOrBuilder(
-        int index);
+    com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder getEntityOrBuilder();
   }
   /**
    * Protobuf type {@code transit_realtime.FeedMessage}
@@ -161,11 +142,16 @@ public final class GtfsRealtime {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                entity_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.FeedEntity>();
-                mutable_bitField0_ |= 0x00000002;
+              com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = entity_.toBuilder();
               }
-              entity_.add(input.readMessage(com.google.transit.realtime.GtfsRealtime.FeedEntity.PARSER, extensionRegistry));
+              entity_ = input.readMessage(com.google.transit.realtime.GtfsRealtime.FeedEntity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(entity_);
+                entity_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
               break;
             }
           }
@@ -176,9 +162,6 @@ public final class GtfsRealtime {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          entity_ = java.util.Collections.unmodifiableList(entity_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -211,11 +194,11 @@ public final class GtfsRealtime {
     }
 
     private int bitField0_;
-    // required .transit_realtime.FeedHeader header = 1;
+    // optional .transit_realtime.FeedHeader header = 1;
     public static final int HEADER_FIELD_NUMBER = 1;
     private com.google.transit.realtime.GtfsRealtime.FeedHeader header_;
     /**
-     * <code>required .transit_realtime.FeedHeader header = 1;</code>
+     * <code>optional .transit_realtime.FeedHeader header = 1;</code>
      *
      * <pre>
      * Metadata about this feed and feed message.
@@ -225,7 +208,7 @@ public final class GtfsRealtime {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .transit_realtime.FeedHeader header = 1;</code>
+     * <code>optional .transit_realtime.FeedHeader header = 1;</code>
      *
      * <pre>
      * Metadata about this feed and feed message.
@@ -235,7 +218,7 @@ public final class GtfsRealtime {
       return header_;
     }
     /**
-     * <code>required .transit_realtime.FeedHeader header = 1;</code>
+     * <code>optional .transit_realtime.FeedHeader header = 1;</code>
      *
      * <pre>
      * Metadata about this feed and feed message.
@@ -245,81 +228,57 @@ public final class GtfsRealtime {
       return header_;
     }
 
-    // repeated .transit_realtime.FeedEntity entity = 2;
+    // optional .transit_realtime.FeedEntity entity = 2;
     public static final int ENTITY_FIELD_NUMBER = 2;
-    private java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity> entity_;
+    private com.google.transit.realtime.GtfsRealtime.FeedEntity entity_;
     /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+     * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
      *
      * <pre>
      * Contents of the feed.
      * </pre>
      */
-    public java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity> getEntityList() {
+    public boolean hasEntity() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
+     *
+     * <pre>
+     * Contents of the feed.
+     * </pre>
+     */
+    public com.google.transit.realtime.GtfsRealtime.FeedEntity getEntity() {
       return entity_;
     }
     /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+     * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
      *
      * <pre>
      * Contents of the feed.
      * </pre>
      */
-    public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
-        getEntityOrBuilderList() {
+    public com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder getEntityOrBuilder() {
       return entity_;
-    }
-    /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-     *
-     * <pre>
-     * Contents of the feed.
-     * </pre>
-     */
-    public int getEntityCount() {
-      return entity_.size();
-    }
-    /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-     *
-     * <pre>
-     * Contents of the feed.
-     * </pre>
-     */
-    public com.google.transit.realtime.GtfsRealtime.FeedEntity getEntity(int index) {
-      return entity_.get(index);
-    }
-    /**
-     * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-     *
-     * <pre>
-     * Contents of the feed.
-     * </pre>
-     */
-    public com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder getEntityOrBuilder(
-        int index) {
-      return entity_.get(index);
     }
 
     private void initFields() {
       header_ = com.google.transit.realtime.GtfsRealtime.FeedHeader.getDefaultInstance();
-      entity_ = java.util.Collections.emptyList();
+      entity_ = com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasHeader()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasHeader()) {
+        if (!getHeader().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
-      if (!getHeader().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      for (int i = 0; i < getEntityCount(); i++) {
-        if (!getEntity(i).isInitialized()) {
+      if (hasEntity()) {
+        if (!getEntity().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -334,8 +293,8 @@ public final class GtfsRealtime {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeMessage(1, header_);
       }
-      for (int i = 0; i < entity_.size(); i++) {
-        output.writeMessage(2, entity_.get(i));
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(2, entity_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -350,9 +309,9 @@ public final class GtfsRealtime {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, header_);
       }
-      for (int i = 0; i < entity_.size(); i++) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, entity_.get(i));
+          .computeMessageSize(2, entity_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -493,11 +452,11 @@ public final class GtfsRealtime {
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (entityBuilder_ == null) {
-          entity_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          entity_ = com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance();
         } else {
           entityBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -534,11 +493,10 @@ public final class GtfsRealtime {
         } else {
           result.header_ = headerBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         if (entityBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
-            entity_ = java.util.Collections.unmodifiableList(entity_);
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
           result.entity_ = entity_;
         } else {
           result.entity_ = entityBuilder_.build();
@@ -562,47 +520,22 @@ public final class GtfsRealtime {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (entityBuilder_ == null) {
-          if (!other.entity_.isEmpty()) {
-            if (entity_.isEmpty()) {
-              entity_ = other.entity_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-            } else {
-              ensureEntityIsMutable();
-              entity_.addAll(other.entity_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.entity_.isEmpty()) {
-            if (entityBuilder_.isEmpty()) {
-              entityBuilder_.dispose();
-              entityBuilder_ = null;
-              entity_ = other.entity_;
-              bitField0_ = (bitField0_ & ~0x00000002);
-              entityBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getEntityFieldBuilder() : null;
-            } else {
-              entityBuilder_.addAllMessages(other.entity_);
-            }
-          }
+        if (other.hasEntity()) {
+          mergeEntity(other.getEntity());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasHeader()) {
-          
-          return false;
+        if (hasHeader()) {
+          if (!getHeader().isInitialized()) {
+            
+            return false;
+          }
         }
-        if (!getHeader().isInitialized()) {
-          
-          return false;
-        }
-        for (int i = 0; i < getEntityCount(); i++) {
-          if (!getEntity(i).isInitialized()) {
+        if (hasEntity()) {
+          if (!getEntity().isInitialized()) {
             
             return false;
           }
@@ -629,12 +562,12 @@ public final class GtfsRealtime {
       }
       private int bitField0_;
 
-      // required .transit_realtime.FeedHeader header = 1;
+      // optional .transit_realtime.FeedHeader header = 1;
       private com.google.transit.realtime.GtfsRealtime.FeedHeader header_ = com.google.transit.realtime.GtfsRealtime.FeedHeader.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.transit.realtime.GtfsRealtime.FeedHeader, com.google.transit.realtime.GtfsRealtime.FeedHeader.Builder, com.google.transit.realtime.GtfsRealtime.FeedHeaderOrBuilder> headerBuilder_;
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -644,7 +577,7 @@ public final class GtfsRealtime {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -658,7 +591,7 @@ public final class GtfsRealtime {
         }
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -678,7 +611,7 @@ public final class GtfsRealtime {
         return this;
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -696,7 +629,7 @@ public final class GtfsRealtime {
         return this;
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -719,7 +652,7 @@ public final class GtfsRealtime {
         return this;
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -736,7 +669,7 @@ public final class GtfsRealtime {
         return this;
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -748,7 +681,7 @@ public final class GtfsRealtime {
         return getHeaderFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -762,7 +695,7 @@ public final class GtfsRealtime {
         }
       }
       /**
-       * <code>required .transit_realtime.FeedHeader header = 1;</code>
+       * <code>optional .transit_realtime.FeedHeader header = 1;</code>
        *
        * <pre>
        * Metadata about this feed and feed message.
@@ -782,197 +715,97 @@ public final class GtfsRealtime {
         return headerBuilder_;
       }
 
-      // repeated .transit_realtime.FeedEntity entity = 2;
-      private java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity> entity_ =
-        java.util.Collections.emptyList();
-      private void ensureEntityIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          entity_ = new java.util.ArrayList<com.google.transit.realtime.GtfsRealtime.FeedEntity>(entity_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
+      // optional .transit_realtime.FeedEntity entity = 2;
+      private com.google.transit.realtime.GtfsRealtime.FeedEntity entity_ = com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
           com.google.transit.realtime.GtfsRealtime.FeedEntity, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder, com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> entityBuilder_;
-
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity> getEntityList() {
-        if (entityBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(entity_);
-        } else {
-          return entityBuilder_.getMessageList();
-        }
+      public boolean hasEntity() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public int getEntityCount() {
+      public com.google.transit.realtime.GtfsRealtime.FeedEntity getEntity() {
         if (entityBuilder_ == null) {
-          return entity_.size();
+          return entity_;
         } else {
-          return entityBuilder_.getCount();
+          return entityBuilder_.getMessage();
         }
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public com.google.transit.realtime.GtfsRealtime.FeedEntity getEntity(int index) {
+      public Builder setEntity(com.google.transit.realtime.GtfsRealtime.FeedEntity value) {
         if (entityBuilder_ == null) {
-          return entity_.get(index);
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          entity_ = value;
+          onChanged();
         } else {
-          return entityBuilder_.getMessage(index);
+          entityBuilder_.setMessage(value);
         }
+        bitField0_ |= 0x00000002;
+        return this;
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
       public Builder setEntity(
-          int index, com.google.transit.realtime.GtfsRealtime.FeedEntity value) {
-        if (entityBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEntityIsMutable();
-          entity_.set(index, value);
-          onChanged();
-        } else {
-          entityBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public Builder setEntity(
-          int index, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder builderForValue) {
-        if (entityBuilder_ == null) {
-          ensureEntityIsMutable();
-          entity_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          entityBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public Builder addEntity(com.google.transit.realtime.GtfsRealtime.FeedEntity value) {
-        if (entityBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEntityIsMutable();
-          entity_.add(value);
-          onChanged();
-        } else {
-          entityBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public Builder addEntity(
-          int index, com.google.transit.realtime.GtfsRealtime.FeedEntity value) {
-        if (entityBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEntityIsMutable();
-          entity_.add(index, value);
-          onChanged();
-        } else {
-          entityBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public Builder addEntity(
           com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder builderForValue) {
         if (entityBuilder_ == null) {
-          ensureEntityIsMutable();
-          entity_.add(builderForValue.build());
+          entity_ = builderForValue.build();
           onChanged();
         } else {
-          entityBuilder_.addMessage(builderForValue.build());
+          entityBuilder_.setMessage(builderForValue.build());
         }
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public Builder addEntity(
-          int index, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder builderForValue) {
+      public Builder mergeEntity(com.google.transit.realtime.GtfsRealtime.FeedEntity value) {
         if (entityBuilder_ == null) {
-          ensureEntityIsMutable();
-          entity_.add(index, builderForValue.build());
+          if (((bitField0_ & 0x00000002) == 0x00000002) &&
+              entity_ != com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance()) {
+            entity_ =
+              com.google.transit.realtime.GtfsRealtime.FeedEntity.newBuilder(entity_).mergeFrom(value).buildPartial();
+          } else {
+            entity_ = value;
+          }
           onChanged();
         } else {
-          entityBuilder_.addMessage(index, builderForValue.build());
+          entityBuilder_.mergeFrom(value);
         }
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public Builder addAllEntity(
-          java.lang.Iterable<? extends com.google.transit.realtime.GtfsRealtime.FeedEntity> values) {
-        if (entityBuilder_ == null) {
-          ensureEntityIsMutable();
-          super.addAll(values, entity_);
-          onChanged();
-        } else {
-          entityBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
@@ -980,113 +813,54 @@ public final class GtfsRealtime {
        */
       public Builder clearEntity() {
         if (entityBuilder_ == null) {
-          entity_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          entity_ = com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance();
           onChanged();
         } else {
           entityBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public Builder removeEntity(int index) {
-        if (entityBuilder_ == null) {
-          ensureEntityIsMutable();
-          entity_.remove(index);
-          onChanged();
-        } else {
-          entityBuilder_.remove(index);
-        }
-        return this;
+      public com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder getEntityBuilder() {
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return getEntityFieldBuilder().getBuilder();
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder getEntityBuilder(
-          int index) {
-        return getEntityFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder getEntityOrBuilder(
-          int index) {
-        if (entityBuilder_ == null) {
-          return entity_.get(index);  } else {
-          return entityBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public java.util.List<? extends com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
-           getEntityOrBuilderList() {
+      public com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder getEntityOrBuilder() {
         if (entityBuilder_ != null) {
-          return entityBuilder_.getMessageOrBuilderList();
+          return entityBuilder_.getMessageOrBuilder();
         } else {
-          return java.util.Collections.unmodifiableList(entity_);
+          return entity_;
         }
       }
       /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
+       * <code>optional .transit_realtime.FeedEntity entity = 2;</code>
        *
        * <pre>
        * Contents of the feed.
        * </pre>
        */
-      public com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder addEntityBuilder() {
-        return getEntityFieldBuilder().addBuilder(
-            com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder addEntityBuilder(
-          int index) {
-        return getEntityFieldBuilder().addBuilder(
-            index, com.google.transit.realtime.GtfsRealtime.FeedEntity.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .transit_realtime.FeedEntity entity = 2;</code>
-       *
-       * <pre>
-       * Contents of the feed.
-       * </pre>
-       */
-      public java.util.List<com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder> 
-           getEntityBuilderList() {
-        return getEntityFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilder<
           com.google.transit.realtime.GtfsRealtime.FeedEntity, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder, com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder> 
           getEntityFieldBuilder() {
         if (entityBuilder_ == null) {
-          entityBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          entityBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.transit.realtime.GtfsRealtime.FeedEntity, com.google.transit.realtime.GtfsRealtime.FeedEntity.Builder, com.google.transit.realtime.GtfsRealtime.FeedEntityOrBuilder>(
                   entity_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           entity_ = null;
@@ -19329,8 +19103,8 @@ public final class GtfsRealtime {
   static {
     java.lang.String[] descriptorData = {
       "\n\023gtfs-realtime.proto\022\020transit_realtime\"" +
-      "i\n\013FeedMessage\022,\n\006header\030\001 \002(\0132\034.transit" +
-      "_realtime.FeedHeader\022,\n\006entity\030\002 \003(\0132\034.t" +
+      "i\n\013FeedMessage\022,\n\006header\030\001 \001(\0132\034.transit" +
+      "_realtime.FeedHeader\022,\n\006entity\030\002 \001(\0132\034.t" +
       "ransit_realtime.FeedEntity\"\317\001\n\nFeedHeade" +
       "r\022\035\n\025gtfs_realtime_version\030\001 \002(\t\022Q\n\016incr" +
       "ementality\030\002 \001(\0162+.transit_realtime.Feed" +
