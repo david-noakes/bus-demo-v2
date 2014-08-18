@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ * 2014-08-15 - changes by David Noakes.
 
 function Init() {
   
@@ -22,10 +23,11 @@ function Init() {
 	 * Create a custom-styled Google Map with no labels and custom color scheme.
 	 */
 	var CreateMap = function() {
+   	    var brisbaneLatLng = new google.maps.LatLng(-27.4775067,153.0281366);
 		var map_style = [ {
 			elementType : "labels",
 			stylers : [ {
-				visibility : "off"
+				visibility : "on"
 			} ]
 		}, {
 			stylers : [ {
@@ -34,12 +36,19 @@ function Init() {
 		} ];
 		var map_canvas = document.getElementById("map_canvas");
 		var myOptions = {
-			center : new google.maps.LatLng(42.349, -71.059),
-			zoom : 8,
-			styles : map_style,
-			mapTypeId : google.maps.MapTypeId.ROADMAP
+			center : brisbaneLatLng,
+			zoom : 15
+			//, styles : map_style
+			//,	mapTypeId : google.maps.MapTypeId.ROADMAP
 		};
 		return new google.maps.Map(map_canvas, myOptions);
+	  	var dialogLatLng = new google.maps.LatLng(-27.47351399999997,153.013136);	
+		var dialogMarker = new google.maps.Marker({
+				position: dialogLatLng, 
+				map: map,
+				title: 'Dialog is here'
+			  });	
+
 	};
 	
 	var map = CreateMap();
@@ -87,8 +96,8 @@ function Init() {
 	};
 
 	var icon = new google.maps.MarkerImage(
-			'http://' + hostandport + '/WhiteCircle8.png', null, null,
-			new google.maps.Point(4, 4));
+			'http://' + hostandport + '/vehicle.png');
+			//, null, null, new google.maps.Point(4, 4));
 
 	var CreateVehicle = function(v_data) {
 		var point = new google.maps.LatLng(v_data.lat, v_data.lon);
