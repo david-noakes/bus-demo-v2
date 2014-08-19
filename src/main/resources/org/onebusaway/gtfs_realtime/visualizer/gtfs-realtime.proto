@@ -34,7 +34,7 @@ message FeedMessage {
   optional FeedHeader header = 1;
 
   // Contents of the feed.
-  optional FeedEntity entity = 2;
+  repeated FeedEntity entity = 2;
 }
 
 // Metadata about a feed, included in feed messages.
