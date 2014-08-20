@@ -87,6 +87,7 @@ public class VisualizerService {
   @PostConstruct
   public void start() throws Exception {
     String scheme = _vehiclePositionsUri.getScheme();
+    _log.info("Scheme = " + scheme);
     if (scheme.equals("ws") || scheme.equals("wss")) {
       _webSocketFactory = new WebSocketClientFactory();
       _webSocketFactory.start();
