@@ -175,10 +175,10 @@
 			jQuery.each(vehicles, function() {
 				console.log("peocess each list");
 				UpdateVehicle(this, updates);
-				//bounds.extend(new google.maps.LatLng(this.lat, this.lon));
+				bounds.extend(new google.maps.LatLng(this.lat, this.lon));
 			});
 			if (first_update && ! bounds.isEmpty()) {
-				//map.fitBounds(bounds);
+				map.fitBounds(bounds);
 				first_update = false;
 			}
 			var applyUpdates = function() {
