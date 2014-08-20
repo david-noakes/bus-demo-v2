@@ -18,6 +18,7 @@ package org.onebusaway.gtfs_realtime.visualizer;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,7 +52,7 @@ import com.google.transit.realtime.GtfsRealtime.VehiclePosition;
 @Singleton
 public class VisualizerService {
 
-  private static final Logger _log = LoggerFactory.getLogger(VisualizerService.class);
+  private static final java.util.logging.Logger _log = LoggerFactory.getLogger(VisualizerService.class);
   
   private URI _vehiclePositionsUri;
 
@@ -134,7 +135,10 @@ public class VisualizerService {
     _log.info("refreshing vehicle positions");
 
     URL url = _vehiclePositionsUri.toURL();
-    FeedMessage feed = FeedMessage.parseFrom(url.openStream());
+    URLConnection c =  url.openConnection();
+    String s = c.getInputStream().toString();
+    _log.info("data=["+s+"]");
+    FeedMessage feed = FeedMessage.parseFrom(c.getInputStream());
 
     boolean hadUpdate = processDataset(feed);
 
