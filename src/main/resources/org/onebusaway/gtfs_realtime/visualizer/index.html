@@ -29,7 +29,7 @@
 			map: map,
 			title: 'Dialog is here'
 		});	
-		var image = 'Vehicle.png';
+		var vehicleImage = 'Vehicle.png';
 		var vclLatLng = new google.maps.LatLng(-27.47351399999997, 153.0204856);
 		var vclMarker = new google.maps.Marker({
 			  position: vclLatLng,
@@ -82,8 +82,9 @@
 			return HsvToRgbString(h, 0.90, 0.90)
 		};
 
-		var icon = new google.maps.MarkerImage(
-				'http://' + hostandport + '/vehicle.png');
+		var icon = vehicleImage;   
+		        //new google.maps.MarkerImage(
+				//'http://' + hostandport + '/vehicle.png');
 				//, null, null, new google.maps.Point(4, 4));
 
 		var CreateVehicle = function(v_data) {
@@ -173,10 +174,10 @@
 			jQuery.each(vehicles, function() {
 				console.log("peocess each list");
 				UpdateVehicle(this, updates);
-				//bounds.extend(new google.maps.LatLng(this.lat, this.lon));
+				bounds.extend(new google.maps.LatLng(this.lat, this.lon));
 			});
 			if (first_update && ! bounds.isEmpty()) {
-				//map.fitBounds(bounds);
+				map.fitBounds(bounds);
 				first_update = false;
 			}
 			var applyUpdates = function() {

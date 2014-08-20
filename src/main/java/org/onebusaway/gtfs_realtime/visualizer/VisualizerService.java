@@ -52,7 +52,7 @@ import com.google.transit.realtime.GtfsRealtime.VehiclePosition;
 public class VisualizerService {
 
   private static final Logger _log = LoggerFactory.getLogger(VisualizerService.class);
-
+  
   private URI _vehiclePositionsUri;
 
   private ScheduledExecutorService _executor;
@@ -151,7 +151,11 @@ public class VisualizerService {
 
     List<Vehicle> vehicles = new ArrayList<Vehicle>();
     boolean update = false;
+    int vehiclePosnCount = 0;
+    int tripUpdateCount = 0;
+    int vehicleCount = 0;
 
+	_log.info("Feed contains : " + feed.getEntityList().size() + " entities");
     for (FeedEntity entity : feed.getEntityList()) {
       if (entity.hasIsDeleted() && entity.getIsDeleted()) {
         String vehicleId = _vehicleIdsByEntityIds.get(entity.getId());
@@ -162,7 +166,13 @@ public class VisualizerService {
         _vehiclesById.remove(vehicleId);
         continue;
       }
+      vehicleCount++;
       if (!entity.hasVehicle()) {
+    	_log.info("no vehicle position for " + entity.getId());
+    	if (entity.hasTripUpdate()) {
+    		_log.info("      Trip Update exists");
+    		tripUpdateCount++;
+    	}
         continue;
       }
       VehiclePosition vehicle = entity.getVehicle();
@@ -174,6 +184,7 @@ public class VisualizerService {
       if (!vehicle.hasPosition()) {
         continue;
       }
+      vehiclePosnCount++;
       Position position = vehicle.getPosition();
       Vehicle v = new Vehicle();
       v.setId(vehicleId);
@@ -195,6 +206,10 @@ public class VisualizerService {
 
     if (update) {
       _log.info("vehicles updated: " + vehicles.size());
+    } else {
+    	_log.info("vehicles found: " + vehicleCount + 
+    			  ", vehicle Posns found: " + vehiclePosnCount + 
+    			  ", trip updates found: "+ tripUpdateCount);
     }
 
     for (VehicleListener listener : _listeners) {
