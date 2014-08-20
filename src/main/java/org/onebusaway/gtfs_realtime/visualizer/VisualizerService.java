@@ -52,7 +52,7 @@ import com.google.transit.realtime.GtfsRealtime.VehiclePosition;
 @Singleton
 public class VisualizerService {
 
-  private static final java.util.logging.Logger _log = LoggerFactory.getLogger(VisualizerService.class);
+  private static final Logger _log = LoggerFactory.getLogger(VisualizerService.class);
   
   private URI _vehiclePositionsUri;
 
