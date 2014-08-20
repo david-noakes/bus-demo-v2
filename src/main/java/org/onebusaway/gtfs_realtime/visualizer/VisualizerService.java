@@ -136,8 +136,8 @@ public class VisualizerService {
 
     URL url = _vehiclePositionsUri.toURL();
     URLConnection c =  url.openConnection();
-    String s = c.getInputStream().toString();
-    _log.info("data=["+s+"]");
+    int iSize = c.getInputStream().available();
+    _log.info("data=["+iSize+" bytes]");
     FeedMessage feed = FeedMessage.parseFrom(c.getInputStream());
 
     boolean hadUpdate = processDataset(feed);
