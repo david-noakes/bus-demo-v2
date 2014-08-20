@@ -136,7 +136,7 @@ public class VisualizerService {
 
     URL url = _vehiclePositionsUri.toURL();
     URLConnection c =  url.openConnection();
-    int iSize = c.getInputStream().available();
+    int iSize = c.getContentLength();
     _log.info("data=["+iSize+" bytes]");
     FeedMessage feed = FeedMessage.parseFrom(c.getInputStream());
 
