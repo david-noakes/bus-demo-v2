@@ -21,23 +21,16 @@
           center: new google.maps.LatLng(-27.4775067,153.0281366),
           zoom: 15
         };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 		var myLatLng = new google.maps.LatLng(-27.47351399999997,153.013136);	
 		var marker = new google.maps.Marker({
 			position: myLatLng, 
 			map: map,
-			title: 'Dialog is here'
+			title: 'Dialog is here - 35 Boundary St, South Brisbane Qld 4101.   (07) 3247 1000'
 		});	
 		var vehicleImage = 'Vehicle2.png';
-		var vclLatLng = new google.maps.LatLng(-27.47351399999997, 153.0204856);
-// 		var vclMarker = new google.maps.Marker({
-// 			  position: vclLatLng,
-// 			  map: map,
-// 			  icon: vehicleImage, 
-// 			  clickable: true,
-// 			  title: 'Vehicle'
-//         });
+		var williamJollyBridgeLatLng = new google.maps.LatLng(-27.47351399999997, 153.0204856);
 
 		
 
@@ -99,7 +92,7 @@
 				icon : icon,
 				map : map,
 				position : point,
-				title : 'id=' + v_data.id + ",entity=" + v_data.entity + ",route=" + v_data.route + ",trip=" + v_data.trip
+				title : 'id=' + v_data.id + ',entity=' + v_data.entity + ',route=' + v_data.route + ',trip=' + v_data.trip
 			};
 			var polyline_opts = {
 				clickable : false,
@@ -133,8 +126,8 @@
 		var animation_steps = 20;
 
 		function UpdateVehicle(v_data, updates) {
-			console.log("UpdateVehicle");
 			var id = v_data.id;
+			console.log('UpdateVehicle: ' + id);
 			if (!(id in vehicles_by_id)) {
 				vehicles_by_id[id] = CreateVehicle(v_data);
 			}
@@ -147,6 +140,12 @@
 			var path = vehicle.path;
 			var last = path.getAt(path.getLength() - 1);
 			path.push(last);
+			// erase track tails
+			console.log('Vehicle:' + id + 'path.length=' + path.getLength());
+			if (path.getLength() > 10) {
+				path.removeAt(0);      // deletes entry 0, shifts the others down
+				console.log('len now = ' + path.getLength());
+			}
 
 			var lat_delta = (v_data.lat - last.lat()) / animation_steps;
 			var lon_delta = (v_data.lon - last.lng()) / animation_steps;
@@ -173,7 +172,6 @@
 				updates.push(new Array());
 			}
 			jQuery.each(vehicles, function() {
-				console.log("process each list");
 				UpdateVehicle(this, updates);
 				bounds.extend(new google.maps.LatLng(this.lat, this.lon));
 			});
