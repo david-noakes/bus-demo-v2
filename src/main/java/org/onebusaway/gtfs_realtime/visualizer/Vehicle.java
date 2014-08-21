@@ -23,6 +23,8 @@ public class Vehicle {
   private String tripId;
   
   private String entityId;
+  
+  private boolean isStationary;
 
   private double lat;
 
@@ -60,6 +62,14 @@ public String getEntityId() {
 
 public void setEntityId(String entityId) {
 	this.entityId = entityId;
+}
+
+public boolean getIsStationary() {
+	return isStationary;
+}
+
+public void setIsStationary(boolean isStationary) {
+	this.isStationary = isStationary;
 }
 
 public double getLat() {

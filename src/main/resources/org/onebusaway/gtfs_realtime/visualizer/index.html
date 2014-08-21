@@ -85,6 +85,7 @@
 			var point = new google.maps.LatLng(v_data.lat, v_data.lon);
 			var path = new google.maps.MVCArray();
 			path.push(point);
+			     
 			var marker_opts = {
 				clickable : true,
 				draggable : false,
@@ -138,26 +139,38 @@
 			vehicle.lastUpdate = v_data.lastUpdate
 
 			var path = vehicle.path;
-			var last = path.getAt(path.getLength() - 1);
-			path.push(last);
-			// erase track tails
-			console.log('Vehicle:' + id + 'path.length=' + path.getLength());
-			if (path.getLength() > 10) {
-				path.removeAt(0);      // deletes entry 0, shifts the others down
-				console.log('len now = ' + path.getLength());
-			}
-
-			var lat_delta = (v_data.lat - last.lat()) / animation_steps;
-			var lon_delta = (v_data.lon - last.lng()) / animation_steps;
-
-			if (lat_delta != 0 && lon_delta != 0) {
-				for ( var i = 0; i < animation_steps; ++i) {
-					var lat = last.lat() + lat_delta * (i + 1);
-					var lon = last.lng() + lon_delta * (i + 1);
-					var op = CreateVehicleUpdateOperation(vehicle, lat, lon);
-					updates[i].push(op);
+			if (v_data.stationary != true) {
+				var last = path.getAt(path.getLength() - 1);
+				path.push(last);
+				// erase track tails
+				console.log('Vehicle:' + id + 'path.length=' + path.getLength());
+				if (path.getLength() > 10) {
+					path.removeAt(0);      // deletes entry 0, shifts the others down
+					console.log('len now = ' + path.getLength());
+				}
+				
+				var lat_delta = (v_data.lat - last.lat()) / animation_steps;
+				var lon_delta = (v_data.lon - last.lng()) / animation_steps;
+	
+				if (lat_delta != 0 && lon_delta != 0) {
+					for ( var i = 0; i < animation_steps; ++i) {
+						var lat = last.lat() + lat_delta * (i + 1);
+						var lon = last.lng() + lon_delta * (i + 1);
+						var op = CreateVehicleUpdateOperation(vehicle, lat, lon);
+						updates[i].push(op);
+					}
+				}
+				vehicle.marker.setTitle('id=' + v_data.id + ',entity=' + v_data.entity + ',route=' + v_data.route + ',trip=' + v_data.trip);
+			} else {
+				// stationary - delete track trail
+				console.log('Vehicle:' + id + 'stationary. path.length=' + path.getLength());
+				vehicle.marker.setTitle('id=' + v_data.id + ',entity=' + v_data.entity + ',route=' + v_data.route + ',trip=' + v_data.trip + ' [stationary]');
+				if (path.getLength() > 2) {
+					path.removeAt(0);      // deletes entry 0, shifts the others down
+					console.log('len now = ' + path.getLength());
 				}
 			}
+			
 		}
 		
 		var first_update = true;

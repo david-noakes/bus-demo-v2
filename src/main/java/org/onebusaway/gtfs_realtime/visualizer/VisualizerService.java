@@ -302,7 +302,7 @@ public class VisualizerService {
       Vehicle v = new Vehicle();
       v.setId(vehicleId);
       v.setEntityId(entity.getId());
-      if (vehicle.hasTrip()) {
+      if (vehicle.hasTrip() && tripDesc != null) {
     	  v.setRouteId(tripDesc.getRouteId());
     	  v.setTripId(tripDesc.getTripId());
       } else {
@@ -312,15 +312,17 @@ public class VisualizerService {
       v.setLat(position.getLatitude());
       v.setLon(position.getLongitude());
       v.setLastUpdate(System.currentTimeMillis());
+      v.setIsStationary(false);
 
       Vehicle existing = _vehiclesById.get(vehicleId);
       if (existing == null || existing.getLat() != v.getLat()
           || existing.getLon() != v.getLon()) {
         _vehiclesById.put(vehicleId, v);
-        update = true;
       } else {
-        v.setLastUpdate(existing.getLastUpdate());
+    	v.setIsStationary(true); // still update because we want to delete track tails  
+        //v.setLastUpdate(existing.getLastUpdate());
       }
+      update = true;
 
       vehicles.add(v);
     }

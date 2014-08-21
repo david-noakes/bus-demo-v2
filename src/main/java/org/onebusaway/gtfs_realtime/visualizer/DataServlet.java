@@ -111,6 +111,7 @@ public class DataServlet extends WebSocketServlet implements VehicleListener {
         obj.put("trip", vehicle.getTripId());
         obj.put("route", vehicle.getRouteId());
         obj.put("entity", vehicle.getEntityId());
+        obj.put("stationary", vehicle.getIsStationary());
         array.put(obj);
       }
       return array.toString();
