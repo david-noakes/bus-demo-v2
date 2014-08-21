@@ -52,6 +52,8 @@ import com.google.transit.realtime.GtfsRealtime.FeedEntity;
 import com.google.transit.realtime.GtfsRealtime.FeedHeader;
 import com.google.transit.realtime.GtfsRealtime.FeedMessage;
 import com.google.transit.realtime.GtfsRealtime.Position;
+import com.google.transit.realtime.GtfsRealtime.TripDescriptor;
+import com.google.transit.realtime.GtfsRealtime.TripUpdate;
 import com.google.transit.realtime.GtfsRealtime.VehicleDescriptor;
 import com.google.transit.realtime.GtfsRealtime.VehiclePosition;
 
@@ -282,6 +284,9 @@ public class VisualizerService {
     	}
         continue;
       }
+      if (entity.hasTripUpdate()) {
+		  tripUpdateCount++;
+	  }
       VehiclePosition vehicle = entity.getVehicle();
       String vehicleId = getVehicleId(vehicle);
       if (vehicleId == null) {
@@ -292,9 +297,18 @@ public class VisualizerService {
         continue;
       }
       vehiclePosnCount++;
+      TripDescriptor tripDesc = vehicle.getTrip();
       Position position = vehicle.getPosition();
       Vehicle v = new Vehicle();
       v.setId(vehicleId);
+      v.setEntityId(entity.getId());
+      if (vehicle.hasTrip()) {
+    	  v.setRouteId(tripDesc.getRouteId());
+    	  v.setTripId(tripDesc.getTripId());
+      } else {
+    	  v.setRouteId(" ");
+    	  v.setTripId(" ");
+      }
       v.setLat(position.getLatitude());
       v.setLon(position.getLongitude());
       v.setLastUpdate(System.currentTimeMillis());

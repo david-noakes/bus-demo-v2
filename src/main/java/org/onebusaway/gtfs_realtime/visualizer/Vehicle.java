@@ -17,6 +17,12 @@ package org.onebusaway.gtfs_realtime.visualizer;
 
 public class Vehicle {
   private String id;
+  
+  private String routeId;
+  
+  private String tripId;
+  
+  private String entityId;
 
   private double lat;
 
@@ -32,7 +38,31 @@ public class Vehicle {
     this.id = id;
   }
 
-  public double getLat() {
+  public String getRouteId() {
+	return routeId;
+}
+
+public void setRouteId(String routeId) {
+	this.routeId = routeId;
+}
+
+public String getTripId() {
+	return tripId;
+}
+
+public void setTripId(String tripId) {
+	this.tripId = tripId;
+}
+
+public String getEntityId() {
+	return entityId;
+}
+
+public void setEntityId(String entityId) {
+	this.entityId = entityId;
+}
+
+public double getLat() {
     return lat;
   }
 
