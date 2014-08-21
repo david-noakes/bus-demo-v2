@@ -15,10 +15,15 @@
  */
 package org.onebusaway.gtfs_realtime.visualizer;
 
-import java.io.IOException;
+import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
+import java.security.cert.Certificate;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,6 +38,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Singleton;
+import javax.net.ssl.*;
 
 import org.eclipse.jetty.websocket.WebSocket.Connection;
 import org.eclipse.jetty.websocket.WebSocket.OnBinaryMessage;
@@ -131,22 +137,118 @@ public class VisualizerService {
     _listeners.remove(listener);
   }
 
-  private void refresh() throws IOException {
+  private void print_content(HttpsURLConnection con){
+	if(con!=null){
+ 
+	try {
+ 
+	   System.out.println("****** Content of the URL ********");			
+	   BufferedReader br = 
+		new BufferedReader(
+			new InputStreamReader(con.getInputStream()));
+ 
+	   String input;
+ 
+	   while ((input = br.readLine()) != null){
+	      System.out.println(input);
+	   }
+	   br.close();
+ 
+	} catch (IOException e) {
+	   e.printStackTrace();
+	}
+ 
+       }
+ 
+   }
+
+   private void print_https_cert(HttpsURLConnection con){
+ 
+    if(con!=null){
+ 
+      try {
+ 
+	System.out.println("Response Code : " + con.getResponseCode());
+	System.out.println("Cipher Suite : " + con.getCipherSuite());
+	System.out.println("\n");
+ 
+	Certificate[] certs = con.getServerCertificates();
+	for(Certificate cert : certs){
+	   System.out.println("Cert Type : " + cert.getType());
+	   System.out.println("Cert Hash Code : " + cert.hashCode());
+	   System.out.println("Cert Public Key Algorithm : " 
+                                    + cert.getPublicKey().getAlgorithm());
+	   System.out.println("Cert Public Key Format : " 
+                                    + cert.getPublicKey().getFormat());
+	   System.out.println("\n");
+	}
+ 
+	} catch (SSLPeerUnverifiedException e) {
+		e.printStackTrace();
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+ 
+     }
+ 
+   }
+    /*
+    * Translink feed returns invalid certificate error
+	* javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed' 
+	*/
+	public static void disableCertificateValidation() {
+	  // Create a trust manager that does not validate certificate chains
+	  TrustManager[] trustAllCerts = new TrustManager[] { 
+		new X509TrustManager() {
+		  public X509Certificate[] getAcceptedIssuers() { 
+			return new X509Certificate[0]; 
+		  }
+		  public void checkClientTrusted(X509Certificate[] certs, String authType) {}
+		  public void checkServerTrusted(X509Certificate[] certs, String authType) {}
+	  }};
+
+	  // Ignore differences between given hostname and certificate hostname
+	  HostnameVerifier hv = new HostnameVerifier() {
+		public boolean verify(String hostname, SSLSession session) { return true; }
+	  };
+
+	  // Install the all-trusting trust manager
+	  try {
+		SSLContext sc = SSLContext.getInstance("SSL");
+		sc.init(null, trustAllCerts, new SecureRandom());
+		HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+		HttpsURLConnection.setDefaultHostnameVerifier(hv);
+	  } catch (Exception e) {}
+	}
+
+	private void refresh() throws IOException {
 
     _log.info("refreshing vehicle positions");
 
     URL url = _vehiclePositionsUri.toURL();
-    URLConnection c =  url.openConnection();
-    int iSize = c.getContentLength();
-    _log.info("data=["+iSize+" bytes]");
-    FeedMessage feed = FeedMessage.parseFrom(c.getInputStream());
+    try {
+	    // trust the translink site even though it has invalid certificate
+	    disableCertificateValidation(); 
+		HttpsURLConnection con = (HttpsURLConnection)url.openConnection();
+		int iSize = con.getContentLength();
+		_log.info("data=["+iSize+" bytes]");
+   
+        //print_https_cert(con);
+        //print_content(con);
 
-    boolean hadUpdate = processDataset(feed);
+		FeedMessage feed = FeedMessage.parseFrom(con.getInputStream());
 
-    if (hadUpdate) {
-      if (_dynamicRefreshInterval) {
-        updateRefreshInterval();
-      }
+		boolean hadUpdate = processDataset(feed);
+
+		if (hadUpdate) {
+			if (_dynamicRefreshInterval) {
+				updateRefreshInterval();
+			}
+		}
+    } catch (MalformedURLException e) {
+	    e.printStackTrace();
+    } catch (IOException e) {
+       e.printStackTrace();
     }
 
     _executor.schedule(_refreshTask, _refreshInterval, TimeUnit.SECONDS);
@@ -173,9 +275,9 @@ public class VisualizerService {
       }
       vehicleCount++;
       if (!entity.hasVehicle()) {
-    	_log.info("no vehicle position for " + entity.getId());
+    	//_log.info("no vehicle position for " + entity.getId());
     	if (entity.hasTripUpdate()) {
-    		_log.info("      Trip Update exists");
+    		//_log.info("      Trip Update exists");
     		tripUpdateCount++;
     	}
         continue;
@@ -212,7 +314,7 @@ public class VisualizerService {
     if (update) {
       _log.info("vehicles updated: " + vehicles.size());
     } else {
-    	_log.info("vehicles found: " + vehicleCount + 
+    	_log.info("No Update - vehicles found: " + vehicleCount + 
     			  ", vehicle Posns found: " + vehiclePosnCount + 
     			  ", trip updates found: "+ tripUpdateCount);
     }
