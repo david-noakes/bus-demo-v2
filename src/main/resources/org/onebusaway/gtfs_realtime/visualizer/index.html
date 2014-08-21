@@ -216,7 +216,6 @@
 			}
 			ws.onmessage = function(e) {
 				console.log("Got WebSockets message");
-				console.log(e.toString());
 				ProcessVehicleData(e.data);
 			}
 			ws.onclose = function() {
