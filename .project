@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-  <name>onebusaway-gtfs-realtime-visualizer</name>
+  <name>Bus-gtfs-realtime-visualizer-demo</name>
   <comment>A visualizer for GTFS-realtime transit data. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
   <projects/>
   <buildSpec>
