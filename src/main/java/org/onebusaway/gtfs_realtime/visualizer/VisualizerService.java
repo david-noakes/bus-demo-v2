@@ -23,7 +23,6 @@ import java.net.URLConnection;
 import java.security.cert.Certificate;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,6 +46,7 @@ import org.eclipse.jetty.websocket.WebSocketClientFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.dialog.googletracks.TracksServiceRequest;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.transit.realtime.GtfsRealtime.FeedEntity;
 import com.google.transit.realtime.GtfsRealtime.FeedHeader;
@@ -87,12 +87,22 @@ public class VisualizerService {
   private boolean _dynamicRefreshInterval = true;
 
   private long _mostRecentRefresh = -1;
+  
+  private boolean _tracksUpdate = false;
 
   public void setVehiclePositionsUri(URI uri) {
     _vehiclePositionsUri = uri;
   }
 
-  @PostConstruct
+  public boolean getTracksUpdate() {
+	return _tracksUpdate;
+}
+
+public void setTracksUpdate(boolean _tracksUpdate) {
+	this._tracksUpdate = _tracksUpdate;
+}
+
+@PostConstruct
   public void start() throws Exception {
     String scheme = _vehiclePositionsUri.getScheme();
     _log.info("Scheme = " + scheme);
@@ -107,6 +117,15 @@ public class VisualizerService {
     } else {
       _executor = Executors.newSingleThreadScheduledExecutor();
       _executor.schedule(_refreshTask, 0, TimeUnit.SECONDS);
+    }
+    
+    if (_tracksUpdate) {
+    	// temporary - test the connection
+    	
+    	TracksServiceRequest.serviceRequest("entities/create", "{'entities':[{'name':'auto001','type':'AUTOMOBILE'}]}");
+    	TracksServiceRequest.serviceRequest("entities/list", "''");
+    	
+    	stop();
     }
   }
 

@@ -33,6 +33,7 @@ import com.google.inject.Module;
 public class VisualizerMain {
 
   private static final String ARG_VEHICLE_POSITIONS_URL = "vehiclePositionsUrl";
+  private static final String ARG_TRACKS_UPDATE = "TracksUpdate";
   
   public static void main(String[] args) throws Exception {
     VisualizerMain m = new VisualizerMain();
@@ -50,6 +51,11 @@ public class VisualizerMain {
     buildOptions(options);
     Parser parser = new GnuParser();
     CommandLine cli = parser.parse(options, args);
+    
+    if (cli.getOptionValue(ARG_VEHICLE_POSITIONS_URL) == null || cli.getOptionValue(ARG_VEHICLE_POSITIONS_URL).isEmpty()) {
+        printUsage();
+        System.exit(-1);
+    }
 
     Set<Module> modules = new HashSet<Module>();
     VisualizerModule.addModuleAndDependencies(modules);
@@ -60,6 +66,9 @@ public class VisualizerMain {
     VisualizerService service = injector.getInstance(VisualizerService.class);
     service.setVehiclePositionsUri(new URI(
         cli.getOptionValue(ARG_VEHICLE_POSITIONS_URL)));
+    if (cli.hasOption(ARG_TRACKS_UPDATE)) {
+    	service.setTracksUpdate(true);
+    }
     injector.getInstance(VisualizerServer.class);
 
     LifecycleService lifecycleService = injector.getInstance(LifecycleService.class);
@@ -72,5 +81,6 @@ public class VisualizerMain {
 
   private void buildOptions(Options options) {
     options.addOption(ARG_VEHICLE_POSITIONS_URL, true, "");
+    options.addOption(ARG_TRACKS_UPDATE, false, "");
   }
 }

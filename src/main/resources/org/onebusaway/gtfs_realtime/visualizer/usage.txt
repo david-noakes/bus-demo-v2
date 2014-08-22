@@ -2,8 +2,9 @@ Description:
   Visualize GTFS-realtime vehicle position data.
   
 Usage:
-  java -jar demo.jar --vehiclePositionsUrl=url
+  java -jar demo.jar --vehiclePositionsUrl=url [--TracksUpdate]
 
 Args:
   --vehiclePositionsUrl=url           GTFS-realtime vehicle positions url
+  --TracksUpdate                      Optional - if present, update Google Map Tracks with information from the realtime feed 
   
