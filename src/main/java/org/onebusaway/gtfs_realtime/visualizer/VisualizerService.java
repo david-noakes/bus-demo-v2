@@ -104,6 +104,14 @@ public void setTracksUpdate(boolean _tracksUpdate) {
 
 @PostConstruct
   public void start() throws Exception {
+    if (_tracksUpdate) {
+    	// temporary - test the connection
+    	
+    	TracksServiceRequest.serviceRequest("entities/list", "''");
+    	TracksServiceRequest.serviceRequest("entities/create", "{'entities':[{'name':'auto001','type':'AUTOMOBILE'}]}");
+    	
+    	stop();
+    }
     String scheme = _vehiclePositionsUri.getScheme();
     _log.info("Scheme = " + scheme);
     if (scheme.equals("ws") || scheme.equals("wss")) {
@@ -119,14 +127,6 @@ public void setTracksUpdate(boolean _tracksUpdate) {
       _executor.schedule(_refreshTask, 0, TimeUnit.SECONDS);
     }
     
-    if (_tracksUpdate) {
-    	// temporary - test the connection
-    	
-    	TracksServiceRequest.serviceRequest("entities/create", "{'entities':[{'name':'auto001','type':'AUTOMOBILE'}]}");
-    	TracksServiceRequest.serviceRequest("entities/list", "''");
-    	
-    	stop();
-    }
   }
 
   @PreDestroy

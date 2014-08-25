@@ -94,12 +94,17 @@
 	<dependency>
 	  <groupId>com.google.guava</groupId>
 	  <artifactId>guava</artifactId>
-	  <version>14.0</version>
+	  <version>14.0.1</version>
     </dependency>
 	<dependency>
       <groupId>com.google.http-client</groupId>
 	  <artifactId>google-http-client-jackson2</artifactId>
-	  <version>1.15.0-rc</version>
+	  <version>1.18.0-rc</version>
+	</dependency>
+	<dependency>
+		<groupId>com.google.oauth-client</groupId>
+		<artifactId>google-oauth-client</artifactId>
+		<version>1.19.0</version>
 	</dependency>
    </dependencies>
   <build>

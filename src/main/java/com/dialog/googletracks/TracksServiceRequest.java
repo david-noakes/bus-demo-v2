@@ -1,5 +1,6 @@
 package com.dialog.googletracks;
 
+import com.fasterxml.jackson.core.*;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.http.ByteArrayContent;
 import com.google.api.client.http.GenericUrl;
@@ -23,20 +24,28 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.util.resource.Resource;
+
 
 public class TracksServiceRequest { 
 
 	  /** E-mail address of the service account. */
 	  private static final String SERVICE_ACCOUNT_EMAIL =
-	      "[[182726294251-6v5mc8rfp66b32airgu25kuum29ad7kk@developer.gserviceaccount.com]]";
-
+	    //"[[182726294251-6v5mc8rfp66b32airgu25kuum29ad7kk@developer.gserviceaccount.com]]";
+	      "[[182726294251-r30936t0d6lusl56t9okve6bijpjq7c5@developer.gserviceaccount.com]]";
 	  /** Global configuration of OAuth 2.0 scope. */
 	  private static final String TRACKS_SCOPE=
 	      "https://www.googleapis.com/auth/tracks";
 
 	  /** Global configuration for location of private key file. */
-	  private static final String PRIVATE_KEY = "0d0dd8b4d49a281addb49dcafb0fa3feeab3fb10-privatekey.p12";
-	  /** Global instance of the HTTP transport. */
+	  private static final String PRIVATE_KEY = "target/classes/com/dialog/googletracks/2d4511f818fee924312c4ae34518de0dc37c018d-privatekey.p12";
+	  public static String getPrivateKey() {
+		return PRIVATE_KEY;
+	  }
+
+	  
+	/** Global instance of the HTTP transport. */
 	  private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
 
 	  /** Global instance of the JSON factory. */
@@ -44,11 +53,16 @@ public class TracksServiceRequest {
 
 	  public static void serviceRequest(String method, String requestBody) throws IOException {
 	    // Check for valid setup.
-	    Preconditions.checkArgument(!SERVICE_ACCOUNT_EMAIL.startsWith("[["),
+	    Preconditions.checkArgument(SERVICE_ACCOUNT_EMAIL.startsWith("[["),
 	        "Please enter your service account e-mail from the Google APIs " +
 	        "Console to the SERVICE_ACCOUNT_EMAIL constant in %s",
 	        TracksServiceRequest.class.getName());
-	    String p12Content = Files.readFirstLine(new File(PRIVATE_KEY),
+
+	    String userDir = System.getProperty("user.dir");
+	    String fileName = userDir+"/"+PRIVATE_KEY;
+	    
+	    File p12File = new File(fileName);
+	    String p12Content = Files.readFirstLine(p12File,
 	        Charset.defaultCharset());
 	    Preconditions.checkArgument(!p12Content.startsWith("Please"),
 	        p12Content);
@@ -63,7 +77,7 @@ public class TracksServiceRequest {
 	            .setJsonFactory(JSON_FACTORY)
 	            .setServiceAccountId(SERVICE_ACCOUNT_EMAIL)
 	            .setServiceAccountScopes(s)
-	            .setServiceAccountPrivateKeyFromP12File(new File(PRIVATE_KEY))
+	            .setServiceAccountPrivateKeyFromP12File(new File(fileName))
 	            .build();
 	    }
 	    catch (GeneralSecurityException e) {
@@ -80,7 +94,10 @@ public class TracksServiceRequest {
 	    // Google servers will fail to process a POST/PUT/PATCH unless the Content-Length
 	    // header >= 1
 	    //request.setAllowEmptyContent(false); === removed from API
-	    HttpResponse shortUrl = request.execute();
+/*	    if (request.getHeaders().getContentLength() == null || request.getHeaders().getContentLength() < 1) {
+	    	request.getHeaders().setContentLength((long) 1); 
+	    }
+*/	    HttpResponse shortUrl = request.execute();
 
 	    // Print response.
 	    BufferedReader output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
