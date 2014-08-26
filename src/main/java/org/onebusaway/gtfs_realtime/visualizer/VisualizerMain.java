@@ -33,8 +33,14 @@ import com.google.inject.Module;
 public class VisualizerMain {
 
   private static final String ARG_VEHICLE_POSITIONS_URL = "vehiclePositionsUrl";
+  
+
+  private static final String ARG_PORT_NUMBER = "port";
+
   private static final String ARG_TRACKS_UPDATE = "TracksUpdate";
   
+  private int ourPort = 8080;
+
   public static void main(String[] args) throws Exception {
     VisualizerMain m = new VisualizerMain();
     m.run(args);
@@ -57,6 +63,15 @@ public class VisualizerMain {
         System.exit(-1);
     }
 
+    if (cli.getOptionValue(ARG_PORT_NUMBER) != null) {
+    	try {
+    		int ourPort = Integer.parseInt(cli.getOptionValue(ARG_PORT_NUMBER));
+    		VisualizerServer.setPort(ourPort);
+    	} catch (NumberFormatException e) {
+    		System.out.println("Port number " + cli.getOptionValue(ARG_PORT_NUMBER) + " is invalid");
+    	    System.exit(-1);
+    	}
+    }
     Set<Module> modules = new HashSet<Module>();
     VisualizerModule.addModuleAndDependencies(modules);
 
@@ -81,6 +96,7 @@ public class VisualizerMain {
 
   private void buildOptions(Options options) {
     options.addOption(ARG_VEHICLE_POSITIONS_URL, true, "");
+    options.addOption(ARG_PORT_NUMBER, true, "");
     options.addOption(ARG_TRACKS_UPDATE, false, "");
   }
 }

@@ -2,9 +2,11 @@ Description:
   Visualize GTFS-realtime vehicle position data.
   
 Usage:
-  java -jar demo.jar --vehiclePositionsUrl=url [--TracksUpdate]
+  java -jar demo.jar --vehiclePositionsUrl=url [--port=8080] [--TracksUpdate]
+
 
 Args:
   --vehiclePositionsUrl=url           GTFS-realtime vehicle positions url
+  --port=8080						  Optional. port number to use (default = 8080)
   --TracksUpdate                      Optional - if present, update Google Map Tracks with information from the realtime feed 
   
