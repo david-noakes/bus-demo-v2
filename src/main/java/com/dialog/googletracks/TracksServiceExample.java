@@ -1,7 +1,9 @@
 package com.dialog.googletracks;
 
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
+import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.ByteArrayContent;
 import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpRequest;
@@ -21,6 +23,8 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -32,70 +36,64 @@ import java.util.List;
  * mvn -q exec:java -Dexec.args="crumbs/getlocationinfo {'entityId':'280415822391405995','timestamp':'1334643465000000'}"
  * mvn -q exec:java -Dexec.args="entities/list ''"
  * mvn -q exec:java -Dexec.args="entities/create {'entities':[{'name':'auto001','type':'AUTOMOBILE'}]}"}</pre>
- *
+ * "crumbs/record {'crumbs': [{'confidenceRadius': 3.14,'location': {'lat': -33.866495,'lng': 151.195446},'timestamp': 1341375062.19,'userData': {'driver_name': 'Joe','measured_vehicle_speed': '110.2'}}],'entityId': '1ff3a55f94e954ee'}"
  */
 public class TracksServiceExample {
 
   /** E-mail address of the service account. */
   private static final String SERVICE_ACCOUNT_EMAIL =
-      "[[182726294251-r30936t0d6lusl56t9okve6bijpjq7c5@developer.gserviceaccount.com]]";
-
+      "182726294251-r30936t0d6lusl56t9okve6bijpjq7c5@developer.gserviceaccount.com";
+  
   /** Global configuration of OAuth 2.0 scope. */
-  private static final String TRACKS_SCOPE=
-      "https://www.googleapis.com/auth/tracks";
+  private static final String TRACKS_SCOPE = "https://www.googleapis.com/auth/tracks"; 
 
   /** Global configuration for location of private key file. */
   private static final String PRIVATE_KEY = "target/classes/com/dialog/googletracks/2d4511f818fee924312c4ae34518de0dc37c018d-privatekey.p12";
 
+  /** client secrets */
+  private static final String CLIENT_SECRETS_FILE = 
+		  "target/classes/com/dialog/googletracks/client_secrets (1).json";
+  
   /** Global instance of the HTTP transport. */
-  private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
+  private static final HttpTransport NET_HTTP_TRANSPORT = new NetHttpTransport();
 
   /** Global instance of the JSON factory. */
   private static final JsonFactory JSON_FACTORY = new JacksonFactory();
 
   public static void main(String[] args) throws IOException, GeneralSecurityException {
-    // Check for valid setup.
-    Preconditions.checkArgument(SERVICE_ACCOUNT_EMAIL.startsWith("[["),
-        "Please enter your service account e-mail from the Google APIs " +
-        "Console to the SERVICE_ACCOUNT_EMAIL constant in %s",
-        TracksServiceExample.class.getName());
+	  HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
+	  // Check for valid setup.
     String userDir = System.getProperty("user.dir");
-    String fileName = userDir+"/"+PRIVATE_KEY;
-    
-    File p12File = new File(fileName);
-    String p12Content = Files.readFirstLine(p12File,
-        Charset.defaultCharset());
+    String p12FileName = userDir+"/"+PRIVATE_KEY;
 
-    Preconditions.checkArgument(!p12Content.startsWith("Please"),
-        p12Content);
 
-    List<String> s = new ArrayList();
-    s.add(TRACKS_SCOPE);
+     
    // Build service account credential.
     GoogleCredential credential =
-        new GoogleCredential.Builder().setTransport(HTTP_TRANSPORT)
+        new GoogleCredential.Builder().setTransport(httpTransport)
             .setJsonFactory(JSON_FACTORY)
             .setServiceAccountId(SERVICE_ACCOUNT_EMAIL)
-            .setServiceAccountScopes(s)
-            .setServiceAccountPrivateKeyFromP12File(new File(fileName))
+            .setServiceAccountScopes(Collections.singleton(TRACKS_SCOPE))
+            .setServiceAccountPrivateKeyFromP12File(new File(p12FileName))
             .build();
 
     // Set up and execute Tracks API Request.
     String method = args[0];
+    method = "crumbs/record";
+    method = "crumbs/gethistory";
     String URI = "https://www.googleapis.com/tracks/v1/" + method;
     String requestBody = args[1];
+    requestBody = "{'crumbs': [ { 'location': {'lat': -27.48196792602539, 'lng': 153.03427124023438},'timestamp': " 
+    		        + (int) (System.currentTimeMillis() / 1000L) + ",'userData': {'driver_name': 'Joe','measured_vehicle_speed': '110.2'}}], 'entityId': 'eb27bbe02496d603' }";
+    requestBody = "{'entityId': 'eb27bbe02496d603',  'timestamp': 1409032121892, 'countAfter': 25 }";
     HttpRequestFactory requestFactory =
-        HTTP_TRANSPORT.createRequestFactory(credential);
+    		httpTransport.createRequestFactory(credential);  //1409033790941
     GenericUrl url = new GenericUrl(URI);
     HttpRequest request =
         requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
     request.getHeaders().setContentType("application/json");
     // Google servers will fail to process a POST/PUT/PATCH unless the Content-Length
     // header >= 1
-/*    if (request.getContent().getLength() == null || request.getContent().getLength() < 1){
-    	
-    };
-*/    //request.setAllowEmptyContent(false);
     System.out.println(request.getHeaders());
     System.out.println(request.getContent());
     HttpResponse shortUrl = request.execute();
