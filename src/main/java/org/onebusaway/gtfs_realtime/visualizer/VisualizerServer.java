@@ -35,7 +35,7 @@ public class VisualizerServer {
 
   private DataServlet _dataServlet;
 
-  private int _port = 8080;
+  private static int _port = 8080;
 
   private Server _server;
 
@@ -44,11 +44,16 @@ public class VisualizerServer {
     _dataServlet = dataServlet;
   }
 
-  public void setPort(int port) {
+  public static void setPort(int port) {
     _port = port;
   }
 
-  @PostConstruct
+  public int getPort() {
+	return _port;
+  }
+
+
+@PostConstruct
   public void start() throws Exception {
     _server = new Server(_port);
 
