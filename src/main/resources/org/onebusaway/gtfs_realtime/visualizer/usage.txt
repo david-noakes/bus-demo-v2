@@ -6,5 +6,9 @@ Usage:
 
 Args:
   --vehiclePositionsUrl=url           GTFS-realtime vehicle positions url
-  --port=8080						  Optional. port number to use (default = 8080)
+  --port=8080                         Optional. port number to use (default = 8080)
   
+Examples:
+Translink SEQ feed     --vehiclePositionsUrl=https://gtfsrt.api.translink.com.au/Feed/SEQ
+Sydney Transport       --vehiclePositionsUrl=http://dev.triptasticapp.com/au_sydney/tools/GTFSRSydneyAlerts
+MTA                    --vehiclePositionsUrl=http://developer.mbta.com/lib/gtrtfs/Vehicles.pb

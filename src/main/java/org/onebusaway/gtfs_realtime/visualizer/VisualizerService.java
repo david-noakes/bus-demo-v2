@@ -226,8 +226,11 @@ public class VisualizerService {
 	private void refresh() throws IOException {
 
     _log.info("refreshing vehicle positions");
-
+    String scheme = _vehiclePositionsUri.getScheme();
     URL url = _vehiclePositionsUri.toURL();
+    boolean hadUpdate = false;
+    
+    if (scheme.contentEquals("https")) {
     try {
 	    // trust the translink site even though it has invalid certificate
 	    disableCertificateValidation(); 
@@ -240,7 +243,7 @@ public class VisualizerService {
 
 		FeedMessage feed = FeedMessage.parseFrom(con.getInputStream());
 
-		boolean hadUpdate = processDataset(feed);
+		hadUpdate = processDataset(feed);
 
 		if (hadUpdate) {
 			if (_dynamicRefreshInterval) {
@@ -251,6 +254,17 @@ public class VisualizerService {
 	    e.printStackTrace();
     } catch (IOException e) {
        e.printStackTrace();
+    }
+    } else { // assume http NOT https
+        FeedMessage feed = FeedMessage.parseFrom(url.openStream());
+
+        hadUpdate = processDataset(feed);
+
+        if (hadUpdate) {
+          if (_dynamicRefreshInterval) {
+            updateRefreshInterval();
+          }
+        }
     }
 
     _executor.schedule(_refreshTask, _refreshInterval, TimeUnit.SECONDS);
