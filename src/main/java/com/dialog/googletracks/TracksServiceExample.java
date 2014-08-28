@@ -27,6 +27,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  * Make a request to Tracks API.
@@ -78,30 +81,161 @@ public class TracksServiceExample {
             .build();
 
     // Set up and execute Tracks API Request.
-    String method = args[0];
-    method = "crumbs/record";
-    method = "crumbs/gethistory";
+    
+    GoogleTracksCollectionList gtCollList = new GoogleTracksCollectionList();
+    GoogleTracksCollection gtColl = new GoogleTracksCollection("", "SEA rental fleet - compact", new ArrayList<GoogleTracksEntity>());
+    gtCollList.add(gtColl);
+    gtColl = new GoogleTracksCollection("", "SEA rental fleet - midsize", new ArrayList<GoogleTracksEntity>());
+    gtCollList.add(gtColl);
+    
+    String method = "collections/create";
     String URI = "https://www.googleapis.com/tracks/v1/" + method;
-    String requestBody = args[1];
-    requestBody = "{'crumbs': [ { 'location': {'lat': -27.48196792602539, 'lng': 153.03427124023438},'timestamp': " 
-    		        + (int) (System.currentTimeMillis() / 1000L) + ",'userData': {'driver_name': 'Joe','measured_vehicle_speed': '110.2'}}], 'entityId': 'eb27bbe02496d603' }";
-    requestBody = "{'entityId': 'eb27bbe02496d603',  'timestamp': 1409032121892, 'countAfter': 25 }";
+    String requestBody = gtCollList.StoreToTracksString();
+
     HttpRequestFactory requestFactory =
-    		httpTransport.createRequestFactory(credential);  //1409033790941
+      httpTransport.createRequestFactory(credential);  //1409033790941
     GenericUrl url = new GenericUrl(URI);
     HttpRequest request =
-        requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
+      requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
     request.getHeaders().setContentType("application/json");
-    // Google servers will fail to process a POST/PUT/PATCH unless the Content-Length
-    // header >= 1
     System.out.println(request.getHeaders());
     System.out.println(request.getContent());
     HttpResponse shortUrl = request.execute();
+    
+    // Print response.
+    String response = "";
+    BufferedReader output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
+    for (String line = output.readLine(); line != null; line = output.readLine()) {
+        System.out.println(line);
+        response = response + line;
+    }
+
+//    String response = "{ " + "\"collectionIds\": [ " +
+//                      "  \"0eb06d476f8a7486\",   " +
+//                      " \"0179f339ec9232ef\" ] }";
+    gtCollList.LoadCollectionIdsFromTracksString(response);
+    GoogleTracksEntity gtEnt = new GoogleTracksEntity("eb27bbe02496d603","Bus001","AUTOMOBILE");
+    gtCollList.get(0).get_Entities().add(gtEnt);
+    gtEnt = new GoogleTracksEntity("174919bd798ce5cb","Bus002","AUTOMOBILE");
+    gtCollList.get(0).get_Entities().add(gtEnt);
+    gtEnt = new GoogleTracksEntity("eb27bbe02496d603","Bus003","AUTOMOBILE");
+    gtCollList.get(1).get_Entities().add(gtEnt);
+    gtEnt = new GoogleTracksEntity("174919bd798ce5cb","Bus004","AUTOMOBILE");
+    gtCollList.get(1).get_Entities().add(gtEnt);
+    
+    
+    method = "collections/addentities";
+    URI = "https://www.googleapis.com/tracks/v1/" + method;
+    for (int i=0;i<gtCollList.size();i++) {
+       requestBody = gtCollList.get(i).AddEntitiesToTracksString();
+
+    //HttpRequestFactory 
+    requestFactory = httpTransport.createRequestFactory(credential);  //1409033790941
+    //GenericUrl
+    url = new GenericUrl(URI);
+    //HttpRequest 
+    request =
+      requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
+    request.getHeaders().setContentType("application/json");
+    System.out.println(request.getHeaders());
+    System.out.println(request.getContent());
+    //HttpResponse 
+    shortUrl = request.execute();
+    
+    // Print response.
+    //BufferedReader 
+    output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
+    for (String line = output.readLine(); line != null; line = output.readLine()) {
+        System.out.println(line);
+    }
+    
+//       System.out.println(requestBody);
+    }
+    
+    method = "collections/list";
+    URI = "https://www.googleapis.com/tracks/v1/" + method;
+//    String method = args[0];
+//    method = "crumbs/record";
+//    method = "crumbs/gethistory";
+//    String URI = "https://www.googleapis.com/tracks/v1/" + method;
+//    String requestBody = args[1];
+//    requestBody = "{'crumbs': [ { 'location': {'lat': -27.48196792602539, 'lng': 153.03427124023438},'timestamp': " 
+//    		        + (int) (System.currentTimeMillis() / 1000L) + ",'userData': {'driver_name': 'Joe','measured_vehicle_speed': '110.2'}}], 'entityId': 'eb27bbe02496d603' }";
+//    requestBody = "{'entityId': 'eb27bbe02496d603',  'timestamp': 1409032121892, 'countAfter': 25 }";
+    requestFactory =
+    		httpTransport.createRequestFactory(credential);  //1409033790941
+    url = new GenericUrl(URI);
+    request =
+        requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
+    request.getHeaders().setContentType("application/json");
+    System.out.println(request.getHeaders());
+    System.out.println(request.getContent());
+    shortUrl = request.execute();
 
     // Print response.
-    BufferedReader output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
+    output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
     for (String line = output.readLine(); line != null; line = output.readLine()) {
       System.out.println(line);
     }
+//    String jsonTxt = "   	{ " +
+//				   " 'collections': [" +
+//				   "     { " +
+//				   "         'entityIds': [ " +
+//				   "             '1ff3a55f94e954ee', " +
+//				   "             'ec6053f142ade5c9' " +
+//				   "         ], " +
+//				   "         'id': '0eb06d476f8a7486', " +
+//				   "         'name': 'SEA rental fleet - compact' " +
+//				   "     }, " +
+//				   "     { " +
+//				   "         'entityIds': [ " +
+//				   "             '0ff3a55f94e954ee', " +
+//				   "             'fc6053f142ade5c9' " +
+//				   "         ], " +
+//				   "         'id': '0179f339ec9232ef', " +
+//				   "         'name': 'SEA rental fleet - midsize' " +
+//				   "     } " +
+//				   " ] 'nextId ' : '0291c259ca933c28' " +
+//  				   "	} " 
+//  				   ;
+//    
+//    jsonTxt = jsonTxt.replace("'", "\"");
+//    JSONParser jsonParser=new JSONParser();
+//    try {
+//		JSONObject json = (JSONObject) jsonParser.parse( jsonTxt );
+//		JSONArray jsonCollections = (JSONArray) json.get("collections");
+//		String collName = "";
+//		String collId   = "";
+//		JSONObject nextId = (JSONObject) json.get("nextId"); // note should be "nextId " so we receive null
+//        // take the elements of the json array
+//        for(int i=0; i<jsonCollections.size(); i++){
+//            JSONObject coll = (JSONObject) jsonCollections.get(i);
+//            JSONArray  entities = (JSONArray) coll.get("entityIds");
+//    		List<String> ents = new ArrayList();
+//            if (entities != null) {
+//            	for (int j=0; j< entities.size(); j++) {
+//            		String entId = (String) entities.get(j);
+//            		ents.add(entId);
+//            	}
+//            }
+//            collName = (String) coll.get("name");
+//            collId   = (String) coll.get("id");
+//           System.out.println("collName="+collName+", collId="+collId);
+//           for (int j=0; j< ents.size(); j++) {
+//        	   System.out.println("  entity:"+ents.get(j));
+//           }
+//        }
+//        if (nextId != null) {
+//        	System.out.println("nextId:"+nextId);
+//        } else {
+//        	System.out.println("nextId:null");
+//        }
+//		
+//	} catch (ParseException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+//
+    
   }
 }

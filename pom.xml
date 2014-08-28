@@ -2,14 +2,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>realtime-tracks-loader</artifactId>
-    <groupId>com.dialog</groupId>
-    <version>1.0.1</version>
+    <artifactId>onebusaway</artifactId>
+    <groupId>org.onebusaway</groupId>
+    <version>1.1.9</version>
   </parent>
-  <artifactId>Bus-gtfs-realtime-tracks-loader-demo</artifactId>
-  <version>0.0.001</version>
-  <name>Bus-gtfs-realtime-tracks-loader-demo</name>
-  <description>A visualizer for GTFS-realtime transit data, and Google Tracks loader using the realtime feed</description>
+  <artifactId>Bus-gtfs-realtime-visualizer-demo</artifactId>
+  <version>1.0.001</version>
+  <name>Bus-gtfs-realtime-visualizer-demo</name>
+  <description>A visualizer for GTFS-realtime transit data.</description>
   <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-visualizer/wiki/</url>
 
   <repositories>
@@ -106,7 +106,13 @@
 		<artifactId>google-oauth-client</artifactId>
 		<version>1.19.0</version>
 	</dependency>
-   </dependencies>
+	<dependency>
+	    <groupId>com.googlecode.json-simple</groupId>
+	    <artifactId>json-simple</artifactId>
+	    <version>1.1.1</version>
+	</dependency>
+  </dependencies>
+	
   <build>
     <plugins>
       <plugin>
