@@ -1,0 +1,22 @@
+To generate pom - simple, use
+
+mvn archetype:generate  -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=com.dialog.gtfs_realtime -DartifactId=Bus-gtfs-realtime-visualiser
+
+after this, add in the dependencies, and the build section from the onebusaway pom file
+
+note that mvn architype:generate also generates a file structure:
+
+Bus-gtfs-realtime-visualiser
+  :src
+	|:main
+	|    :java
+    |        :com
+	|		     :dialog
+    |                   :gtfs_realtime
+    |                       :>App.java					   
+	|:test					   
+	     :java
+		     :com
+			     :dialog
+                       :gtfs_realtime
+							:>AppTest.java   (a JUnit)

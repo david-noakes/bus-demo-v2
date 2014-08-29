@@ -1,14 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.dialog.gtfs_realtime</groupId>
-  <artifactId>Bus-gtfs-realtime-visualiser</artifactId>
-  <version>1.0.1</version>
-  <packaging>jar</packaging>
-
-  <name>Bus-gtfs-realtime-visualiser</name>
-  <description>A visualiser for GTFS-realtime transit data.</description>
+  <parent>
+    <artifactId>onebusaway</artifactId>
+    <groupId>org.onebusaway</groupId>
+    <version>1.1.9</version>
+  </parent>
+  <artifactId>Bus-gtfs-realtime-visualizer-demo</artifactId>
+  <version>1.0.001</version>
+  <name>Bus-gtfs-realtime-visualizer-demo</name>
+  <description>A visualizer for GTFS-realtime transit data.</description>
+  <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-visualizer/wiki/</url>
 
   <repositories>
     <repository>
@@ -17,18 +19,23 @@
     </repository>
   </repositories>
 
+  <scm>
+    <connection>scm:git:http://github.com/OneBusAway/onebusaway-gtfs-realtime-visualizer.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway-gtfs-realtime-visualizer.git</developerConnection>
+    <url>http://github.com/OneBusAway/onebusaway-gtfs-realtime-visualizer</url>
+  </scm>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/OneBusAway/onebusaway-gtfs-realtime-visualizer/issues</url>
+  </issueManagement>
+
   <properties>
     <jetty.version>8.1.11.v20130520</jetty.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- These properties are primarily used in configuring joint integration tests -->
+    <org_onebusaway_test_port>9900</org_onebusaway_test_port>
   </properties>
-
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>org.onebusaway</groupId>
       <artifactId>onebusaway-gtfs-realtime-api</artifactId>
@@ -105,6 +112,7 @@
 	    <version>1.1.1</version>
 	</dependency>
   </dependencies>
+	
   <build>
     <plugins>
       <plugin>
