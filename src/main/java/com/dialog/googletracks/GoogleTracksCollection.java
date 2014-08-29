@@ -16,28 +16,28 @@ public class GoogleTracksCollection {
 	private List<GoogleTracksEntity>   _Entities;
 	
 	
-	public String get_ID() {
+	public String getID() {
 		return _ID;
 	}
-	public void set_ID(String _ID) {
-		if (_ID != null) {
-			this._ID = _ID;
+	public void setID(String ID) {
+		if (ID != null) {
+			this._ID = ID;
 		}
 	}
-	public String get_Name() {
+	public String getName() {
 		return _Name;
 	}
-	public void set_Name(String _Name) {
-		if (_Name != null) {
-			this._Name = _Name;
+	public void setName(String Name) {
+		if (Name != null) {
+			this._Name = Name;
 		}
 	}
-	public List<GoogleTracksEntity> get_Entities() {
+	public List<GoogleTracksEntity> getEntities() {
 		return _Entities;
 	}
-	public void set_Entities(List<GoogleTracksEntity> _Entities) {
-		if (_Entities != null) {
-			this._Entities = _Entities;
+	public void setEntities(List<GoogleTracksEntity> Entities) {
+		if (Entities != null) {
+			this._Entities = Entities;
 		}
 	}
 	
@@ -53,11 +53,11 @@ public class GoogleTracksCollection {
 		super();
 		LoadFromJSONObject(jsonColl);
 	}
-	public GoogleTracksCollection(String _ID, String _Name, List _Entities) {
+	public GoogleTracksCollection(String ID, String Name, List Entities) {
 		super();
-		set_ID(_ID);
-		set_Name(_Name);
-		set_Entities(_Entities);
+		setID(ID);
+		setName(Name);
+		setEntities(Entities);
 	}
 	public GoogleTracksCollection(String tracksString) {
 		super();
@@ -84,13 +84,13 @@ public class GoogleTracksCollection {
         	for (int j=0; j< entities.size(); j++) {
         		String entId = (String) entities.get(j);
         		GoogleTracksEntity gtEntity = new GoogleTracksEntity();
-        		gtEntity.set_ID(entId);
+        		gtEntity.setID(entId);
         		ents.add(gtEntity);
         	}
         }
-        set_Name((String) jsonColl.get(GoogleTracksConstants.NAME_LIT));
-        set_ID((String) jsonColl.get(GoogleTracksConstants.ID_LIT));
-        set_Entities(ents);
+        setName((String) jsonColl.get(GoogleTracksConstants.NAME_LIT));
+        setID((String) jsonColl.get(GoogleTracksConstants.ID_LIT));
+        setEntities(ents);
 
 	}
 
@@ -122,7 +122,7 @@ public class GoogleTracksCollection {
 	 */
 	public JSONObject StoreToJSONObject() {
         JSONObject jObj = new JSONObject();
-        jObj.put(GoogleTracksConstants.NAME_LIT, get_Name());
+        jObj.put(GoogleTracksConstants.NAME_LIT, getName());
 		return jObj;
 	}
 	
@@ -152,7 +152,7 @@ public class GoogleTracksCollection {
         JSONArray jArray = new JSONArray();
 		
         for (int i=0; i<_Entities.size(); i++) {
-        	jArray.add(_Entities.get(i).get_ID());
+        	jArray.add(_Entities.get(i).getID());
         }
         jObj.put(GoogleTracksConstants.ENTITY_IDS, jArray);
         jObj.put(GoogleTracksConstants.COLLECTION_ID, _ID);
@@ -160,7 +160,96 @@ public class GoogleTracksCollection {
         return jObj;
 	}
 
+    /* Create entity. They are created as a group:
+     * {
+     *       "entities": [
+     *           {
+     *               "name": "Ford Fiesta 001",
+     *               "type": "AUTOMOBILE"
+     *           },
+     *           {
+     *               "name": "Chevrolet Volt 001",
+     *               "type": "AUTOMOBILE"
+     *           },
+     *           {
+     *               "name": "Chevrolet Volt 002",
+     *           }
+     *       ]
+     *   }
+     * 
+     * 
+     *
+     */
 
+	public JSONObject StoreEntitiesToJSONObject() {
+        JSONObject jObj = new JSONObject();
+        JSONArray jArray = new JSONArray();
+        
+        for (int i=0;i<_Entities.size();i++) {
+            jArray.add(_Entities.get(i).StoreToJSONObject());
+        }
+
+        jObj.put(GoogleTracksConstants.ENTITIES_LIT, jArray);
+
+        return jObj;
+	}
+	
+	public String StoreEntitiesToTracksString(){
+	    return StoreEntitiesToJSONObject().toJSONString();
+	}
+
+	/*
+	 * Load the entity IDs from the Google tracks response:
+	 * {
+     *       "entityIds": [
+     *           "ec6053f142ade5c9",
+     *           "1ff3a55f94e954ee",
+     *           "fb061e749fec1627"
+     *       ]
+     *   }
+	 * 
+	 *
+	 */
+	
+	public void LoadEntityIdsFromTracksString(String tracksString) {
+        JSONParser jsonParser=new JSONParser();
+        try {
+            JSONObject json = (JSONObject) jsonParser.parse( tracksString );
+            LoadEntityIdsFromJSONObject(json);
+        } catch (ParseException e) {
+            System.out.println("position: " + e.getPosition());
+            System.out.println(e);
+        }
+	}
+	public void LoadEntityIdsFromJSONObject(JSONObject json) {
+        JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITY_IDS);
+        for(int i=0; i<jsonEntities.size(); i++){
+            String entId = (String) jsonEntities.get(i);
+            if (i<this._Entities.size()) {
+                this._Entities.get(i).setID(entId);
+            }
+        }
+	}
+	
+	/* we can't use contains, because it tests all the entity fields
+	 * 
+	 */
+	public boolean ListContainsEntityId(String entityId) {
+	    for (int i=0;i<_Entities.size();i++) {
+	        if (_Entities.get(i).getID().equals(entityId)) {
+	            return true;
+	        }    
+	    }
+	    return false;
+	}
+	public GoogleTracksEntity FindEntityById(String entityId) {
+        for (int i=0;i<_Entities.size();i++) {
+            if (_Entities.get(i).getID().equals(entityId)) {
+                return _Entities.get(i);
+            }    
+        }
+        return null;
+	}
 	
 	@Override
 	public String toString() {

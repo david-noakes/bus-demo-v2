@@ -13,6 +13,9 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 
 	private static final long serialVersionUID = 1L;
 	
+    // we track all the entities, which may be assigned to collections
+	private List<GoogleTracksEntity> allEntities = new ArrayList<GoogleTracksEntity>() ;
+	
 	
 /* a collection/list response will look something like this
  * 'nextId' will only be present if the list was too long, and represents the restart value
@@ -111,10 +114,9 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         for(int i=0; i<jsonCollections.size(); i++){
             String collId = (String) jsonCollections.get(i);
             if (i<this.size()) {
-                this.get(i).set_ID(collId);
+                this.get(i).setID(collId);
             }
         }
-	    
 	}
 	
 	public void LoadCollectionIdsFromTracksString(String tracksString) {
@@ -128,7 +130,75 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         }
 	}
 	
-	@Override
+	
+	// Load entities from a list into the collection. 
+	
+	public void LoadAllEntitiesFromJSONObject(JSONObject json) {
+        JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITIES_LIT);
+        for(int i=0; i<jsonEntities.size(); i++){
+            JSONObject jEnt = (JSONObject) jsonEntities.get(i);
+            GoogleTracksEntity gtEnt = new GoogleTracksEntity(jEnt);
+            if (!allEntities.contains(gtEnt)) {
+                allEntities.add(gtEnt);
+            }
+        }
+        //  Google allows entities to belong to more than one collection
+        //  We may have entities duplicated in our structure
+        //  Replace any references that match ID with the ones in allEntities
+        
+	    for (int i=0;i<allEntities.size();i++) {
+	        PutEntityIntoCollections((GoogleTracksEntity) allEntities.get(i));
+	    }
+	}
+	
+	public void LoadAllEntitiesFromTracksString(String tracksString) {
+        JSONParser jsonParser=new JSONParser();
+        try {
+            JSONObject json = (JSONObject) jsonParser.parse( tracksString );
+            LoadAllEntitiesFromJSONObject(json);
+        } catch (ParseException e) {
+            System.out.println("position: " + e.getPosition());
+            System.out.println(e);
+        }
+	}
+	
+    /* check each collection for an entityID that matches
+     *  
+     */
+	public void PutEntityIntoCollections(GoogleTracksEntity gtEnt) {
+	    GoogleTracksCollection gtColl;
+	    GoogleTracksEntity gteOther;
+	    for (int i=0;i<this.size();i++) {
+	        gtColl = (GoogleTracksCollection) this.get(i);
+	        gteOther = gtColl.FindEntityById(gtEnt.getID()); 
+	        if (gteOther != null) {
+                if (gteOther != gtEnt) {
+                    // duplicate - replace
+                    int j=gtColl.getEntities().indexOf(gteOther);
+                    gtColl.getEntities().remove(gteOther);
+                    gtColl.getEntities().add(j, gtEnt);
+                }
+	        }
+	    }
+	}
+
+	
+	
+	/**
+     * @return the allEntities
+     */
+    public List<GoogleTracksEntity> getAllEntities() {
+        return allEntities;
+    }
+
+    /**
+     * @param allEntities the allEntities to set
+     */
+    public void setAllEntities(List<GoogleTracksEntity> allEntities) {
+        this.allEntities = allEntities;
+    }
+
+    @Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer("GoogleTracksCollectionList [size()=");
 		sb.append(size());
@@ -153,6 +223,8 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 		return sb.toString();
 	}
 
+	
+	
 	public GoogleTracksCollectionList(String tracksString) {
 		super();
 		LoadFromTracksString(tracksString);
