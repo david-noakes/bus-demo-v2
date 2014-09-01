@@ -163,6 +163,25 @@ public class GoogleTracksEntity {
 	    
 	}
 	
+	public String storeCrumbsToTracksString() {
+	    return storeCrumbsToJSONObject().toJSONString();
+	}
+	
+	public JSONObject storeCrumbsToJSONObject() {
+        JSONObject jObj = new JSONObject();
+        jObj.put(GoogleTracksConstants.ENTITY_ID, getID());
+        JSONArray jArray = new JSONArray();
+        
+        for (int i=0;i<_Crumbs.size();i++) {
+            jArray.add(_Crumbs.get(i).storeToTracksString());
+        }
+   
+        jObj.put(GoogleTracksConstants.CRUMBS_LIT, jArray);
+
+
+        return jObj;
+	}
+	
 	/* example:
 	 *  {
      *       "entityId": "1ff3a55f94e954ee",

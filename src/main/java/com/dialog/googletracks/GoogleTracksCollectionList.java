@@ -182,8 +182,86 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	    }
 	}
 
+    public GoogleTracksEntity FindEntityById(String entityId) {
+        for (int i=0;i<allEntities.size();i++) {
+            if (allEntities.get(i).getID().equals(entityId)) {
+                return allEntities.get(i);
+            }    
+        }
+        return null;
+    }
+    
+	public String storeNewEntitiesToTracksString() {
+	       return storeNewEntitiesToJSONObject().toJSONString();
+	}
 	
+	public JSONObject storeNewEntitiesToJSONObject(){
+        JSONObject jObj = new JSONObject();
+        JSONArray jArray = new JSONArray();
+        
+        for (int i=0;i<allEntities.size();i++) {
+            if (allEntities.get(i).getID().trim().length()==0) {
+                jArray.add(allEntities.get(i).StoreToJSONObject());
+            }
+        }
+
+        jObj.put(GoogleTracksConstants.ENTITIES_LIT, jArray);
+
+        return jObj;
+	    
+	}
 	
+    // Load entities from a list into the collection. 
+    
+    public void LoadNewEntityIdsFromJSONObject(JSONObject json) {
+        JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITIES_LIT);
+        for(int i=0; i<jsonEntities.size(); i++){
+            JSONObject jEnt = (JSONObject) jsonEntities.get(i);
+            GoogleTracksEntity gtEnt = new GoogleTracksEntity(jEnt);
+            if (!allEntities.contains(gtEnt)) {
+                allEntities.add(gtEnt);
+            }
+            PutEntityIntoCollections(gtEnt);
+        }
+        //  Google allows entities to belong to more than one collection
+        //  We may have entities duplicated in our structure
+        //  Replace any references that match ID with the ones in allEntities
+        
+        for (int i=0;i<allEntities.size();i++) {
+            PutEntityIntoCollections((GoogleTracksEntity) allEntities.get(i));
+        }
+    }
+    
+    public void LoadNewEntityIdsFromTracksString(String tracksString) {
+        JSONParser jsonParser=new JSONParser();
+        try {
+            JSONObject json = (JSONObject) jsonParser.parse( tracksString );
+            LoadNewEntityIdsFromJSONObject(json);
+        } catch (ParseException e) {
+            System.out.println("position: " + e.getPosition());
+            System.out.println(e);
+        }
+    }
+    
+    public String storeAllCrumbsToTracksString() {
+        return storeAllCrumbsToJSONObject().toJSONString();
+    }
+ 
+     public JSONObject storeAllCrumbsToJSONObject(){
+         JSONObject jObj = new JSONObject();
+         JSONArray jArray = new JSONArray();
+         
+         for (int i=0;i<allEntities.size();i++) {
+             if (allEntities.get(i).getID().trim().length()==0) {
+                 jArray.add(allEntities.get(i).storeCrumbsToJSONObject());
+             }
+         }
+    
+         jObj.put(GoogleTracksConstants.MULTI_ENTITY_CRUMBS, jArray);
+    
+         return jObj;
+         
+     }
 	/**
      * @return the allEntities
      */
@@ -223,6 +301,17 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 		return sb.toString();
 	}
 
+    /**
+     * removes collections that do not have a name starting with the prefix
+     */
+    public void pruneCollection(String collectionPrefix) {
+        // work down, remove shifts left
+        for (int i=this.size()-1;i>=0;i--) {
+            if (!this.get(i).getName().startsWith(collectionPrefix)) {
+                this.remove(i);
+            }
+        }
+    }
 	
 	
 	public GoogleTracksCollectionList(String tracksString) {

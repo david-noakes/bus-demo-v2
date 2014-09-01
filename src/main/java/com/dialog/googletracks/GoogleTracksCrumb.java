@@ -50,6 +50,23 @@ public class GoogleTracksCrumb {
         }
     }
     
+    public String storeToTracksString() {
+        return storeToJSONObject().toJSONString();
+    }    
+        
+        
+    public JSONObject storeToJSONObject() {
+        JSONObject jObj = new JSONObject();
+        jObj.put(GoogleTracksConstants.LOCATION_LIT, this.location);
+        jObj.put(GoogleTracksConstants.TIME_STAMP, Double.parseDouble(this.timeStamp));
+        jObj.put(GoogleTracksConstants.CONFIDENCE_RADIUS, this.getConfidenceRadius());
+        if (this.heading != null && this.heading.trim().length()>0) {
+            jObj.put(GoogleTracksConstants.HEADING_LIT, Double.parseDouble(this.heading));
+        }
+        jObj.put(GoogleTracksConstants.USER_DATA, this.userData);
+        return jObj;
+    }
+    
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */

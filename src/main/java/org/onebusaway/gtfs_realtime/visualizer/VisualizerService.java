@@ -15,15 +15,19 @@
  */
 package org.onebusaway.gtfs_realtime.visualizer;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-import java.security.cert.Certificate;
+import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
+import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,15 +41,30 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Singleton;
-import javax.net.ssl.*;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 import org.eclipse.jetty.websocket.WebSocket.Connection;
 import org.eclipse.jetty.websocket.WebSocket.OnBinaryMessage;
 import org.eclipse.jetty.websocket.WebSocketClient;
 import org.eclipse.jetty.websocket.WebSocketClientFactory;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.dialog.common.TimeUtility;
+import com.dialog.googletracks.GoogleTracksCollection;
+import com.dialog.googletracks.GoogleTracksCollectionList;
+import com.dialog.googletracks.GoogleTracksConstants;
+import com.dialog.googletracks.GoogleTracksCrumb;
+import com.dialog.googletracks.GoogleTracksEntity;
 import com.dialog.googletracks.TracksServiceRequest;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.transit.realtime.GtfsRealtime.FeedEntity;
@@ -53,7 +72,6 @@ import com.google.transit.realtime.GtfsRealtime.FeedHeader;
 import com.google.transit.realtime.GtfsRealtime.FeedMessage;
 import com.google.transit.realtime.GtfsRealtime.Position;
 import com.google.transit.realtime.GtfsRealtime.TripDescriptor;
-import com.google.transit.realtime.GtfsRealtime.TripUpdate;
 import com.google.transit.realtime.GtfsRealtime.VehicleDescriptor;
 import com.google.transit.realtime.GtfsRealtime.VehiclePosition;
 
@@ -89,6 +107,12 @@ public class VisualizerService {
   private long _mostRecentRefresh = -1;
   
   private boolean _tracksUpdate = false;
+  
+  private GoogleTracksCollectionList gtcList = null;
+  
+  private String collectionPrefix ;
+  
+  private String tracksRoute = "60-470";
 
   public void setVehiclePositionsUri(URI uri) {
     _vehiclePositionsUri = uri;
@@ -102,16 +126,41 @@ public void setTracksUpdate(boolean _tracksUpdate) {
 	this._tracksUpdate = _tracksUpdate;
 }
 
+public GoogleTracksCollectionList getGtcList() {
+    return gtcList;
+}
+
+public void setGtcList(GoogleTracksCollectionList gtcList) {
+    this.gtcList = gtcList;
+}
+
 @PostConstruct
   public void start() throws Exception {
+    Calendar currentDate = Calendar.getInstance();
+    SimpleDateFormat sdFormat = new SimpleDateFormat(
+            TimeUtility.DATE_FORMAT.toString());
+    collectionPrefix = sdFormat.format(currentDate.DATE);
+    
+    String collectionName = collectionPrefix + " Route: " + tracksRoute;
+    
     if (_tracksUpdate) {
-    	// temporary - test the connection
+    	String tracksString = 
+    	  TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_LIST_COLLECTIONS, " ");
+    	if (tracksString.trim().length() == 0) {
+    	    initialiseCollectionlist(collectionName);
+    	} else {
+    	    gtcList = new GoogleTracksCollectionList(tracksString);
+    	    gtcList.pruneCollection(collectionPrefix);
+    	    if (gtcList.size() == 0) {
+                initialiseCollectionlist(collectionName);
+    	    }
+    	}
     	
-    	TracksServiceRequest.serviceRequest("entities/list", "''");
-    	TracksServiceRequest.serviceRequest("entities/create", "{'entities':[{'name':'auto001','type':'AUTOMOBILE'}]}");
-    	
-    	stop();
+    	tracksString = 
+      	  TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_LIST_ENTITIES, " ");
+    	gtcList.LoadAllEntitiesFromTracksString(tracksString);
     }
+    
     String scheme = _vehiclePositionsUri.getScheme();
     _log.info("Scheme = " + scheme);
     if (scheme.equals("ws") || scheme.equals("wss")) {
@@ -129,6 +178,16 @@ public void setTracksUpdate(boolean _tracksUpdate) {
     
   }
 
+  private void initialiseCollectionlist(String collectionName) throws IOException, GeneralSecurityException {
+      String tracksString;
+      gtcList = new GoogleTracksCollectionList();
+      GoogleTracksCollection gtColl = new GoogleTracksCollection();
+      gtColl.setName(collectionName);
+      gtcList.add(gtColl);
+      tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_COLLECTIONS, gtcList.StoreToTracksString());
+      gtcList.LoadCollectionIdsFromTracksString(tracksString);
+  }
+  
   @PreDestroy
   public void stop() throws Exception {
     if (_webSocketConnection != null) {
@@ -293,10 +352,12 @@ public void setTracksUpdate(boolean _tracksUpdate) {
 
     List<Vehicle> vehicles = new ArrayList<Vehicle>();
     boolean update = false;
+    boolean addVehicleIntoTracks = false;
     int vehiclePosnCount = 0;
     int tripUpdateCount = 0;
     int vehicleCount = 0;
-
+    long updateTimestamp = System.currentTimeMillis();
+    
 	_log.info("Feed contains : " + feed.getEntityList().size() + " entities");
     for (FeedEntity entity : feed.getEntityList()) {
       if (entity.hasIsDeleted() && entity.getIsDeleted()) {
@@ -344,23 +405,41 @@ public void setTracksUpdate(boolean _tracksUpdate) {
       }
       v.setLat(position.getLatitude());
       v.setLon(position.getLongitude());
-      v.setLastUpdate(System.currentTimeMillis());
+      v.setLastUpdate(updateTimestamp); // ensure all updates have the same timestamp
       v.setIsStationary(false);
 
       Vehicle existing = _vehiclesById.get(vehicleId);
       if (existing == null || existing.getLat() != v.getLat()
           || existing.getLon() != v.getLon()) {
         _vehiclesById.put(vehicleId, v);
+        if (_tracksUpdate) {
+            if (updateTracksInfo(v, existing)) {
+                addVehicleIntoTracks = true;
+            }
+        }
+        update = true;
       } else {
-    	v.setIsStationary(true); // still update because we want to delete track tails  
-        //v.setLastUpdate(existing.getLastUpdate());
+        // stationary is not required for Google tracks  
+    	//v.setIsStationary(true); // still update because we want to delete track tails  
+        v.setLastUpdate(existing.getLastUpdate());
       }
-      update = true;
 
       vehicles.add(v);
     }
 
     if (update) {
+        if (_tracksUpdate) {
+            
+           try {
+               putTracksDataToGoogle(addVehicleIntoTracks);
+           } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+           } catch (GeneralSecurityException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+           } 
+        }
       _log.info("vehicles updated: " + vehicles.size());
     } else {
     	_log.info("No Update - vehicles found: " + vehicleCount + 
@@ -375,6 +454,90 @@ public void setTracksUpdate(boolean _tracksUpdate) {
     return update;
   }
 
+  private boolean updateTracksInfo(Vehicle newData, Vehicle existingData) {
+      // only update the specified route
+      boolean created = false;
+      GoogleTracksEntity gtEnt = null;
+      if (newData.getRouteId().startsWith(tracksRoute)) {
+          if (existingData != null) {
+              newData.setTracksEntityId(existingData.getTracksEntityId());
+              if ((existingData.getTracksEntityId() == null) || 
+                 ((gtEnt=gtcList.FindEntityById(existingData.getTracksEntityId())) == null)) {
+                  addVehicletoTracks(newData);
+                  created = true;
+              } else {
+                recordNewCrumb(gtEnt, newData);  
+              }
+          } else {
+              created = true;
+              addVehicletoTracks(newData);
+          }
+      }
+      return created;
+  }
+  
+  private void addVehicletoTracks(Vehicle newData) {
+      /* create entity
+       * add to collection
+       * add crumb
+       */
+      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.getId()+", Trip="+newData.getTripId(), GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
+      gtcList.getAllEntities().add(gtEnt);
+      gtcList.get(0).getEntities().add(gtEnt);
+      recordNewCrumb(gtEnt, newData);
+  }
+  
+  private void recordNewCrumb(GoogleTracksEntity gtEnt, Vehicle newData) {
+      /* add the crumb only
+       * always clear the list first, so we can add all crumbs later 
+       */
+      gtEnt.get_Crumbs().clear();
+      GoogleTracksCrumb gtCrumb = new GoogleTracksCrumb();
+      gtCrumb.setConfidenceRadius("3.4");
+      JSONObject location = new JSONObject();
+      location.put(GoogleTracksConstants.LATITUDE_LIT, newData.getLat());
+      location.put(GoogleTracksConstants.LONGITUDE_LIT, newData.getLon());
+      gtCrumb.setLocation(location);
+      gtCrumb.setTimeStamp(Long.toString(newData.getLastUpdate()));
+      JSONObject userData = new JSONObject();
+      userData.put(GoogleTracksConstants.USER_ENTITY,newData.getEntityId());
+      userData.put(GoogleTracksConstants.USER_V_ID,newData.getId());
+      userData.put(GoogleTracksConstants.USER_ROUTE,newData.getRouteId());
+      userData.put(GoogleTracksConstants.USER_TRIP,newData.getTripId());
+                    
+      gtCrumb.setUserData(userData);
+      gtEnt.get_Crumbs().add(gtCrumb);
+  }
+  
+  private void putTracksDataToGoogle(boolean addVehicle) throws IOException, GeneralSecurityException {
+      String requestBody; 
+      String tracksString;
+      if (addVehicle) {
+          requestBody = gtcList.storeNewEntitiesToTracksString();
+          tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_ENTITIES, requestBody);
+          gtcList.LoadNewEntityIdsFromTracksString(tracksString);
+          // reuse the response to add the entities to the collection
+          JSONParser jsonParser=new JSONParser();
+          try {
+              JSONObject json = (JSONObject) jsonParser.parse( tracksString );
+              json.put(GoogleTracksConstants.COLLECTION_ID, gtcList.get(0).getID());
+              requestBody = json.toJSONString();
+          } catch (ParseException e) {
+              System.out.println("position: " + e.getPosition());
+              System.out.println(e);
+          }
+          tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_ADD_ENTITIES_TO_COLLECTION, requestBody);
+      }
+      //This may error, and require a loop
+      for (int i=0; i<gtcList.getAllEntities().size(); i++) {
+          GoogleTracksEntity gtEnt = gtcList.getAllEntities().get(i);
+          if (gtEnt.get_Crumbs().size()>0) {
+              requestBody = gtEnt.storeCrumbsToTracksString();
+              tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CRUMBS_RECORD, requestBody);
+          }
+      }
+  }
+  
   /**
    * @param vehicle
    * @return

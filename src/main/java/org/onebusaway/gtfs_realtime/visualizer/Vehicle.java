@@ -16,7 +16,7 @@
 package org.onebusaway.gtfs_realtime.visualizer;
 
 public class Vehicle {
-  private String id;
+  private String vId;
   
   private String routeId;
   
@@ -31,13 +31,36 @@ public class Vehicle {
   private double lon;
   
   private long lastUpdate;  
+  
+  private String tracksEntityId;
 
-  public String getId() {
-    return id;
+  /**
+ * @return the tracksEntityId
+ */
+public String getTracksEntityId() {
+    return tracksEntityId;
+}
+
+/**
+ * @param tracksEntityId the tracksEntityId to set
+ */
+public void setTracksEntityId(String tracksEntityId) {
+    this.tracksEntityId = tracksEntityId;
+}
+
+/**
+ * @param isStationary the isStationary to set
+ */
+public void setStationary(boolean isStationary) {
+    this.isStationary = isStationary;
+}
+
+public String getId() {
+    return vId;
   }
 
   public void setId(String id) {
-    this.id = id;
+    this.vId = id;
   }
 
   public String getRouteId() {
