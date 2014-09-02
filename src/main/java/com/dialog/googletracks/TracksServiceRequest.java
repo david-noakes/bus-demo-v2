@@ -50,8 +50,24 @@ public class TracksServiceRequest {
 	/** Global instance of the HTTP transport. */
 	  
 	  private static HttpTransport HTTP_TRANSPORT = null;
+	  
+	  private static boolean _SimulateTracks = false;
 
-	  /** Global instance of the JSON factory. */
+	  /**
+     * @return the _SimulateTracks
+     */
+    public static boolean getSimulateTracks() {
+        return _SimulateTracks;
+    }
+
+    /**
+     * @param _SimulateTracks the _SimulateTracks to set
+     */
+    public static void setSimulateTracks(boolean _SimulateTracks) {
+        TracksServiceRequest._SimulateTracks = _SimulateTracks;
+    }
+
+    /** Global instance of the JSON factory. */
 	  private static JsonFactory JSON_FACTORY = new JacksonFactory();
 
 	  public static String serviceRequest(String method, String requestBody) throws IOException, GeneralSecurityException {
@@ -66,6 +82,28 @@ public class TracksServiceRequest {
 	    
 	    File p12File = new File(p12FileName);
 	    
+	    // partial fix for testing when daily limits exceeded
+	    // this simulates the google response.
+	    if (_SimulateTracks) {
+            System.out.println(method);
+            System.out.println(requestBody);
+    	    if (method.equals(GoogleTracksConstants.METHOD_LIST_COLLECTIONS)) {
+    	        String collFileName = userDir + "/target/classes/com/dialog/googletracks/collections_List.txt";
+    	        File collFile = new File(collFileName);
+    	        response = Files.toString(collFile, Charset.defaultCharset());
+    	        System.out.println(response);
+    	        return response;
+    
+    	    }
+    	    if (method.equals(GoogleTracksConstants.METHOD_LIST_ENTITIES)) {
+    	        String entfileName = userDir + "/target/classes/com/dialog/googletracks/entities_List.txt";
+    	        File entFile = new File(entfileName);
+    	        response = Files.toString(entFile, Charset.defaultCharset());
+                System.out.println(response);
+    	        return response;
+    	    } 
+   	        return "{\"message\": \"Daily Limit Exceeded\"}";
+	    }
 	    // Build service account credential.
 	    if (credential==null) {
     	    try {

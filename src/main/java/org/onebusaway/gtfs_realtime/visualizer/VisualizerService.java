@@ -108,6 +108,8 @@ public class VisualizerService {
   
   private boolean _tracksUpdate = false;
   
+  private boolean _tracksSimulate = false;
+ 
   private GoogleTracksCollectionList gtcList = null;
   
   private String collectionPrefix ;
@@ -126,6 +128,20 @@ public void setTracksUpdate(boolean _tracksUpdate) {
 	this._tracksUpdate = _tracksUpdate;
 }
 
+/**
+ * @return the _tracksSimulate
+ */
+public boolean getTracksSimulate() {
+    return _tracksSimulate;
+}
+
+/**
+ * @param _tracksSimulate the _tracksSimulate to set
+ */
+public void setTracksSimulate(boolean _tracksSimulate) {
+    this._tracksSimulate = _tracksSimulate;
+}
+
 public GoogleTracksCollectionList getGtcList() {
     return gtcList;
 }
@@ -139,7 +155,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
     Calendar currentDate = Calendar.getInstance();
     SimpleDateFormat sdFormat = new SimpleDateFormat(
             TimeUtility.DATE_FORMAT.toString());
-    collectionPrefix = sdFormat.format(currentDate.DATE);
+    collectionPrefix = sdFormat.format(currentDate.getTime());
     
     String collectionName = collectionPrefix + " Route: " + tracksRoute;
     
@@ -481,9 +497,13 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
        * add to collection
        * add crumb
        */
-      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.getId()+", Trip="+newData.getTripId(), GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
-      gtcList.getAllEntities().add(gtEnt);
-      gtcList.get(0).getEntities().add(gtEnt);
+      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.getId(), GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
+      if (!gtcList.getAllEntities().contains(gtEnt)) {
+          gtcList.getAllEntities().add(gtEnt);
+          gtcList.get(0).getEntities().add(gtEnt);
+      } else {
+          gtEnt=gtcList.FindEntityByNameAndType(gtEnt);
+      }
       recordNewCrumb(gtEnt, newData);
   }
   
@@ -531,7 +551,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       //This may error, and require a loop
       for (int i=0; i<gtcList.getAllEntities().size(); i++) {
           GoogleTracksEntity gtEnt = gtcList.getAllEntities().get(i);
-          if (gtEnt.get_Crumbs().size()>0) {
+          if (gtEnt.get_Crumbs().size()>0 && gtEnt.getID().trim().length() > 0) { // avoid google limit of 20 entities
               requestBody = gtEnt.storeCrumbsToTracksString();
               tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CRUMBS_RECORD, requestBody);
           }

@@ -1,0 +1,54 @@
+{
+ "entities": [
+  {
+   "id": "2884f22f0cfad3e9",
+   "name": "401030",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "9a87c1e09a5f7158",
+   "name": "401032",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "a8c217e53fd6c6fc",
+   "name": "401034",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "02fb26970d3f3114",
+   "name": "401036",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "7a8c0feeb89e9380",
+   "name": "401037",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "abb09cc69af59587",
+   "name": "401039",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "09f9c41d6aa0fb10",
+   "name": "401042",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "191fe5c77ab11845",
+   "name": "401043",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "174919bd798ce5cb",
+   "name": "Bus0001",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "eb27bbe02496d603",
+   "name": "auto001",
+   "type": "AUTOMOBILE"
+  }
+ ]
+}

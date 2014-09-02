@@ -191,6 +191,17 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         return null;
     }
     
+    public GoogleTracksEntity FindEntityByNameAndType(GoogleTracksEntity gtOther) {
+        for (int i=0;i<allEntities.size();i++) {
+            // Note equals must test TO the list to be able to handle
+            // blank ID on the new item
+            if (gtOther.equals(allEntities.get(i))) {
+                return allEntities.get(i);
+            }    
+        }
+        return null;
+    }
+    
 	public String storeNewEntitiesToTracksString() {
 	       return storeNewEntitiesToJSONObject().toJSONString();
 	}
@@ -200,8 +211,11 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         JSONArray jArray = new JSONArray();
         
         for (int i=0;i<allEntities.size();i++) {
+            //TODO - Remove limit on entities
+            if (i<11) { // avoid google entity limit of 20
             if (allEntities.get(i).getID().trim().length()==0) {
                 jArray.add(allEntities.get(i).StoreToJSONObject());
+            }
             }
         }
 
@@ -214,21 +228,22 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
     // Load entities from a list into the collection. 
     
     public void LoadNewEntityIdsFromJSONObject(JSONObject json) {
-        JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITIES_LIT);
-        for(int i=0; i<jsonEntities.size(); i++){
-            JSONObject jEnt = (JSONObject) jsonEntities.get(i);
-            GoogleTracksEntity gtEnt = new GoogleTracksEntity(jEnt);
-            if (!allEntities.contains(gtEnt)) {
-                allEntities.add(gtEnt);
-            }
-            PutEntityIntoCollections(gtEnt);
+        JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITY_IDS);
+        if (jsonEntities == null) {
+            // Google tracks hickup
+            return;
         }
-        //  Google allows entities to belong to more than one collection
-        //  We may have entities duplicated in our structure
-        //  Replace any references that match ID with the ones in allEntities
-        
-        for (int i=0;i<allEntities.size();i++) {
-            PutEntityIntoCollections((GoogleTracksEntity) allEntities.get(i));
+        GoogleTracksEntity gtEnt=null;
+        for(int i=0; i<jsonEntities.size(); i++){
+            String entID = (String) jsonEntities.get(i);
+            for (int j=0;j<allEntities.size();j++) {
+                gtEnt = allEntities.get(j);
+                if (gtEnt.getID().trim().length()==0) {
+                    gtEnt.setID(entID);
+                    break;
+                }
+                // PutEntityIntoCollections(gtEnt);
+            }
         }
     }
     

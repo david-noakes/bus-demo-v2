@@ -173,11 +173,10 @@ public class GoogleTracksEntity {
         JSONArray jArray = new JSONArray();
         
         for (int i=0;i<_Crumbs.size();i++) {
-            jArray.add(_Crumbs.get(i).storeToTracksString());
+            jArray.add(_Crumbs.get(i).storeToJSONObject());
         }
    
         jObj.put(GoogleTracksConstants.CRUMBS_LIT, jArray);
-
 
         return jObj;
 	}
@@ -249,8 +248,11 @@ public class GoogleTracksEntity {
         result = prime * result + ((_Type == null) ? 0 : _Type.hashCode());
         return result;
     }
-    /* (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
+    /* 
+     * equals tests equality on _name and _type only
+     * to allow matching of blank ID on new entity
+     * 
+     * use identical if you want to include ID in equality
      */
     @Override
     public boolean equals(Object obj) {
@@ -261,11 +263,7 @@ public class GoogleTracksEntity {
         if (getClass() != obj.getClass())
             return false;
         GoogleTracksEntity other = (GoogleTracksEntity) obj;
-        if (_ID == null) {
-            if (other._ID != null)
-                return false;
-        } else if (!_ID.equals(other._ID))
-            return false;
+        // do not compare ID to allow new entities matching existing ones
         if (_Name == null) {
             if (other._Name != null)
                 return false;
@@ -279,6 +277,20 @@ public class GoogleTracksEntity {
         return true;
     }
 
-	
+    /* tests equality on the _ID, _name and _type
+     * 
+     */
+	public boolean identical(Object obj) {
+	    if (equals(obj)) {
+	        GoogleTracksEntity other = (GoogleTracksEntity) obj;
+	        if (this._ID == null && other._ID == null) {
+	            return true;
+	        }
+            if (this._ID != null && other._ID != null) {
+                return this._ID.equals(other._ID);
+            }
+	    }
+	    return false;
+	}
 	
 }

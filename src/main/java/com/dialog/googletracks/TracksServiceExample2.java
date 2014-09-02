@@ -78,14 +78,19 @@ public class TracksServiceExample2 {
             // .setServiceAccountUser("SERVICE_ACCOUNT_EMAIL")
             .build();
         // Set up and execute Tracks API Request.
-        String method = args[0];
+        String method =  "entities/delete" ;// args[0];
         String URI = "https://www.googleapis.com/tracks/v1/" + method;
-        String requestBody = args[1];
+        String requestBody = // args[1];
+                "{ \"entityIds\": [ \"385a49ecfc9c0f89\",   \"3433566ad96ae4a8\", " +
+                " \"86998ebf34282d5b\", \"2d7c10b33bc8269e\", \"4765383857167d35\", " +
+                " \"d28cc086e0dc3160\", \"050ff6bd1ddad234\", \"47671b8ffae0572e\" " +
+                "  ]}";
         HttpRequestFactory requestFactory =
         		httpTransport.createRequestFactory(credential);
         GenericUrl url = new GenericUrl(URI);
         HttpRequest request =
             requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
+        System.out.println(method + " " + requestBody);
         request.getHeaders().setContentType("application/json");
         System.out.println(request.getHeaders());
         System.out.println(request.getContent());

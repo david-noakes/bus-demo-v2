@@ -26,6 +26,7 @@ import org.apache.commons.cli.Parser;
 import org.onebusaway.cli.CommandLineInterfaceLibrary;
 import org.onebusaway.guice.jsr250.LifecycleService;
 
+import com.dialog.googletracks.TracksServiceRequest;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Module;
@@ -38,6 +39,8 @@ public class VisualizerMain {
   private static final String ARG_PORT_NUMBER = "port";
 
   private static final String ARG_TRACKS_UPDATE = "TracksUpdate";
+  
+  private static final String ARG_SIMULATE_TRACKS = "TracksSimulate";
   
   private int ourPort = 8080;
 
@@ -84,6 +87,10 @@ public class VisualizerMain {
     if (cli.hasOption(ARG_TRACKS_UPDATE)) {
     	service.setTracksUpdate(true);
     }
+    if (cli.hasOption(ARG_SIMULATE_TRACKS)) {
+        service.setTracksSimulate(true);
+        TracksServiceRequest.setSimulateTracks(true);
+    }
     injector.getInstance(VisualizerServer.class);
 
     LifecycleService lifecycleService = injector.getInstance(LifecycleService.class);
@@ -98,5 +105,6 @@ public class VisualizerMain {
     options.addOption(ARG_VEHICLE_POSITIONS_URL, true, "");
     options.addOption(ARG_PORT_NUMBER, true, "");
     options.addOption(ARG_TRACKS_UPDATE, false, "");
+    options.addOption(ARG_SIMULATE_TRACKS, false, "");
   }
 }

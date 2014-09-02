@@ -1,0 +1,34 @@
+{
+ "collections": [
+  {
+   "id": "3f962d2559a601f8",
+   "name": "SEA rental fleet - midsize",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "ba8d11e45e71554c",
+   "name": "SEA rental fleet - compact",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "c439743b513f3b7a",
+   "name": "20140902 Route: 60-470",
+   "entityIds": [
+    "2884f22f0cfad3e9",
+    "9a87c1e09a5f7158",
+    "a8c217e53fd6c6fc",
+    "02fb26970d3f3114",
+    "7a8c0feeb89e9380",
+    "abb09cc69af59587",
+    "09f9c41d6aa0fb10",
+    "191fe5c77ab11845"
+   ]
+  }
+ ]
+}
