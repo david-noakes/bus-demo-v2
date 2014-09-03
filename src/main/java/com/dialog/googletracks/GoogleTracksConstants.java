@@ -37,13 +37,15 @@ public class GoogleTracksConstants {
     public static final String METHOD_LIST_COLLECTIONS = "collections/list";
     public static final String METHOD_LIST_ENTITIES    = "entities/list";
     public static final String METHOD_CRUMBS_GET_HISTORY = "crumbs/gethistory";
+    public static final String METHOD_CRUMBS_GET_RECENT = "crumbs/getrecent";
     public static final String METHOD_CRUMBS_RECORD = "crumbs/record";
 
-    // user data
-    public static final String USER_ENTITY = "entity";
-    public static final String USER_V_ID   = "vId";
-    public static final String USER_ROUTE  = "route";
-    public static final String USER_STATIONARY = "stationary";
+    // user data - note short names.
+    // total user data is limited to 64 chars
+    public static final String USER_ENTITY = "ent";
+    public static final String USER_V_ID   = "id";
+    public static final String USER_ROUTE  = "rte";
+    public static final String USER_STATIONARY = "st";
     public static final String USER_TRIP   = "trip";
 
     

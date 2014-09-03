@@ -4,11 +4,17 @@
 
   <groupId>com.dialog.gtfs_realtime</groupId>
   <artifactId>Bus-gtfs-realtime-visualiser</artifactId>
-  <version>Alpha.2.0.002.003</version>
+  <version>Alpha.2.0.002.004</version>
   <packaging>jar</packaging>
 
   <name>Bus-gtfs-realtime-visualiser</name>
-  <description>A visualiser for GTFS-realtime transit data.</description>
+  <description>A visualiser for GTFS-realtime transit data.
+Also loads feed data for route 60-470 into Google maps Tracks.
+The demo keys have limits:
+no more than 20 entities
+crumbs no more than 64bytes of user data
+Restrictions on the number of requests per 5 seconds, averaged over 48 hours
+no more than 100 requests per day</description>
 
   <repositories>
     <repository>

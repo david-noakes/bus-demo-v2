@@ -25,6 +25,7 @@ import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -115,6 +116,11 @@ public class VisualizerService {
   private String collectionPrefix ;
   
   private String tracksRoute = "60-470";
+  
+  private int tracksBurst = 17; // how many crumbs updates to run in a burst
+                                // Empirical results equate to approx 9 mts for 23
+                                //                                    7 mts for 17
+                                //                                    5 mts for 11
 
   public void setVehiclePositionsUri(URI uri) {
     _vehiclePositionsUri = uri;
@@ -206,19 +212,28 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
   
   @PreDestroy
   public void stop() throws Exception {
-    if (_webSocketConnection != null) {
-      _webSocketConnection.cancel(false);
-    }
-    if (_webSocketClient != null) {
-      _webSocketClient = null;
-    }
-    if (_webSocketFactory != null) {
-      _webSocketFactory.stop();
-      _webSocketFactory = null;
-    }
-    if (_executor != null) {
-      _executor.shutdownNow();
-    }
+      try {
+          putTracksDataToGoogle(true, true); // force any updates out
+      } catch (IOException e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+      } catch (GeneralSecurityException e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+      } 
+      if (_webSocketConnection != null) {
+          _webSocketConnection.cancel(false);
+      }
+      if (_webSocketClient != null) {
+          _webSocketClient = null;
+      }
+      if (_webSocketFactory != null) {
+          _webSocketFactory.stop();
+          _webSocketFactory = null;
+      }
+      if (_executor != null) {
+          _executor.shutdownNow();
+      }
   }
 
   public List<Vehicle> getAllVehicles() {
@@ -372,7 +387,10 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
     int vehiclePosnCount = 0;
     int tripUpdateCount = 0;
     int vehicleCount = 0;
-    long updateTimestamp = System.currentTimeMillis();
+    long updateTimestamp = System.currentTimeMillis() / 1000;
+    java.util.Date time=new java.util.Date((long)updateTimestamp*1000);
+    DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    System.out.println("timestamp = " + df.format(time));
     
 	_log.info("Feed contains : " + feed.getEntityList().size() + " entities");
     for (FeedEntity entity : feed.getEntityList()) {
@@ -447,7 +465,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
         if (_tracksUpdate) {
             
            try {
-               putTracksDataToGoogle(addVehicleIntoTracks);
+               putTracksDataToGoogle(addVehicleIntoTracks, false); // batch them
            } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -497,7 +515,9 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
        * add to collection
        * add crumb
        */
-      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.getId(), GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
+      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.getEntityId()+"[" +
+              newData.getId() + "]", 
+              GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
       if (!gtcList.getAllEntities().contains(gtEnt)) {
           gtcList.getAllEntities().add(gtEnt);
           gtcList.get(0).getEntities().add(gtEnt);
@@ -509,9 +529,11 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
   
   private void recordNewCrumb(GoogleTracksEntity gtEnt, Vehicle newData) {
       /* add the crumb only
-       * always clear the list first, so we can add all crumbs later 
+       * NOTE - crumb userData is limited to 64 bytes
+       *      - entity and ID have been removed
+       *      - data names have been shortened 
        */
-      gtEnt.get_Crumbs().clear();
+      //gtEnt.get_Crumbs().clear();
       GoogleTracksCrumb gtCrumb = new GoogleTracksCrumb();
       gtCrumb.setConfidenceRadius("3.4");
       JSONObject location = new JSONObject();
@@ -520,8 +542,8 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       gtCrumb.setLocation(location);
       gtCrumb.setTimeStamp(Long.toString(newData.getLastUpdate()));
       JSONObject userData = new JSONObject();
-      userData.put(GoogleTracksConstants.USER_ENTITY,newData.getEntityId());
-      userData.put(GoogleTracksConstants.USER_V_ID,newData.getId());
+      //userData.put(GoogleTracksConstants.USER_ENTITY,newData.getEntityId());
+      //userData.put(GoogleTracksConstants.USER_V_ID,newData.getId());
       userData.put(GoogleTracksConstants.USER_ROUTE,newData.getRouteId());
       userData.put(GoogleTracksConstants.USER_TRIP,newData.getTripId());
                     
@@ -529,31 +551,45 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       gtEnt.get_Crumbs().add(gtCrumb);
   }
   
-  private void putTracksDataToGoogle(boolean addVehicle) throws IOException, GeneralSecurityException {
+  private void putTracksDataToGoogle(boolean addVehicle, boolean forceUpdate) throws IOException, GeneralSecurityException {
       String requestBody; 
       String tracksString;
-      if (addVehicle) {
-          requestBody = gtcList.storeNewEntitiesToTracksString();
-          tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_ENTITIES, requestBody);
-          gtcList.LoadNewEntityIdsFromTracksString(tracksString);
-          // reuse the response to add the entities to the collection
-          JSONParser jsonParser=new JSONParser();
-          try {
-              JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-              json.put(GoogleTracksConstants.COLLECTION_ID, gtcList.get(0).getID());
-              requestBody = json.toJSONString();
-          } catch (ParseException e) {
-              System.out.println("position: " + e.getPosition());
-              System.out.println(e);
-          }
-          tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_ADD_ENTITIES_TO_COLLECTION, requestBody);
+      int increm = _refreshInterval / 10;
+      if (increm == 0) {
+          increm = 1;
       }
-      //This may error, and require a loop
-      for (int i=0; i<gtcList.getAllEntities().size(); i++) {
-          GoogleTracksEntity gtEnt = gtcList.getAllEntities().get(i);
-          if (gtEnt.get_Crumbs().size()>0 && gtEnt.getID().trim().length() > 0) { // avoid google limit of 20 entities
-              requestBody = gtEnt.storeCrumbsToTracksString();
-              tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CRUMBS_RECORD, requestBody);
+      gtcList.setCrumbsLength(gtcList.getCrumbsLength()+ increm);
+      System.out.println(" crumbsLength = "+ gtcList.getCrumbsLength());
+      // batch up the calls to google tracks to minimise our footprint on the daily quota
+      if (forceUpdate || gtcList.getCrumbsLength() > tracksBurst) {
+          gtcList.setCrumbsLength(0);
+          if (addVehicle) { 
+              //because of limits on entities, we may omit some, leading to an empty entity list
+              requestBody = gtcList.storeNewEntitiesToTracksString();
+              if (!requestBody.startsWith("{\"entities\":[]}")) { 
+                  
+                  tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_ENTITIES, requestBody);
+                  gtcList.LoadNewEntityIdsFromTracksString(tracksString);
+                  // reuse the response to add the entities to the collection
+                  JSONParser jsonParser=new JSONParser();
+                  try {
+                      JSONObject json = (JSONObject) jsonParser.parse( tracksString );
+                      json.put(GoogleTracksConstants.COLLECTION_ID, gtcList.get(0).getID());
+                      requestBody = json.toJSONString();
+                  } catch (ParseException e) {
+                      System.out.println("position: " + e.getPosition());
+                      System.out.println(e);
+                  }
+                  tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_ADD_ENTITIES_TO_COLLECTION, requestBody);
+              }
+          }
+          //This may error, and require a loop
+          for (int i=0; i<gtcList.getAllEntities().size(); i++) {
+              GoogleTracksEntity gtEnt = gtcList.getAllEntities().get(i);
+              if (gtEnt.get_Crumbs().size()>0 && gtEnt.getID().trim().length() > 0) { // avoid google limit of 20 entities
+                  requestBody = gtEnt.storeCrumbsToTracksString();
+                  tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CRUMBS_RECORD, requestBody);
+              }
           }
       }
   }

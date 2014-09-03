@@ -78,12 +78,19 @@ public class TracksServiceExample2 {
             // .setServiceAccountUser("SERVICE_ACCOUNT_EMAIL")
             .build();
         // Set up and execute Tracks API Request.
+//        String method = "collections/delete"; 
         String method =  "entities/delete" ;// args[0];
         String URI = "https://www.googleapis.com/tracks/v1/" + method;
+//        String requestBody = "{   \"collectionIds\": [\"3f962d2559a601f8\"," +
+//                             " \"ba8d11e45e71554c\", \"c439743b513f3b7a\" " +
+//                             " ]}";
         String requestBody = // args[1];
-                "{ \"entityIds\": [ \"385a49ecfc9c0f89\",   \"3433566ad96ae4a8\", " +
-                " \"86998ebf34282d5b\", \"2d7c10b33bc8269e\", \"4765383857167d35\", " +
-                " \"d28cc086e0dc3160\", \"050ff6bd1ddad234\", \"47671b8ffae0572e\" " +
+                "{ \"entityIds\": [ \"1513658313f1fe25\",   \"19f98360732d4abb\", " +
+                " \"301e3cf733109f0c\", \"434172d0f3663091\", \"546692446d1dff72\", " +
+                " \"5dd50745ccfa20ce\", \"66d3af0c40a78cfb\", \"795113c80522428e\", " +
+                " \"9119c7f72ed4845d\", \"a9696c3f68078b90\", \"adbb6a5bc1cafe64\", " +
+                " \"af0b7f5975b4972d\", \"b1e016e68cdf638d\", \"eca808196ba3a02d\", " +
+                " \"5e892f0620d86398\", \"63fa8b79b4d35084\", \"40b7be92e5f125dd\" " +
                 "  ]}";
         HttpRequestFactory requestFactory =
         		httpTransport.createRequestFactory(credential);

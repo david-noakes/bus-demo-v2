@@ -126,6 +126,17 @@ public class GoogleTracksCollection {
 		return jObj;
 	}
 	
+	public String generateCollectionIdToTracksString() {
+	    return generateCollectionIdToJSONObject().toJSONString();
+	}
+	
+	public JSONObject generateCollectionIdToJSONObject() {
+        JSONObject jObj = new JSONObject();
+        jObj.put(GoogleTracksConstants.COLLECTION_ID, getID());
+        return jObj;
+	}
+	
+	
 	/*
 	 * write out a GoogleTracks string for adding the entity list
 	 */

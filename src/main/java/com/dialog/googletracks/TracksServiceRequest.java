@@ -102,6 +102,13 @@ public class TracksServiceRequest {
                 System.out.println(response);
     	        return response;
     	    } 
+            if (method.equals(GoogleTracksConstants.METHOD_CREATE_COLLECTIONS)) {
+                String entfileName = userDir + "/target/classes/com/dialog/googletracks/collection_Create.txt";
+                File entFile = new File(entfileName);
+                response = Files.toString(entFile, Charset.defaultCharset());
+                System.out.println(response);
+                return response;
+            } 
    	        return "{\"message\": \"Daily Limit Exceeded\"}";
 	    }
 	    // Build service account credential.

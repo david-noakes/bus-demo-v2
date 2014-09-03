@@ -14,7 +14,9 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	private static final long serialVersionUID = 1L;
 	
     // we track all the entities, which may be assigned to collections
-	private List<GoogleTracksEntity> allEntities = new ArrayList<GoogleTracksEntity>() ;
+	private List<GoogleTracksEntity> allEntities;
+	
+	private int crumbsLength = 0;
 	
 	
 /* a collection/list response will look something like this
@@ -291,6 +293,29 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         this.allEntities = allEntities;
     }
 
+    /**
+     * @return the crumbsLength
+     */
+    public int getCrumbsLength() {
+        return crumbsLength;
+    }
+
+    /**
+     * @param crumbsLength the crumbsLength to set
+     */
+    public void setCrumbsLength(int crumbsLength) {
+        this.crumbsLength = crumbsLength;
+    }
+    
+    public void updateCrumbsLength(int crumbsLength) {
+        if (crumbsLength>this.crumbsLength) {
+            this.crumbsLength = crumbsLength;
+        }
+    }
+    public void incCrumbsLength() {
+        this.crumbsLength++;
+    }
+
     @Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer("GoogleTracksCollectionList [size()=");
@@ -331,16 +356,21 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	
 	public GoogleTracksCollectionList(String tracksString) {
 		super();
+        allEntities = new ArrayList<GoogleTracksEntity>();
+        crumbsLength = 0;
 		LoadFromTracksString(tracksString);
 	}
 	public GoogleTracksCollectionList(JSONObject json) {
 		super();
+        allEntities = new ArrayList<GoogleTracksEntity>();
+        crumbsLength = 0;
 		LoadFromJSONObject(json);
 	}
 
     public GoogleTracksCollectionList() {
         super();
-        // TODO Auto-generated constructor stub
+        allEntities = new ArrayList<GoogleTracksEntity>();
+        crumbsLength = 0;
     }
 
 	
