@@ -180,7 +180,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
     	
     	tracksString = 
       	  TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_LIST_ENTITIES, " ");
-    	gtcList.LoadAllEntitiesFromTracksString(tracksString);
+    	gtcList.loadAllEntitiesFromTracksString(tracksString);
     }
     
     String scheme = _vehiclePositionsUri.getScheme();
@@ -206,8 +206,8 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       GoogleTracksCollection gtColl = new GoogleTracksCollection();
       gtColl.setName(collectionName);
       gtcList.add(gtColl);
-      tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_COLLECTIONS, gtcList.StoreToTracksString());
-      gtcList.LoadCollectionIdsFromTracksString(tracksString);
+      tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_COLLECTIONS, gtcList.storeToTracksString());
+      gtcList.loadCollectionIdsFromTracksString(tracksString);
   }
   
   @PreDestroy
@@ -496,7 +496,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
           if (existingData != null) {
               newData.setTracksEntityId(existingData.getTracksEntityId());
               if ((existingData.getTracksEntityId() == null) || 
-                 ((gtEnt=gtcList.FindEntityById(existingData.getTracksEntityId())) == null)) {
+                 ((gtEnt=gtcList.findEntityById(existingData.getTracksEntityId())) == null)) {
                   addVehicletoTracks(newData);
                   created = true;
               } else {
@@ -522,7 +522,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
           gtcList.getAllEntities().add(gtEnt);
           gtcList.get(0).getEntities().add(gtEnt);
       } else {
-          gtEnt=gtcList.FindEntityByNameAndType(gtEnt);
+          gtEnt=gtcList.findEntityByNameAndType(gtEnt);
       }
       recordNewCrumb(gtEnt, newData);
   }
@@ -569,7 +569,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
               if (!requestBody.startsWith("{\"entities\":[]}")) { 
                   
                   tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CREATE_ENTITIES, requestBody);
-                  gtcList.LoadNewEntityIdsFromTracksString(tracksString);
+                  gtcList.loadNewEntityIdsFromTracksString(tracksString);
                   // reuse the response to add the entities to the collection
                   JSONParser jsonParser=new JSONParser();
                   try {

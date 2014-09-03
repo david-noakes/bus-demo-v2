@@ -104,7 +104,7 @@ public class TracksServiceExample {
         System.out.println(line);
         response = response + line;
     }
-    gtCollList.LoadFromTracksString(response);
+    gtCollList.loadFromTracksString(response);
     
     //Test 6
     method = GoogleTracksConstants.METHOD_LIST_ENTITIES;
@@ -126,7 +126,7 @@ public class TracksServiceExample {
         System.out.println(line);
         response = response + line;
     }
-    gtCollList.LoadAllEntitiesFromTracksString(response);
+    gtCollList.loadAllEntitiesFromTracksString(response);
     
     //Test 7
     // print all crumbs for the entities
@@ -134,7 +134,7 @@ public class TracksServiceExample {
     method = GoogleTracksConstants.METHOD_CRUMBS_GET_HISTORY;
     URI = GoogleTracksConstants.GOOGLE_TRACKS_API + method;
     for (int i=0;i<gtCollList.getAllEntities().size();i++) {
-        requestBody = gtCollList.getAllEntities().get(i).GenerateCrumbsHistoryRequest(0, 100);
+        requestBody = gtCollList.getAllEntities().get(i).generateCrumbsHistoryRequest(0, 100);
         System.out.println("method="+method+" "+requestBody);
         requestFactory =
                 httpTransport.createRequestFactory(credential);  //1409033790941
@@ -152,7 +152,7 @@ public class TracksServiceExample {
             response = response + line;
         }
         // load all the crumbs
-        gtCollList.getAllEntities().get(i).LoadCrumbsFromTracksString(response); 
+        gtCollList.getAllEntities().get(i).loadCrumbsFromTracksString(response); 
     }
 
     //Test 8
@@ -196,7 +196,7 @@ public class TracksServiceExample {
       
       String method = "collections/create";
       String URI = "https://www.googleapis.com/tracks/v1/" + method;
-      String requestBody = gtCollList.StoreToTracksString();
+      String requestBody = gtCollList.storeToTracksString();
 
       HttpRequestFactory requestFactory =
         httpTransport.createRequestFactory(credential);  //1409033790941
@@ -219,7 +219,7 @@ public class TracksServiceExample {
 //      String response = "{ " + "\"collectionIds\": [ " +
 //                        "  \"0eb06d476f8a7486\",   " +
 //                        " \"0179f339ec9232ef\" ] }";
-      gtCollList.LoadCollectionIdsFromTracksString(response);
+      gtCollList.loadCollectionIdsFromTracksString(response);
       GoogleTracksEntity gtEnt = new GoogleTracksEntity("eb27bbe02496d603","Bus001","AUTOMOBILE");
       gtCollList.get(0).getEntities().add(gtEnt);
       gtEnt = new GoogleTracksEntity("174919bd798ce5cb","Bus002","AUTOMOBILE");
@@ -233,7 +233,7 @@ public class TracksServiceExample {
       method = "collections/addentities";
       URI = "https://www.googleapis.com/tracks/v1/" + method;
       for (int i=0;i<gtCollList.size();i++) {
-         requestBody = gtCollList.get(i).AddEntitiesToTracksString();
+         requestBody = gtCollList.get(i).addEntitiesToTracksString();
 
       //HttpRequestFactory 
       requestFactory = httpTransport.createRequestFactory(credential);  //1409033790941

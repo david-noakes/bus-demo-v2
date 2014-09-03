@@ -43,7 +43,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
     ] 'nextId' : '0291c259ca933c28'
 }
 */	
-	public void LoadFromJSONObject(JSONObject json) {
+	public void loadFromJSONObject(JSONObject json) {
 		
 		JSONArray jsonCollections = (JSONArray) json.get(GoogleTracksConstants.COLLECTIONS_LIT);
 		JSONObject nextId = (JSONObject) json.get("nextId"); // note will be none if no next
@@ -54,11 +54,11 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         }
 	}
 	
-	public void LoadFromTracksString(String tracksString) {
+	public void loadFromTracksString(String tracksString) {
 	    JSONParser jsonParser=new JSONParser();
 	    try {
 			JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-			LoadFromJSONObject(json);
+			loadFromJSONObject(json);
 		} catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
@@ -83,21 +83,21 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	 *		}
 	 */
 	
-	public JSONObject StoreToJSONObject() {
+	public JSONObject storeToJSONObject() {
 
 	    JSONObject jObj = new JSONObject();
         JSONArray jArray = new JSONArray();
         
         for (int i=0; i<this.size(); i++) {
-            jArray.add(this.get(i).StoreToJSONObject());
+            jArray.add(this.get(i).storeToJSONObject());
         }
 	    jObj.put(GoogleTracksConstants.COLLECTIONS_LIT, jArray);
 	    
 
 	    return jObj;
 	}
-	public String StoreToTracksString() {
-		return StoreToJSONObject().toJSONString();
+	public String storeToTracksString() {
+		return storeToJSONObject().toJSONString();
 	}
 
 	/*
@@ -111,7 +111,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         }
 	 */
 	        
-	public void LoadCollectionIdsFromJSONObject(JSONObject json){
+	public void loadCollectionIdsFromJSONObject(JSONObject json){
         JSONArray jsonCollections = (JSONArray) json.get(GoogleTracksConstants.COLLECTION_IDS);
         for(int i=0; i<jsonCollections.size(); i++){
             String collId = (String) jsonCollections.get(i);
@@ -121,11 +121,11 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         }
 	}
 	
-	public void LoadCollectionIdsFromTracksString(String tracksString) {
+	public void loadCollectionIdsFromTracksString(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {
             JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-            LoadCollectionIdsFromJSONObject(json);
+            loadCollectionIdsFromJSONObject(json);
         } catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
@@ -135,7 +135,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	
 	// Load entities from a list into the collection. 
 	
-	public void LoadAllEntitiesFromJSONObject(JSONObject json) {
+	public void loadAllEntitiesFromJSONObject(JSONObject json) {
         JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITIES_LIT);
         for(int i=0; i<jsonEntities.size(); i++){
             JSONObject jEnt = (JSONObject) jsonEntities.get(i);
@@ -149,15 +149,15 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         //  Replace any references that match ID with the ones in allEntities
         
 	    for (int i=0;i<allEntities.size();i++) {
-	        PutEntityIntoCollections((GoogleTracksEntity) allEntities.get(i));
+	        putEntityIntoCollections((GoogleTracksEntity) allEntities.get(i));
 	    }
 	}
 	
-	public void LoadAllEntitiesFromTracksString(String tracksString) {
+	public void loadAllEntitiesFromTracksString(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {
             JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-            LoadAllEntitiesFromJSONObject(json);
+            loadAllEntitiesFromJSONObject(json);
         } catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
@@ -167,12 +167,12 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
     /* check each collection for an entityID that matches
      *  
      */
-	public void PutEntityIntoCollections(GoogleTracksEntity gtEnt) {
+	public void putEntityIntoCollections(GoogleTracksEntity gtEnt) {
 	    GoogleTracksCollection gtColl;
 	    GoogleTracksEntity gteOther;
 	    for (int i=0;i<this.size();i++) {
 	        gtColl = (GoogleTracksCollection) this.get(i);
-	        gteOther = gtColl.FindEntityById(gtEnt.getID()); 
+	        gteOther = gtColl.findEntityById(gtEnt.getID()); 
 	        if (gteOther != null) {
                 if (gteOther != gtEnt) {
                     // duplicate - replace
@@ -184,7 +184,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	    }
 	}
 
-    public GoogleTracksEntity FindEntityById(String entityId) {
+    public GoogleTracksEntity findEntityById(String entityId) {
         for (int i=0;i<allEntities.size();i++) {
             if (allEntities.get(i).getID().equals(entityId)) {
                 return allEntities.get(i);
@@ -193,7 +193,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         return null;
     }
     
-    public GoogleTracksEntity FindEntityByNameAndType(GoogleTracksEntity gtOther) {
+    public GoogleTracksEntity findEntityByNameAndType(GoogleTracksEntity gtOther) {
         for (int i=0;i<allEntities.size();i++) {
             // Note equals must test TO the list to be able to handle
             // blank ID on the new item
@@ -216,7 +216,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
             //TODO - Remove limit on entities
             if (i<11) { // avoid google entity limit of 20
             if (allEntities.get(i).getID().trim().length()==0) {
-                jArray.add(allEntities.get(i).StoreToJSONObject());
+                jArray.add(allEntities.get(i).storeToJSONObject());
             }
             }
         }
@@ -229,7 +229,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	
     // Load entities from a list into the collection. 
     
-    public void LoadNewEntityIdsFromJSONObject(JSONObject json) {
+    public void loadNewEntityIdsFromJSONObject(JSONObject json) {
         JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITY_IDS);
         if (jsonEntities == null) {
             // Google tracks hickup
@@ -249,11 +249,11 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         }
     }
     
-    public void LoadNewEntityIdsFromTracksString(String tracksString) {
+    public void loadNewEntityIdsFromTracksString(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {
             JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-            LoadNewEntityIdsFromJSONObject(json);
+            loadNewEntityIdsFromJSONObject(json);
         } catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
@@ -358,13 +358,13 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 		super();
         allEntities = new ArrayList<GoogleTracksEntity>();
         crumbsLength = 0;
-		LoadFromTracksString(tracksString);
+		loadFromTracksString(tracksString);
 	}
 	public GoogleTracksCollectionList(JSONObject json) {
 		super();
         allEntities = new ArrayList<GoogleTracksEntity>();
         crumbsLength = 0;
-		LoadFromJSONObject(json);
+		loadFromJSONObject(json);
 	}
 
     public GoogleTracksCollectionList() {

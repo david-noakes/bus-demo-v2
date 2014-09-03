@@ -27,7 +27,7 @@ public class GoogleTracksCrumb {
     }
     */
     
-    public void LoadFromJSONObject(JSONObject json) {
+    public void loadFromJSONObject(JSONObject json) {
         setLocation((JSONObject) json.get(GoogleTracksConstants.LOCATION_LIT));
         setTimeStamp(((Double) json.get(GoogleTracksConstants.TIME_STAMP)).toString());
         if (json.get(GoogleTracksConstants.CONFIDENCE_RADIUS) != null) {
@@ -39,11 +39,11 @@ public class GoogleTracksCrumb {
         setUserData((JSONObject) json.get(GoogleTracksConstants.USER_DATA));
     }
     
-    public void LoadFromTracksString(String tracksString) {
+    public void loadFromTracksString(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {
             JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-            LoadFromJSONObject(json);
+            loadFromJSONObject(json);
         } catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
@@ -234,6 +234,6 @@ public class GoogleTracksCrumb {
         confidenceRadius = "";
         heading = "";
         userData = new JSONObject(); // ad hoc data
-        LoadFromJSONObject(json);
+        loadFromJSONObject(json);
     }
 }

@@ -46,7 +46,7 @@ public class GoogleTracksEntity {
         this._Name = "";
         this._Type = "";
         this._Crumbs = new ArrayList<GoogleTracksCrumb>();
-        LoadFromJSONObject(json);
+        loadFromJSONObject(json);
     }
     
     public String getID() {
@@ -111,17 +111,17 @@ public class GoogleTracksEntity {
      * 
      * We load the single entity from this response
      */
-    public void LoadFromJSONObject(JSONObject json) {
+    public void loadFromJSONObject(JSONObject json) {
         setID((String) json.get(GoogleTracksConstants.ID_LIT));
         setName((String) json.get(GoogleTracksConstants.NAME_LIT));
         setType((String) json.get(GoogleTracksConstants.TYPE_LIT));
     }
 
-    public void LoadFromTracksString(String tracksString) {
+    public void loadFromTracksString(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {
             JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-            LoadFromJSONObject(json);
+            loadFromJSONObject(json);
         } catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
@@ -149,11 +149,11 @@ public class GoogleTracksEntity {
      *
      */
     
-	public String StoreToTracksString() {
-		return StoreToJSONObject().toJSONString();
+	public String storeToTracksString() {
+		return storeToJSONObject().toJSONString();
 	}
 	
-	public JSONObject StoreToJSONObject() {
+	public JSONObject storeToJSONObject() {
         JSONObject jObj = new JSONObject();
         jObj.put(GoogleTracksConstants.NAME_LIT, _Name);
         if (_ID.trim().length()>0) {
@@ -195,7 +195,7 @@ public class GoogleTracksEntity {
 	 * @param countAfter positive for count after, negative for countbefore
 	 * @return JSONString
 	 */
-	public String GenerateCrumbsHistoryRequest(int timeStamp, int countAfter) {
+	public String generateCrumbsHistoryRequest(int timeStamp, int countAfter) {
         JSONObject jObj = new JSONObject();
         jObj.put(GoogleTracksConstants.ENTITY_ID, _ID);
         if (timeStamp == 0) {
@@ -213,7 +213,7 @@ public class GoogleTracksEntity {
         return jObj.toJSONString();
 	}
 	
-	public void LoadCrumbsFromJSONObject(JSONObject json) {
+	public void loadCrumbsFromJSONObject(JSONObject json) {
 	    JSONArray jArray = (JSONArray) json.get(GoogleTracksConstants.CRUMBS_LIT);
 	    if (jArray != null && jArray.size()>0) {
 	        for (int i=0;i<jArray.size();i++) {
@@ -223,11 +223,11 @@ public class GoogleTracksEntity {
 	    }
 	    
 	}
-	public void LoadCrumbsFromTracksString(String tracksString) {
+	public void loadCrumbsFromTracksString(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {
             JSONObject json = (JSONObject) jsonParser.parse( tracksString );
-            LoadCrumbsFromJSONObject(json);
+            loadCrumbsFromJSONObject(json);
         } catch (ParseException e) {
             System.out.println("position: " + e.getPosition());
             System.out.println(e);
