@@ -1,0 +1,410 @@
+crumbsLength = 17
+
+collections/list  
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@181ed9e
+{
+ "collections": [
+  {
+   "id": "767a7c198d4954c5",
+   "name": "20140903 Route: 60-470",
+   "entityIds": [
+    "003bc127f3e24591",
+    "10d087d7781c509d",
+    "1eb4b0f5bca380b0",
+    "1f815aa90cc101c4",
+    "28cecdf210af0bcf",
+    "6d5f7c3fecebcb1e",
+    "929169e323328d4b",
+    "ad7deacd57dd4453",
+    "badb09e484fe8579",
+    "c7a74fdb68c7a12c",
+    "c9f319375f3c0786",
+    "e1d5b6fb30454212",
+    "f4eba3ff2e73a441",
+    "fd7b7988113b9d40"
+   ]
+  }
+ ]
+}
+entities/list  
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@22ab57
+{
+ "entities": [
+  {
+   "id": "003bc127f3e24591",
+   "name": "VU-401030[401030]"
+  },
+  {
+   "id": "10d087d7781c509d",
+   "name": "VU-401047[401047]"
+  },
+  {
+   "id": "1eb4b0f5bca380b0",
+   "name": "VU-401034[401034]"
+  },
+  {
+   "id": "1f815aa90cc101c4",
+   "name": "VU-401034[401034]"
+  },
+  {
+   "id": "28cecdf210af0bcf",
+   "name": "VU-401048[401048]"
+  },
+  {
+   "id": "6d5f7c3fecebcb1e",
+   "name": "VU-401046[401046]"
+  },
+  {
+   "id": "929169e323328d4b",
+   "name": "VU-401042[401042]"
+  },
+  {
+   "id": "ad7deacd57dd4453",
+   "name": "VU-401042[401042]"
+  },
+  {
+   "id": "badb09e484fe8579",
+   "name": "VU-401044[401044]"
+  },
+  {
+   "id": "c7a74fdb68c7a12c",
+   "name": "VU-401030[401030]"
+  },
+  {
+   "id": "c9f319375f3c0786",
+   "name": "VU-401030[401030]"
+  },
+  {
+   "id": "e1d5b6fb30454212",
+   "name": "VU-401041[401041]"
+  },
+  {
+   "id": "f4eba3ff2e73a441",
+   "name": "VU-401034[401034]"
+  },
+  {
+   "id": "fd7b7988113b9d40",
+   "name": "VU-401040[401040]"
+  }
+ ]
+}
+2014-09-03 15:54:18,075 INFO  [VisualizerService.java:186] : Scheme = https
+2014-09-03 15:54:18,106 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:54:18,246 INFO  [Server.java:272] : jetty-8.1.11.v20130520
+2014-09-03 15:54:18,340 INFO  [AbstractConnector.java:338] : Started SelectChannelConnector@0.0.0.0:9080
+2014-09-03 15:54:18,340 INFO  [VisualizerServer.java:86] : 
+=======================================================
+
+  The GTFS-realtime visualizer server has
+  started.  Check it out at:
+
+    http://localhost:9080/
+
+=======================================================
+
+2014-09-03 15:54:21,200 INFO  [VisualizerService.java:347] : data=[22602 bytes]
+timestamp = 09/03/2014 15:54:21
+2014-09-03 15:54:21,637 INFO  [VisualizerService.java:394] : Feed contains : 137 entities
+ crumbsLength = 2
+2014-09-03 15:54:21,669 INFO  [VisualizerService.java:476] : vehicles updated: 35
+2014-09-03 15:54:41,670 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:54:44,654 INFO  [VisualizerService.java:347] : data=[22918 bytes]
+timestamp = 09/03/2014 15:54:44
+ crumbsLength = 4
+2014-09-03 15:54:44,873 INFO  [VisualizerService.java:394] : Feed contains : 138 entities
+2014-09-03 15:54:44,873 INFO  [VisualizerService.java:476] : vehicles updated: 36
+2014-09-03 15:54:44,889 INFO  [VisualizerService.java:616] : refresh interval: 11
+2014-09-03 15:54:55,889 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:54:58,280 INFO  [VisualizerService.java:347] : data=[22864 bytes]
+timestamp = 09/03/2014 15:54:58
+2014-09-03 15:54:58,452 INFO  [VisualizerService.java:394] : Feed contains : 138 entities
+2014-09-03 15:54:58,452 INFO  [VisualizerService.java:478] : No Update - vehicles found: 138, vehicle Posns found: 36, trip updates found: 102
+2014-09-03 15:55:09,468 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:55:13,453 INFO  [VisualizerService.java:347] : data=[23445 bytes]
+timestamp = 09/03/2014 15:55:13
+2014-09-03 15:55:13,656 INFO  [VisualizerService.java:394] : Feed contains : 141 entities
+2014-09-03 15:55:13,656 INFO  [VisualizerService.java:478] : No Update - vehicles found: 141, vehicle Posns found: 35, trip updates found: 106
+2014-09-03 15:55:24,657 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:55:27,422 INFO  [VisualizerService.java:347] : data=[23445 bytes]
+2014-09-03 15:55:27,438 INFO  [VisualizerService.java:394] : Feed contains : 141 entities
+2014-09-03 15:55:27,438 INFO  [VisualizerService.java:478] : No Update - vehicles found: 141, vehicle Posns found: 35, trip updates found: 106
+timestamp = 09/03/2014 15:55:27
+2014-09-03 15:55:38,439 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:55:41,189 INFO  [VisualizerService.java:347] : data=[23457 bytes]
+timestamp = 09/03/2014 15:55:41
+2014-09-03 15:55:41,517 INFO  [VisualizerService.java:394] : Feed contains : 141 entities
+2014-09-03 15:55:41,517 INFO  [VisualizerService.java:478] : No Update - vehicles found: 141, vehicle Posns found: 35, trip updates found: 106
+2014-09-03 15:55:52,517 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:55:56,346 INFO  [VisualizerService.java:347] : data=[23843 bytes]
+2014-09-03 15:55:56,502 INFO  [VisualizerService.java:394] : Feed contains : 144 entities
+2014-09-03 15:55:56,502 INFO  [VisualizerService.java:476] : vehicles updated: 38
+2014-09-03 15:55:56,502 INFO  [VisualizerService.java:616] : refresh interval: 35
+timestamp = 09/03/2014 15:55:56
+ crumbsLength = 5
+2014-09-03 15:56:31,504 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:56:34,957 INFO  [VisualizerService.java:347] : data=[23628 bytes]
+timestamp = 09/03/2014 15:56:35
+2014-09-03 15:56:35,129 INFO  [VisualizerService.java:394] : Feed contains : 143 entities
+ crumbsLength = 8
+2014-09-03 15:56:35,129 INFO  [VisualizerService.java:476] : vehicles updated: 38
+2014-09-03 15:56:35,129 INFO  [VisualizerService.java:616] : refresh interval: 19
+2014-09-03 15:56:54,130 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:56:56,412 INFO  [VisualizerService.java:347] : data=[23427 bytes]
+timestamp = 09/03/2014 15:56:56
+2014-09-03 15:56:56,427 INFO  [VisualizerService.java:394] : Feed contains : 142 entities
+2014-09-03 15:56:56,427 INFO  [VisualizerService.java:476] : vehicles updated: 38
+ crumbsLength = 9
+2014-09-03 15:56:56,427 INFO  [VisualizerService.java:616] : refresh interval: 10
+2014-09-03 15:57:06,428 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:57:08,913 INFO  [VisualizerService.java:347] : data=[23427 bytes]
+timestamp = 09/03/2014 15:57:09
+2014-09-03 15:57:09,131 INFO  [VisualizerService.java:394] : Feed contains : 142 entities
+2014-09-03 15:57:09,131 INFO  [VisualizerService.java:478] : No Update - vehicles found: 142, vehicle Posns found: 38, trip updates found: 104
+2014-09-03 15:57:19,147 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:57:21,773 INFO  [VisualizerService.java:347] : data=[22998 bytes]
+timestamp = 09/03/2014 15:57:22
+2014-09-03 15:57:22,023 INFO  [VisualizerService.java:394] : Feed contains : 139 entities
+2014-09-03 15:57:22,023 INFO  [VisualizerService.java:478] : No Update - vehicles found: 139, vehicle Posns found: 37, trip updates found: 102
+2014-09-03 15:57:32,023 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:57:35,320 INFO  [VisualizerService.java:347] : data=[22646 bytes]
+timestamp = 09/03/2014 15:57:35
+ crumbsLength = 10
+2014-09-03 15:57:35,320 INFO  [VisualizerService.java:394] : Feed contains : 136 entities
+2014-09-03 15:57:35,336 INFO  [VisualizerService.java:476] : vehicles updated: 36
+2014-09-03 15:57:35,336 INFO  [VisualizerService.java:616] : refresh interval: 19
+2014-09-03 15:57:54,337 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:57:57,212 INFO  [VisualizerService.java:347] : data=[22682 bytes]
+timestamp = 09/03/2014 15:57:572014-09-03 15:57:57,212 INFO  [VisualizerService.java:394] : Feed contains : 136 entities
+2014-09-03 15:57:57,212 INFO  [VisualizerService.java:478] : No Update - vehicles found: 136, vehicle Posns found: 36, trip updates found: 100
+
+2014-09-03 15:58:16,229 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:58:19,167 INFO  [VisualizerService.java:347] : data=[22569 bytes]
+timestamp = 09/03/2014 15:58:19
+2014-09-03 15:58:19,182 INFO  [VisualizerService.java:394] : Feed contains : 136 entities
+2014-09-03 15:58:19,182 INFO  [VisualizerService.java:478] : No Update - vehicles found: 136, vehicle Posns found: 36, trip updates found: 100
+2014-09-03 15:58:38,183 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:58:41,105 INFO  [VisualizerService.java:347] : data=[22454 bytes]
+timestamp = 09/03/2014 15:58:41
+2014-09-03 15:58:41,121 INFO  [VisualizerService.java:394] : Feed contains : 136 entities
+2014-09-03 15:58:41,121 INFO  [VisualizerService.java:478] : No Update - vehicles found: 136, vehicle Posns found: 36, trip updates found: 100
+2014-09-03 15:59:00,122 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:59:02,841 INFO  [VisualizerService.java:347] : data=[22496 bytes]
+2014-09-03 15:59:02,857 INFO  [VisualizerService.java:394] : Feed contains : 136 entities
+timestamp = 09/03/2014 15:59:02
+2014-09-03 15:59:02,857 INFO  [VisualizerService.java:478] : No Update - vehicles found: 136, vehicle Posns found: 36, trip updates found: 100
+2014-09-03 15:59:21,858 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 15:59:24,717 INFO  [VisualizerService.java:347] : data=[23159 bytes]
+timestamp = 09/03/2014 15:59:24
+2014-09-03 15:59:24,952 INFO  [VisualizerService.java:394] : Feed contains : 141 entities
+2014-09-03 15:59:24,952 INFO  [VisualizerService.java:476] : vehicles updated: 39
+ crumbsLength = 11
+2014-09-03 15:59:24,952 INFO  [VisualizerService.java:616] : refresh interval: 54
+2014-09-03 16:00:18,955 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:00:21,486 INFO  [VisualizerService.java:347] : data=[23466 bytes]
+timestamp = 09/03/2014 16:00:21
+2014-09-03 16:00:21,689 INFO  [VisualizerService.java:394] : Feed contains : 142 entities
+2014-09-03 16:00:21,689 INFO  [VisualizerService.java:476] : vehicles updated: 39
+ crumbsLength = 16
+2014-09-03 16:00:21,689 INFO  [VisualizerService.java:616] : refresh interval: 28
+2014-09-03 16:00:49,691 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:00:52,035 INFO  [VisualizerService.java:347] : data=[23413 bytes]
+timestamp = 09/03/2014 16:00:52
+2014-09-03 16:00:52,269 INFO  [VisualizerService.java:394] : Feed contains : 142 entities
+ crumbsLength = 18
+entities/create {"entities":[{"name":"VU-401030[401030]"},{"name":"VU-401031[401031]"}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@17b40fe
+{
+ "entityIds": [
+  "9687fd63bbb2c40c",
+  "fd839476a65f07cb"
+ ]
+}
+collections/addentities {"entityIds":["9687fd63bbb2c40c","fd839476a65f07cb"],"collectionId":"767a7c198d4954c5"}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@a29c6e
+{}
+crumbs/record {"entityId":"9687fd63bbb2c40c","crumbs":[{"timestamp":1.409723661E9,"location":{"lng":153.0469512939453,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723684E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723756E9,"location":{"lng":153.04693603515625,"lat":-27.451099395751953},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723816E9,"location":{"lng":153.04884338378906,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723855E9,"location":{"lng":153.048828125,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723964E9,"location":{"lng":153.04884338378906,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724021E9,"location":{"lng":153.048828125,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724052E9,"location":{"lng":153.04884338378906,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@c52200
+{}
+crumbs/record {"entityId":"fd839476a65f07cb","crumbs":[{"timestamp":1.409723661E9,"location":{"lng":153.0315399169922,"lat":-27.46084976196289},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723756E9,"location":{"lng":153.03887939453125,"lat":-27.45228385925293},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723795E9,"location":{"lng":153.0391845703125,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723816E9,"location":{"lng":153.04022216796875,"lat":-27.451066970825195},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724021E9,"location":{"lng":153.0489959716797,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724052E9,"location":{"lng":153.0480499267578,"lat":-27.452932357788086},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@c0a9f9
+{}
+2014-09-03 16:01:00,691 INFO  [VisualizerService.java:476] : vehicles updated: 39
+2014-09-03 16:01:00,691 INFO  [VisualizerService.java:616] : refresh interval: 19
+2014-09-03 16:01:19,693 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:01:21,958 INFO  [VisualizerService.java:347] : data=[23829 bytes]
+timestamp = 09/03/2014 16:01:22
+2014-09-03 16:01:22,146 INFO  [VisualizerService.java:394] : Feed contains : 145 entities
+2014-09-03 16:01:22,146 INFO  [VisualizerService.java:478] : No Update - vehicles found: 145, vehicle Posns found: 39, trip updates found: 106
+2014-09-03 16:01:41,147 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:01:43,897 INFO  [VisualizerService.java:347] : data=[23622 bytes]
+timestamp = 09/03/2014 16:01:44
+2014-09-03 16:01:44,069 INFO  [VisualizerService.java:394] : Feed contains : 144 entities
+2014-09-03 16:01:44,069 INFO  [VisualizerService.java:476] : vehicles updated: 39
+ crumbsLength = 1
+2014-09-03 16:01:44,069 INFO  [VisualizerService.java:616] : refresh interval: 21
+2014-09-03 16:02:05,070 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:02:07,570 INFO  [VisualizerService.java:347] : data=[24089 bytes]
+timestamp = 09/03/2014 16:02:07
+2014-09-03 16:02:07,711 INFO  [VisualizerService.java:394] : Feed contains : 146 entities
+2014-09-03 16:02:07,711 INFO  [VisualizerService.java:478] : No Update - vehicles found: 146, vehicle Posns found: 39, trip updates found: 107
+2014-09-03 16:02:28,712 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:02:31,447 INFO  [VisualizerService.java:347] : data=[24099 bytes]
+timestamp = 09/03/2014 16:02:31
+2014-09-03 16:02:31,665 INFO  [VisualizerService.java:394] : Feed contains : 146 entities
+2014-09-03 16:02:31,665 INFO  [VisualizerService.java:478] : No Update - vehicles found: 146, vehicle Posns found: 39, trip updates found: 107
+2014-09-03 16:02:52,667 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:02:55,167 INFO  [VisualizerService.java:347] : data=[23965 bytes]
+timestamp = 09/03/2014 16:02:55
+2014-09-03 16:02:55,182 INFO  [VisualizerService.java:394] : Feed contains : 145 entities
+2014-09-03 16:02:55,182 INFO  [VisualizerService.java:476] : vehicles updated: 38
+ crumbsLength = 3
+2014-09-03 16:02:55,182 INFO  [VisualizerService.java:616] : refresh interval: 35
+2014-09-03 16:03:30,184 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:03:32,966 INFO  [VisualizerService.java:347] : data=[24205 bytes]
+2014-09-03 16:03:32,982 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+timestamp = 09/03/2014 16:03:32
+2014-09-03 16:03:32,982 INFO  [VisualizerService.java:476] : vehicles updated: 40
+ crumbsLength = 6
+2014-09-03 16:03:32,982 INFO  [VisualizerService.java:616] : refresh interval: 18
+2014-09-03 16:03:50,983 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:03:53,623 INFO  [VisualizerService.java:347] : data=[24271 bytes]
+timestamp = 09/03/2014 16:03:53
+2014-09-03 16:03:53,842 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:03:53,842 INFO  [VisualizerService.java:476] : vehicles updated: 41
+ crumbsLength = 7
+2014-09-03 16:03:53,842 INFO  [VisualizerService.java:616] : refresh interval: 10
+2014-09-03 16:04:03,843 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:04:06,124 INFO  [VisualizerService.java:347] : data=[24168 bytes]
+timestamp = 09/03/2014 16:04:06
+2014-09-03 16:04:06,327 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:04:06,327 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 41, trip updates found: 107
+2014-09-03 16:04:16,328 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:04:19,062 INFO  [VisualizerService.java:347] : data=[24221 bytes]
+timestamp = 09/03/2014 16:04:19
+2014-09-03 16:04:19,297 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:04:19,297 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 41, trip updates found: 107
+2014-09-03 16:04:29,297 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:04:33,016 INFO  [VisualizerService.java:347] : data=[24120 bytes]
+timestamp = 09/03/2014 16:04:33
+2014-09-03 16:04:33,016 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+2014-09-03 16:04:33,016 INFO  [VisualizerService.java:476] : vehicles updated: 40
+ crumbsLength = 8
+2014-09-03 16:04:33,016 INFO  [VisualizerService.java:616] : refresh interval: 19
+2014-09-03 16:04:52,033 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:04:54,564 INFO  [VisualizerService.java:347] : data=[24216 bytes]
+2014-09-03 16:04:54,705 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+2014-09-03 16:04:54,705 INFO  [VisualizerService.java:476] : vehicles updated: 40
+2014-09-03 16:04:54,721 INFO  [VisualizerService.java:616] : refresh interval: 10
+timestamp = 09/03/2014 16:04:54
+ crumbsLength = 9
+2014-09-03 16:05:04,721 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:05:07,143 INFO  [VisualizerService.java:347] : data=[24437 bytes]
+timestamp = 09/03/2014 16:05:07
+2014-09-03 16:05:07,143 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:05:07,143 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 40, trip updates found: 108
+2014-09-03 16:05:17,144 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:05:19,941 INFO  [VisualizerService.java:347] : data=[24368 bytes]
+timestamp = 09/03/2014 16:05:19
+2014-09-03 16:05:19,941 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:05:19,941 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 40, trip updates found: 108
+2014-09-03 16:05:29,941 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:05:32,957 INFO  [VisualizerService.java:347] : data=[24442 bytes]
+timestamp = 09/03/2014 16:05:32
+2014-09-03 16:05:32,973 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:05:32,973 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 40, trip updates found: 108
+2014-09-03 16:05:42,973 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:05:45,677 INFO  [VisualizerService.java:347] : data=[24442 bytes]
+timestamp = 09/03/2014 16:05:45
+2014-09-03 16:05:45,677 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:05:45,677 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 40, trip updates found: 108
+2014-09-03 16:05:55,677 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:05:58,427 INFO  [VisualizerService.java:347] : data=[24330 bytes]
+timestamp = 09/03/2014 16:05:58
+2014-09-03 16:05:58,427 INFO  [VisualizerService.java:394] : Feed contains : 148 entities
+2014-09-03 16:05:58,427 INFO  [VisualizerService.java:478] : No Update - vehicles found: 148, vehicle Posns found: 40, trip updates found: 108
+2014-09-03 16:06:08,428 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:06:10,819 INFO  [VisualizerService.java:347] : data=[24399 bytes]
+timestamp = 09/03/2014 16:06:10
+2014-09-03 16:06:10,819 INFO  [VisualizerService.java:394] : Feed contains : 149 entities
+2014-09-03 16:06:10,819 INFO  [VisualizerService.java:478] : No Update - vehicles found: 149, vehicle Posns found: 40, trip updates found: 109
+2014-09-03 16:06:20,835 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:06:23,163 INFO  [VisualizerService.java:347] : data=[24301 bytes]
+timestamp = 09/03/2014 16:06:23
+2014-09-03 16:06:23,163 INFO  [VisualizerService.java:394] : Feed contains : 149 entities
+2014-09-03 16:06:23,163 INFO  [VisualizerService.java:476] : vehicles updated: 41
+ crumbsLength = 10
+2014-09-03 16:06:23,163 INFO  [VisualizerService.java:616] : refresh interval: 44
+2014-09-03 16:07:07,166 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:07:09,885 INFO  [VisualizerService.java:347] : data=[23944 bytes]
+2014-09-03 16:07:10,119 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+timestamp = 09/03/2014 16:07:10
+ crumbsLength = 14
+2014-09-03 16:07:10,119 INFO  [VisualizerService.java:476] : vehicles updated: 40
+2014-09-03 16:07:10,119 INFO  [VisualizerService.java:616] : refresh interval: 23
+2014-09-03 16:07:33,120 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:07:35,699 INFO  [VisualizerService.java:347] : data=[23879 bytes]
+timestamp = 09/03/2014 16:07:35
+2014-09-03 16:07:35,870 INFO  [VisualizerService.java:394] : Feed contains : 146 entities
+2014-09-03 16:07:35,870 INFO  [VisualizerService.java:476] : vehicles updated: 39
+ crumbsLength = 16
+2014-09-03 16:07:35,870 INFO  [VisualizerService.java:616] : refresh interval: 12
+2014-09-03 16:07:47,871 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:07:50,028 INFO  [VisualizerService.java:347] : data=[24157 bytes]
+timestamp = 09/03/2014 16:07:50
+2014-09-03 16:07:50,262 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+2014-09-03 16:07:50,262 INFO  [VisualizerService.java:478] : No Update - vehicles found: 147, vehicle Posns found: 39, trip updates found: 108
+2014-09-03 16:08:02,263 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:08:04,732 INFO  [VisualizerService.java:347] : data=[24199 bytes]
+timestamp = 09/03/2014 16:08:04
+2014-09-03 16:08:04,950 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+2014-09-03 16:08:04,950 INFO  [VisualizerService.java:478] : No Update - vehicles found: 147, vehicle Posns found: 39, trip updates found: 108
+2014-09-03 16:08:16,951 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:08:19,310 INFO  [VisualizerService.java:347] : data=[24169 bytes]
+timestamp = 09/03/2014 16:08:19
+2014-09-03 16:08:19,529 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+2014-09-03 16:08:19,529 INFO  [VisualizerService.java:478] : No Update - vehicles found: 147, vehicle Posns found: 39, trip updates found: 108
+2014-09-03 16:08:31,530 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:08:33,499 INFO  [VisualizerService.java:347] : data=[24124 bytes]
+timestamp = 09/03/2014 16:08:33
+2014-09-03 16:08:33,499 INFO  [VisualizerService.java:394] : Feed contains : 147 entities
+2014-09-03 16:08:33,499 INFO  [VisualizerService.java:476] : vehicles updated: 39
+ crumbsLength = 17
+2014-09-03 16:08:33,499 INFO  [VisualizerService.java:616] : refresh interval: 28
+2014-09-03 16:09:01,500 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:09:03,844 INFO  [VisualizerService.java:347] : data=[23772 bytes]
+timestamp = 09/03/2014 16:09:03
+2014-09-03 16:09:03,844 INFO  [VisualizerService.java:394] : Feed contains : 145 entities
+2014-09-03 16:09:03,844 INFO  [VisualizerService.java:478] : No Update - vehicles found: 145, vehicle Posns found: 38, trip updates found: 107
+2014-09-03 16:09:31,846 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:09:34,268 INFO  [VisualizerService.java:347] : data=[23583 bytes]
+timestamp = 09/03/2014 16:09:34
+2014-09-03 16:09:34,284 INFO  [VisualizerService.java:394] : Feed contains : 144 entities
+2014-09-03 16:09:34,284 INFO  [VisualizerService.java:478] : No Update - vehicles found: 144, vehicle Posns found: 38, trip updates found: 106
+2014-09-03 16:10:02,285 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+timestamp = 09/03/2014 16:10:05
+2014-09-03 16:10:04,988 INFO  [VisualizerService.java:347] : data=[24955 bytes]
+2014-09-03 16:10:05,004 INFO  [VisualizerService.java:394] : Feed contains : 153 entities
+ crumbsLength = 19
+crumbs/record {"entityId":"9687fd63bbb2c40c","crumbs":[{"timestamp":1.409723661E9,"location":{"lng":153.0469512939453,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723684E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723756E9,"location":{"lng":153.04693603515625,"lat":-27.451099395751953},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723816E9,"location":{"lng":153.04884338378906,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723855E9,"location":{"lng":153.048828125,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723964E9,"location":{"lng":153.04884338378906,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724021E9,"location":{"lng":153.048828125,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724052E9,"location":{"lng":153.04884338378906,"lat":-27.4520320892334},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724175E9,"location":{"lng":153.04293823242188,"lat":-27.453350067138672},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724233E9,"location":{"lng":153.04132080078125,"lat":-27.452966690063477},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724273E9,"location":{"lng":153.03939819335938,"lat":-27.454082489013672},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40972443E9,"location":{"lng":153.036376953125,"lat":-27.457050323486328},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724513E9,"location":{"lng":153.03378295898438,"lat":-27.4596004486084},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724605E9,"location":{"lng":153.03199768066406,"lat":-27.461517333984375},"confidenceRadius":"3.4","userData":{"trip":"4583105-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@d22462
+{}
+crumbs/record {"entityId":"fd839476a65f07cb","crumbs":[{"timestamp":1.409723661E9,"location":{"lng":153.0315399169922,"lat":-27.46084976196289},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723756E9,"location":{"lng":153.03887939453125,"lat":-27.45228385925293},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723795E9,"location":{"lng":153.0391845703125,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409723816E9,"location":{"lng":153.04022216796875,"lat":-27.451066970825195},"confidenceRadius":"3.4","userData":{"trip":"4583091-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724021E9,"location":{"lng":153.0489959716797,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724052E9,"location":{"lng":153.0480499267578,"lat":-27.452932357788086},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724104E9,"location":{"lng":153.04464721679688,"lat":-27.45351791381836},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724212E9,"location":{"lng":153.0475311279297,"lat":-27.4515323638916},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724273E9,"location":{"lng":153.0475311279297,"lat":-27.45151710510254},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40972443E9,"location":{"lng":153.04762268066406,"lat":-27.45163345336914},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409724605E9,"location":{"lng":153.04763793945312,"lat":-27.451650619506836},"confidenceRadius":"3.4","userData":{"trip":"4583119-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1b6634c
+2014-09-03 16:10:09,676 INFO  [VisualizerService.java:476] : vehicles updated: 41
+2014-09-03 16:10:09,676 INFO  [VisualizerService.java:616] : refresh interval: 48
+{}
+2014-09-03 16:10:57,679 INFO  [VisualizerService.java:336] : refreshing vehicle positions
+2014-09-03 16:10:59,992 INFO  [VisualizerService.java:347] : data=[24438 bytes]
+timestamp = 09/03/2014 16:10:59
+2014-09-03 16:10:59,992 INFO  [VisualizerService.java:394] : Feed contains : 149 entities
+2014-09-03 16:10:59,992 INFO  [VisualizerService.java:476] : vehicles updated: 39
+ crumbsLength = 4
+2014-09-03 16:11:00,007 INFO  [VisualizerService.java:616] : refresh interval: 25

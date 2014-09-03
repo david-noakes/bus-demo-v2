@@ -1,0 +1,20 @@
+com.google.api.client.http.ByteArrayContent@3eca90
+{
+ "entities": [
+  {
+   "id": "174919bd798ce5cb",
+   "name": "Bus0001",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "eb27bbe02496d603",
+   "name": "auto001",
+   "type": "AUTOMOBILE"
+  }
+ ]
+}
+
+
+crumbs/record {'crumbs': [ { 'location': {'lat': 27.47351399999997, 'lng': 153.013136},'timestamp': 1409032121892,'userData': {'driver_name': 'Joe','measured_vehicle_speed': '110.2'}}], 'entityId': 'eb27bbe02496d603' }
+ timestamp has to be current POSIX time
+

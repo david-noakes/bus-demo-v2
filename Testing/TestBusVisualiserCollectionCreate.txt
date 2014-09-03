@@ -1,0 +1,42 @@
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@161d36b
+{
+ "collections": [
+  {
+   "id": "3f962d2559a601f8",
+   "name": "SEA rental fleet - midsize",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "ba8d11e45e71554c",
+   "name": "SEA rental fleet - compact",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "c439743b513f3b7a",
+   "name": "19700101 Route: 60-470"
+  }
+ ]
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1b8f864
+{
+ "entities": [
+  {
+   "id": "174919bd798ce5cb",
+   "name": "Bus0001",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "eb27bbe02496d603",
+   "name": "auto001",
+   "type": "AUTOMOBILE"
+  }
+ ]
+}

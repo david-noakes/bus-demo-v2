@@ -1,0 +1,135 @@
+This is using a crumbs Length = 7
+
+collections/list  
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@c4afc4
+{
+ "collections": [
+  {
+   "id": "767a7c198d4954c5",
+   "name": "20140903 Route: 60-470"
+  }
+ ]
+}
+entities/list  
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1ae939f
+{
+ "entities": []
+}
+2014-09-03 14:53:58,382 INFO  [VisualizerService.java:185] : Scheme = https
+2014-09-03 14:53:58,397 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:53:58,538 INFO  [Server.java:272] : jetty-8.1.11.v20130520
+2014-09-03 14:53:58,663 INFO  [AbstractConnector.java:338] : Started SelectChannelConnector@0.0.0.0:9080
+2014-09-03 14:53:58,663 INFO  [VisualizerServer.java:86] : 
+=======================================================
+
+  The GTFS-realtime visualizer server has
+  started.  Check it out at:
+
+    http://localhost:9080/
+
+=======================================================
+
+2014-09-03 14:54:02,241 INFO  [VisualizerService.java:346] : data=[16910 bytes]
+timestamp = 09/03/2014 14:54:02
+2014-09-03 14:54:02,913 INFO  [VisualizerService.java:393] : Feed contains : 102 entities
+ crumbsLength = 2
+2014-09-03 14:54:02,960 INFO  [VisualizerService.java:475] : vehicles updated: 29
+2014-09-03 14:54:22,992 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:54:27,602 INFO  [VisualizerService.java:346] : data=[17197 bytes]
+2014-09-03 14:54:27,618 INFO  [VisualizerService.java:393] : Feed contains : 103 entities
+2014-09-03 14:54:27,618 INFO  [VisualizerService.java:477] : No Update - vehicles found: 103, vehicle Posns found: 29, trip updates found: 74
+timestamp = 09/03/2014 14:54:27
+2014-09-03 14:54:47,619 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:54:51,103 INFO  [VisualizerService.java:346] : data=[16861 bytes]
+timestamp = 09/03/2014 14:54:51
+ crumbsLength = 4
+2014-09-03 14:54:51,119 INFO  [VisualizerService.java:393] : Feed contains : 101 entities
+2014-09-03 14:54:51,119 INFO  [VisualizerService.java:475] : vehicles updated: 28
+2014-09-03 14:54:51,119 INFO  [VisualizerService.java:611] : refresh interval: 24
+2014-09-03 14:55:15,120 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:55:19,277 INFO  [VisualizerService.java:346] : data=[16935 bytes]
+2014-09-03 14:55:19,293 INFO  [VisualizerService.java:393] : Feed contains : 101 entities
+2014-09-03 14:55:19,293 INFO  [VisualizerService.java:477] : No Update - vehicles found: 101, vehicle Posns found: 28, trip updates found: 73
+timestamp = 09/03/2014 14:55:19
+2014-09-03 14:55:43,294 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:55:47,341 INFO  [VisualizerService.java:346] : data=[16837 bytes]
+timestamp = 09/03/2014 14:55:47
+2014-09-03 14:55:47,341 INFO  [VisualizerService.java:393] : Feed contains : 101 entities
+ crumbsLength = 6
+2014-09-03 14:55:47,341 INFO  [VisualizerService.java:475] : vehicles updated: 28
+2014-09-03 14:55:47,357 INFO  [VisualizerService.java:611] : refresh interval: 28
+2014-09-03 14:56:15,343 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:56:19,280 INFO  [VisualizerService.java:346] : data=[16619 bytes]
+timestamp = 09/03/2014 14:56:19
+2014-09-03 14:56:19,296 INFO  [VisualizerService.java:393] : Feed contains : 99 entities
+2014-09-03 14:56:19,296 INFO  [VisualizerService.java:477] : No Update - vehicles found: 99, vehicle Posns found: 27, trip updates found: 72
+2014-09-03 14:56:47,298 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:56:51,673 INFO  [VisualizerService.java:346] : data=[16593 bytes]
+timestamp = 09/03/2014 14:56:51
+2014-09-03 14:56:51,673 INFO  [VisualizerService.java:393] : Feed contains : 99 entities
+2014-09-03 14:56:51,673 INFO  [VisualizerService.java:477] : No Update - vehicles found: 99, vehicle Posns found: 27, trip updates found: 72
+2014-09-03 14:57:19,690 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:57:23,769 INFO  [VisualizerService.java:346] : data=[16258 bytes]
+timestamp = 09/03/2014 14:57:23
+2014-09-03 14:57:23,769 INFO  [VisualizerService.java:393] : Feed contains : 97 entities
+2014-09-03 14:57:23,769 INFO  [VisualizerService.java:477] : No Update - vehicles found: 97, vehicle Posns found: 26, trip updates found: 71
+2014-09-03 14:57:51,770 INFO  [VisualizerService.java:335] : refreshing vehicle positions
+2014-09-03 14:57:55,395 INFO  [VisualizerService.java:346] : data=[16031 bytes]
+timestamp = 09/03/2014 14:57:55
+2014-09-03 14:57:55,395 INFO  [VisualizerService.java:393] : Feed contains : 95 entities
+ crumbsLength = 8
+entities/create {"entities":[{"name":"VU-401030[401030]"},{"name":"VU-401034[401034]"},{"name":"VU-401041[401041]"},{"name":"VU-401042[401042]"},{"name":"VU-401044[401044]"},{"name":"VU-401046[401046]"},{"name":"VU-401047[401047]"},{"name":"VU-401048[401048]"}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@857066
+{
+ "entityIds": [
+  "c9f319375f3c0786",
+  "1eb4b0f5bca380b0",
+  "e1d5b6fb30454212",
+  "929169e323328d4b",
+  "badb09e484fe8579",
+  "6d5f7c3fecebcb1e",
+  "10d087d7781c509d",
+  "28cecdf210af0bcf"
+ ]
+}
+collections/addentities {"entityIds":["c9f319375f3c0786","1eb4b0f5bca380b0","e1d5b6fb30454212","929169e323328d4b","badb09e484fe8579","6d5f7c3fecebcb1e","10d087d7781c509d","28cecdf210af0bcf"],"collectionId":"767a7c198d4954c5"}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@a16157
+{}
+crumbs/record {"entityId":"c9f319375f3c0786","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.02676391601562,"lat":-27.467117309570312},"confidenceRadius":"3.4","userData":{"trip":"4583061-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@15fc606
+{}
+crumbs/record {"entityId":"1eb4b0f5bca380b0","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.04751586914062,"lat":-27.4515323638916},"confidenceRadius":"3.4","userData":{"trip":"4583069-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720091E9,"location":{"lng":153.0484161376953,"lat":-27.452533721923828},"confidenceRadius":"3.4","userData":{"trip":"4583069-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720147E9,"location":{"lng":153.0487060546875,"lat":-27.452199935913086},"confidenceRadius":"3.4","userData":{"trip":"4583069-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1e779a7
+{}
+crumbs/record {"entityId":"e1d5b6fb30454212","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.00823974609375,"lat":-27.476816177368164},"confidenceRadius":"3.4","userData":{"trip":"4583055-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720147E9,"location":{"lng":153.00384521484375,"lat":-27.482467651367188},"confidenceRadius":"3.4","userData":{"trip":"4583055-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720275E9,"location":{"lng":153.00042724609375,"lat":-27.489582061767578},"confidenceRadius":"3.4","userData":{"trip":"4583055-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1e3e7d2
+{}
+crumbs/record {"entityId":"929169e323328d4b","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.01535034179688,"lat":-27.475566864013672},"confidenceRadius":"3.4","userData":{"trip":"4583062-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720147E9,"location":{"lng":153.02420043945312,"lat":-27.469066619873047},"confidenceRadius":"3.4","userData":{"trip":"4583062-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720275E9,"location":{"lng":153.0287628173828,"lat":-27.46583366394043},"confidenceRadius":"3.4","userData":{"trip":"4583062-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@17bcd4
+{}
+crumbs/record {"entityId":"badb09e484fe8579","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.00245666503906,"lat":-27.484582901000977},"confidenceRadius":"3.4","userData":{"trip":"4583068-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720091E9,"location":{"lng":153.00425720214844,"lat":-27.48171615600586},"confidenceRadius":"3.4","userData":{"trip":"4583068-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@6e3fe4
+{}
+crumbs/record {"entityId":"6d5f7c3fecebcb1e","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.0027618408203,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583070-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720091E9,"location":{"lng":153.00259399414062,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583070-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@24c22b
+{}
+crumbs/record {"entityId":"10d087d7781c509d","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.0413055419922,"lat":-27.452932357788086},"confidenceRadius":"3.4","userData":{"trip":"4583067-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720091E9,"location":{"lng":153.03866577148438,"lat":-27.454866409301758},"confidenceRadius":"3.4","userData":{"trip":"4583067-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720147E9,"location":{"lng":153.03636169433594,"lat":-27.457082748413086},"confidenceRadius":"3.4","userData":{"trip":"4583067-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720275E9,"location":{"lng":153.03395080566406,"lat":-27.459449768066406},"confidenceRadius":"3.4","userData":{"trip":"4583067-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@9bad4f
+{}
+crumbs/record {"entityId":"28cecdf210af0bcf","crumbs":[{"timestamp":1.409720042E9,"location":{"lng":153.02439880371094,"lat":-27.468982696533203},"confidenceRadius":"3.4","userData":{"trip":"4583058-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409720091E9,"location":{"lng":153.0306854248047,"lat":-27.464033126831055},"confidenceRadius":"3.4","userData":{"trip":"4583058-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@5ba50e
+{}
+2014-09-03 14:58:19,303 INFO  [VisualizerService.java:475] : vehicles updated: 24
+2014-09-03 14:58:19,303 INFO  [VisualizerService.java:611] : refresh interval: 75

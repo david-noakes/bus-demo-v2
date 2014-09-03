@@ -1,0 +1,81 @@
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@161d36b
+{
+ "nearbyCrumbs": [
+  {
+   "timestamp": 1.409034049E9,
+   "location": {
+    "lat": 27.47351399999997,
+    "lng": 153.013136
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034135E9,
+   "location": {
+    "lat": -27.476816177368164,
+    "lng": 153.031494140625
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034203E9,
+   "location": {
+    "lat": -27.48196792602539,
+    "lng": 153.03427124023438
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  }
+ ],
+ "addressComponents": [
+  {
+   "name": "55",
+   "types": [
+    "street_number"
+   ]
+  },
+  {
+   "name": "Lockerbie Street",
+   "types": [
+    "route"
+   ]
+  },
+  {
+   "name": "Kangaroo Point",
+   "types": [
+    "locality",
+    "political"
+   ]
+  },
+  {
+   "name": "Queensland",
+   "types": [
+    "administrative_area_level_1",
+    "political"
+   ]
+  },
+  {
+   "name": "Australia",
+   "types": [
+    "country",
+    "political"
+   ]
+  },
+  {
+   "name": "4169",
+   "types": [
+    "postal_code"
+   ]
+  }
+ ]
+}
+

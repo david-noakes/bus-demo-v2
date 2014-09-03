@@ -1,0 +1,183 @@
+collections/list
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1ef8cf3
+{
+ "collections": [
+  {
+   "id": "3f962d2559a601f8",
+   "name": "SEA rental fleet - midsize",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "ba8d11e45e71554c",
+   "name": "SEA rental fleet - compact",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  }
+ ]
+}
+entities/list
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1b8f864
+{
+ "entities": [
+  {
+   "id": "174919bd798ce5cb",
+   "name": "Bus0001",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "eb27bbe02496d603",
+   "name": "auto001",
+   "type": "AUTOMOBILE"
+  }
+ ]
+}
+load entities from string
+for each entity  crumbs/gethistory (now, crumbsBefore 100)
+
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1bd2664
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1238bd2
+{
+ "crumbs": [
+  {
+   "timestamp": 1.409034049E9,
+   "location": {
+    "lat": 27.47351399999997,
+    "lng": 153.013136
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034135E9,
+   "location": {
+    "lat": -27.476816177368164,
+    "lng": 153.031494140625
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034203E9,
+   "location": {
+    "lat": -27.48196792602539,
+    "lng": 153.03427124023438
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  }
+ ]
+}
+
+for each collection
+  for each entity
+      crumbs/gethistory:
+
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@ba9340
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1198891
+{
+ "crumbs": [
+  {
+   "timestamp": 1.409034049E9,
+   "location": {
+    "lat": 27.47351399999997,
+    "lng": 153.013136
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034135E9,
+   "location": {
+    "lat": -27.476816177368164,
+    "lng": 153.031494140625
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034203E9,
+   "location": {
+    "lat": -27.48196792602539,
+    "lng": 153.03427124023438
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  }
+ ]
+}
+for each response
+    entity.LoadCrumbsFromTracksString
+
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1551d7f
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@17725c4
+{
+ "crumbs": [
+  {
+   "timestamp": 1.409034049E9,
+   "location": {
+    "lat": 27.47351399999997,
+    "lng": 153.013136
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034135E9,
+   "location": {
+    "lat": -27.476816177368164,
+    "lng": 153.031494140625
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  },
+  {
+   "timestamp": 1.409034203E9,
+   "location": {
+    "lat": -27.48196792602539,
+    "lng": 153.03427124023438
+   },
+   "userData": {
+    "driver_name": "Joe",
+    "measured_vehicle_speed": "110.2"
+   }
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1ef8cf3
+{
+ "collections": [
+  {
+   "id": "3f962d2559a601f8",
+   "name": "SEA rental fleet - midsize",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "ba8d11e45e71554c",
+   "name": "SEA rental fleet - compact",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "c439743b513f3b7a",
+   "name": "19700101 Route: 60-470",
+   "entityIds": [
+    "02fb26970d3f3114",
+    "09b88814717a6469",
+    "09f9c41d6aa0fb10",
+    "191fe5c77ab11845",
+    "2884f22f0cfad3e9",
+    "2a8581f5bf43dfaf",
+    "45fa6853184252fb",
+    "7a8c0feeb89e9380",
+    "96dab7386fdd036b",
+    "9a87c1e09a5f7158",
+    "a8c217e53fd6c6fc",
+    "abb09cc69af59587",
+    "cf8bc253f67c9495",
+    "f8de051ef4340169",
+    "ff0d3df49f488854"
+   ]
+  }
+ ]
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1cbfe9d
+{
+ "entities": [
+  {
+   "id": "02fb26970d3f3114",
+   "name": "401036, Trip=4582989-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "09b88814717a6469",
+   "name": "401036, Trip=4583003-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "09f9c41d6aa0fb10",
+   "name": "401042, Trip=4583000-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "174919bd798ce5cb",
+   "name": "Bus0001",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "191fe5c77ab11845",
+   "name": "401043, Trip=4582999-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "2884f22f0cfad3e9",
+   "name": "401030, Trip=4583005-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "2a8581f5bf43dfaf",
+   "name": "401030, Trip=4582994-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "45fa6853184252fb",
+   "name": "401043, Trip=4582999-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "7a8c0feeb89e9380",
+   "name": "401037, Trip=4582998-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "96dab7386fdd036b",
+   "name": "401042, Trip=4583000-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "9a87c1e09a5f7158",
+   "name": "401032, Trip=4583006-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "a8c217e53fd6c6fc",
+   "name": "401034, Trip=4582991-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "abb09cc69af59587",
+   "name": "401039, Trip=4582997-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "cf8bc253f67c9495",
+   "name": "401037, Trip=4582998-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "eb27bbe02496d603",
+   "name": "auto001",
+   "type": "AUTOMOBILE"
+  },
+  {
+   "id": "f8de051ef4340169",
+   "name": "401039, Trip=4582997-BT2014-AUG-FUL-Weekday-00"
+  },
+  {
+   "id": "ff0d3df49f488854",
+   "name": "401032, Trip=4582993-BT2014-AUG-FUL-Weekday-00"
+  }
+ ]
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1989f84
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1238bd2
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@b0bad7
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@ba9340
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1198891
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@10382a9
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@17725c4
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1506dc4
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1126b07
+{
+ "crumbs": []
+}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@30d082

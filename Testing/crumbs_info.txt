@@ -1,0 +1,31 @@
+collections/list
+entities/list
+
+crumbs/summarize {
+    "entityId": "1ff3a55f94e954ee",
+    "minTimestamp": 1341375000,
+    "maxTimestamp": 1341461400,
+	"snapToRoad": true
+}
+
+crumbs/report {
+    "entityId": "1ff3a55f94e954ee",
+    "minTimestamp": 1341375000,
+    "maxTimestamp": 1341461400
+}
+
+crumbs/gethistory {
+    "entityId": "1ff3a55f94e954ee",
+    "timestamp": 1341500000,
+    "countBefore": 25
+}
+
+crumbs/getlocationinfo {
+    "entityId": "1ff3a55f94e954ee",
+    "language": "en",     <!-- optional
+    "timestamp": 1341375060
+}
+
+ crumbs/getrecent {
+    "collectionId": "767a7c198d4954c5"
+}

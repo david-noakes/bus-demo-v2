@@ -1,0 +1,58 @@
+    GoogleTracksCollectionList gtCollList = new GoogleTracksCollectionList();
+    GoogleTracksCollection gtColl = new GoogleTracksCollection("", "SEA rental fleet - compact", new ArrayList<GoogleTracksEntity>());
+    gtCollList.add(gtColl);
+    gtColl = new GoogleTracksCollection("", "SEA rental fleet - midsize", new ArrayList<GoogleTracksEntity>());
+    gtCollList.add(gtColl);
+    
+    String method = "collections/create";
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@111ded2
+{
+ "collectionIds": [
+  "ba8d11e45e71554c",
+  "3f962d2559a601f8"
+ ]
+}
+    gtCollList.LoadCollectionIdsFromTracksString(response);
+    GoogleTracksEntity gtEnt = new GoogleTracksEntity("eb27bbe02496d603","Bus001","AUTOMOBILE");
+    gtCollList.get(0).get_Entities().add(gtEnt);
+    gtEnt = new GoogleTracksEntity("174919bd798ce5cb","Bus002","AUTOMOBILE");
+    gtCollList.get(0).get_Entities().add(gtEnt);
+    gtEnt = new GoogleTracksEntity("eb27bbe02496d603","Bus003","AUTOMOBILE");
+    gtCollList.get(1).get_Entities().add(gtEnt);
+    gtEnt = new GoogleTracksEntity("174919bd798ce5cb","Bus004","AUTOMOBILE");
+    gtCollList.get(1).get_Entities().add(gtEnt);
+    
+    
+    method = "collections/addentities";
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@bf1f20
+{}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1de7497
+{}
+
+    method = "collections/list";
+
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1ef8cf3
+{
+ "collections": [
+  {
+   "id": "3f962d2559a601f8",
+   "name": "SEA rental fleet - midsize",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  },
+  {
+   "id": "ba8d11e45e71554c",
+   "name": "SEA rental fleet - compact",
+   "entityIds": [
+    "174919bd798ce5cb",
+    "eb27bbe02496d603"
+   ]
+  }
+ ]
+}
