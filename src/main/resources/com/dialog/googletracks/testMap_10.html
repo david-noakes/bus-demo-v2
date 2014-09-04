@@ -12,12 +12,16 @@
       #map-canvas { height: 100% ; width: 100%}
     </style>
     <script type="text/javascript"
+           src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+    </script>
+    <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU9TItKDu_e344nNW-UEfweyAM6nlLMrc">
     </script>
     <script type="text/javascript">
         // In the following example, markers appear when the user clicks on the map.
         // The markers are stored in an array.
         // The user can then click an option to hide, show or delete the markers.
+  		var hostandport = window.location.hostname + ':' + window.location.port;
         var map;
         var markers = [];
         var busMarkers = [];
@@ -56,6 +60,9 @@
             });
             // Adds a marker at the center of the map.
             addMarker(brisbaneLatLng);
+
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
         }
 
         function setBus() {
@@ -123,7 +130,7 @@
             xmlCounter++;
             if (xmlCounter > 20) {
                 xmlCounter = 0;
-                xmlhttp.onreadystatechange = requestHandler;
+              //  xmlhttp.onreadystatechange = requestHandler;
               //  xmlhttp.open("GET", "https://gtfsrt.api.translink.com.au/Feed/SEQ", false);
               //  xmlhttp.send();
             }
@@ -132,10 +139,27 @@
         function requestHandler() {
             if (xmlhttp.readyState == 4) {
                 // process the data
-                document.getElementById("trace").innerHTML = "t="+ xmlhttp.responseText;
+                //document.getElementById("trace").innerHTML = "t="+ xmlhttp.responseText;
                 //document.getElementById("trace").innerHTML = "tracing";  //xmlhttp.toString;
                 //document.getElementById("demo").innerHTML = d.toLocaleTimeString() + " tracing";
             }
+        }
+        
+        function getCollections() {
+        	// get JSON data from server
+$.get( hostandport, '"collections/list"', handleCollectionList() )        	
+//         	gapi.client.request({
+//         		method:'POST', 
+//         		 path: '/tracks/v1/collections/list',
+//         		 params: { }
+//         	})
+        }
+        
+        function handleCollectionList(data, status, xhr) {
+        	//data is returned
+        	//status want "success"
+        	//type should be json
+        	
         }
     </script>
   </head>
@@ -143,11 +167,12 @@
     <div id="panel">
       <input onclick="clearMarkers();" type=button value="Hide Markers">
       <input onclick="showMarkers();" type=button value="Show All Markers">
-      <!-- <input onclick="deleteMarkers();" type=button value="Delete Markers">  -->
+      <input onclick="deleteMarkers();" type=button value="Delete Markers">
       <input onclick="setBus();" type=button value="New Marker is bus">
       <input onclick="setFerry();" type=button value="New Marker is ferry">
+      <input onclick="getCollections();" type=button value="get collections">
       <label id="demo"></label>
-      <label id="trace"></label>
+      <label id="trace">version 0005</label>
     </div>
     <div id="map-canvas"/>
   </body>
