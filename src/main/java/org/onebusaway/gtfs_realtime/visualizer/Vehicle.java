@@ -33,6 +33,10 @@ public class Vehicle {
   private long lastUpdate;  
   
   private String tracksEntityId;
+  
+  public String generateTracksName() {
+      return getEntityId()+"[" + getId() + "]";
+  }
 
   /**
  * @return the tracksEntityId

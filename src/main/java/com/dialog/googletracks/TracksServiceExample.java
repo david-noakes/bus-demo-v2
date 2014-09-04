@@ -157,31 +157,32 @@ public class TracksServiceExample {
 
     //Test 8
     // print recent crumbs for the entities in collections
-    
-    method = GoogleTracksConstants.METHOD_CRUMBS_GET_RECENT;
-    URI = GoogleTracksConstants.GOOGLE_TRACKS_API + method;
-    for (int i=0;i<gtCollList.size();i++) {
-      GoogleTracksCollection gtColl = gtCollList.get(i);
-      requestBody = gtColl.generateCollectionIdToTracksString();
-      System.out.println("method="+method+" "+requestBody);
-//      for (int j=0;j<gtColl.getEntities().size();j++) {
-//        requestBody = gtColl.getEntities().get(j).GenerateCrumbsHistoryRequest(0, 100);
-      requestFactory =
-            httpTransport.createRequestFactory(credential);  //1409033790941
-      url = new GenericUrl(URI);
-      request =
-         requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
-      request.getHeaders().setContentType("application/json");
-      shortUrl = request.execute();
-      
-      // Print response.
-      response = "";
-      output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
-      for (String line = output.readLine(); line != null; line = output.readLine()) {
-         System.out.println(line);
-         response = response + line;
-//        }
-      }  
+    if (false) {
+        method = GoogleTracksConstants.METHOD_CRUMBS_GET_RECENT;
+        URI = GoogleTracksConstants.GOOGLE_TRACKS_API + method;
+        for (int i=0;i<gtCollList.size();i++) {
+          GoogleTracksCollection gtColl = gtCollList.get(i);
+          requestBody = gtColl.generateCollectionIdToTracksString();
+          System.out.println("method="+method+" "+requestBody);
+    //      for (int j=0;j<gtColl.getEntities().size();j++) {
+    //        requestBody = gtColl.getEntities().get(j).GenerateCrumbsHistoryRequest(0, 100);
+          requestFactory =
+                httpTransport.createRequestFactory(credential);  //1409033790941
+          url = new GenericUrl(URI);
+          request =
+             requestFactory.buildPostRequest(url,ByteArrayContent.fromString(null, requestBody));
+          request.getHeaders().setContentType("application/json");
+          shortUrl = request.execute();
+          
+          // Print response.
+          response = "";
+          output = new BufferedReader(new InputStreamReader(shortUrl.getContent()));
+          for (String line = output.readLine(); line != null; line = output.readLine()) {
+             System.out.println(line);
+             response = response + line;
+    //        }
+          }
+    }
     }
 
   }

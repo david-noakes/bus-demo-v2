@@ -1,0 +1,635 @@
+2nd run 2014-09-04
+
+collections/list  
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@119db9e
+{
+ "collections": [
+  {
+   "id": "385442f0cd69f744",
+   "name": "20140904 Route: 60-470",
+   "entityIds": [
+    "e1bb37bedd3ce021"
+   ]
+  },
+  {
+   "id": "767a7c198d4954c5",
+   "name": "20140903 Route: 60-470",
+   "entityIds": [
+    "003bc127f3e24591",
+    "10d087d7781c509d",
+    "1eb4b0f5bca380b0",
+    "28cecdf210af0bcf",
+    "6d5f7c3fecebcb1e",
+    "929169e323328d4b",
+    "badb09e484fe8579",
+    "e1d5b6fb30454212",
+    "fd7b7988113b9d40",
+    "fd839476a65f07cb"
+   ]
+  }
+ ]
+}
+entities/list  
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1398cac
+{
+ "entities": [
+  {
+   "id": "003bc127f3e24591",
+   "name": "VU-401030[401030]"
+  },
+  {
+   "id": "10d087d7781c509d",
+   "name": "VU-401047[401047]"
+  },
+  {
+   "id": "1eb4b0f5bca380b0",
+   "name": "VU-401034[401034]"
+  },
+  {
+   "id": "28cecdf210af0bcf",
+   "name": "VU-401048[401048]"
+  },
+  {
+   "id": "6d5f7c3fecebcb1e",
+   "name": "VU-401046[401046]"
+  },
+  {
+   "id": "929169e323328d4b",
+   "name": "VU-401042[401042]"
+  },
+  {
+   "id": "badb09e484fe8579",
+   "name": "VU-401044[401044]"
+  },
+  {
+   "id": "e1bb37bedd3ce021",
+   "name": "VU-401032[401032]"
+  },
+  {
+   "id": "e1d5b6fb30454212",
+   "name": "VU-401041[401041]"
+  },
+  {
+   "id": "fd7b7988113b9d40",
+   "name": "VU-401040[401040]"
+  },
+  {
+   "id": "fd839476a65f07cb",
+   "name": "VU-401031[401031]"
+  }
+ ]
+}
+2014-09-04 12:52:50,385 INFO  [VisualizerService.java:187] : Scheme = https
+2014-09-04 12:52:50,432 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:52:50,635 INFO  [Server.java:272] : jetty-8.1.11.v20130520
+2014-09-04 12:52:50,823 INFO  [AbstractConnector.java:338] : Started SelectChannelConnector@0.0.0.0:9080
+2014-09-04 12:52:50,823 INFO  [VisualizerServer.java:86] : 
+=======================================================
+
+  The GTFS-realtime visualizer server has
+  started.  Check it out at:
+
+    http://localhost:9080/
+
+=======================================================
+
+2014-09-04 12:52:52,120 INFO  [VisualizerService.java:348] : data=[15684 bytes]
+timestamp = 09/04/2014 12:52:52
+2014-09-04 12:52:52,245 INFO  [VisualizerService.java:395] : Feed contains : 96 entities
+2014-09-04 12:53:46,545 INFO  [VisualizerService.java:477] : vehicles updated: 29
+ crumbsLength = 2
+2014-09-04 12:54:06,561 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:54:08,374 INFO  [VisualizerService.java:348] : data=[15693 bytes]
+timestamp = 09/04/2014 12:54:08
+2014-09-04 12:54:08,389 INFO  [VisualizerService.java:395] : Feed contains : 96 entities
+ crumbsLength = 4
+2014-09-04 12:54:08,389 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 12:54:08,389 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 12:54:18,390 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:54:20,031 INFO  [VisualizerService.java:348] : data=[15533 bytes]
+timestamp = 09/04/2014 12:54:20
+ crumbsLength = 5
+2014-09-04 12:54:20,046 INFO  [VisualizerService.java:395] : Feed contains : 95 entities
+2014-09-04 12:54:20,046 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 12:54:20,062 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 12:54:30,062 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:54:32,547 INFO  [VisualizerService.java:348] : data=[15322 bytes]
+2014-09-04 12:54:32,547 INFO  [VisualizerService.java:395] : Feed contains : 94 entities
+2014-09-04 12:54:32,547 INFO  [VisualizerService.java:479] : No Update - vehicles found: 94, vehicle Posns found: 28, trip updates found: 66
+timestamp = 09/04/2014 12:54:32
+2014-09-04 12:54:42,563 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:54:44,063 INFO  [VisualizerService.java:348] : data=[15422 bytes]
+timestamp = 09/04/2014 12:54:44
+2014-09-04 12:54:44,063 INFO  [VisualizerService.java:395] : Feed contains : 95 entities
+2014-09-04 12:54:44,063 INFO  [VisualizerService.java:477] : vehicles updated: 29
+ crumbsLength = 6
+2014-09-04 12:54:44,063 INFO  [VisualizerService.java:633] : refresh interval: 12
+2014-09-04 12:54:56,064 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:54:57,658 INFO  [VisualizerService.java:348] : data=[15598 bytes]
+timestamp = 09/04/2014 12:54:57
+2014-09-04 12:54:57,673 INFO  [VisualizerService.java:395] : Feed contains : 95 entities
+ crumbsLength = 7
+2014-09-04 12:54:57,673 INFO  [VisualizerService.java:477] : vehicles updated: 29
+2014-09-04 12:54:57,673 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 12:55:07,674 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:55:09,596 INFO  [VisualizerService.java:348] : data=[15131 bytes]
+timestamp = 09/04/2014 12:55:09
+2014-09-04 12:55:09,596 INFO  [VisualizerService.java:395] : Feed contains : 93 entities
+2014-09-04 12:55:09,596 INFO  [VisualizerService.java:479] : No Update - vehicles found: 93, vehicle Posns found: 29, trip updates found: 64
+2014-09-04 12:55:19,596 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:55:21,127 INFO  [VisualizerService.java:348] : data=[15011 bytes]
+timestamp = 09/04/2014 12:55:21
+ crumbsLength = 8
+2014-09-04 12:55:21,127 INFO  [VisualizerService.java:395] : Feed contains : 92 entities
+2014-09-04 12:55:21,127 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 12:55:21,143 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 12:55:32,144 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:55:33,613 INFO  [VisualizerService.java:348] : data=[14653 bytes]
+2014-09-04 12:55:33,613 INFO  [VisualizerService.java:395] : Feed contains : 90 entities
+timestamp = 09/04/2014 12:55:33
+2014-09-04 12:55:33,613 INFO  [VisualizerService.java:477] : vehicles updated: 28
+ crumbsLength = 9
+2014-09-04 12:55:33,628 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 12:55:43,629 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:55:45,129 INFO  [VisualizerService.java:348] : data=[14619 bytes]
+timestamp = 09/04/2014 12:55:45
+2014-09-04 12:55:45,144 INFO  [VisualizerService.java:395] : Feed contains : 90 entities
+2014-09-04 12:55:45,144 INFO  [VisualizerService.java:479] : No Update - vehicles found: 90, vehicle Posns found: 28, trip updates found: 62
+2014-09-04 12:55:55,145 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:55:57,051 INFO  [VisualizerService.java:348] : data=[14717 bytes]
+timestamp = 09/04/2014 12:55:57
+2014-09-04 12:55:57,082 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 12:55:57,082 INFO  [VisualizerService.java:477] : vehicles updated: 29
+ crumbsLength = 10
+2014-09-04 12:55:57,082 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 12:56:08,083 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:56:09,474 INFO  [VisualizerService.java:348] : data=[14671 bytes]
+2014-09-04 12:56:09,489 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+timestamp = 09/04/2014 12:56:09
+2014-09-04 12:56:09,489 INFO  [VisualizerService.java:479] : No Update - vehicles found: 91, vehicle Posns found: 29, trip updates found: 62
+2014-09-04 12:56:20,490 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:56:21,927 INFO  [VisualizerService.java:348] : data=[14702 bytes]
+timestamp = 09/04/2014 12:56:21
+2014-09-04 12:56:21,927 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 12:56:21,927 INFO  [VisualizerService.java:477] : vehicles updated: 29
+ crumbsLength = 11
+2014-09-04 12:56:21,927 INFO  [VisualizerService.java:633] : refresh interval: 12
+2014-09-04 12:56:33,928 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:56:35,303 INFO  [VisualizerService.java:348] : data=[14575 bytes]
+timestamp = 09/04/2014 12:56:35
+ crumbsLength = 12
+2014-09-04 12:56:35,303 INFO  [VisualizerService.java:395] : Feed contains : 90 entities
+2014-09-04 12:56:35,303 INFO  [VisualizerService.java:477] : vehicles updated: 29
+2014-09-04 12:56:35,303 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 12:56:45,304 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:56:46,648 INFO  [VisualizerService.java:348] : data=[14577 bytes]
+timestamp = 09/04/2014 12:56:462014-09-04 12:56:46,663 INFO  [VisualizerService.java:395] : Feed contains : 90 entities
+
+2014-09-04 12:56:46,663 INFO  [VisualizerService.java:479] : No Update - vehicles found: 90, vehicle Posns found: 29, trip updates found: 61
+2014-09-04 12:56:56,664 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:56:58,226 INFO  [VisualizerService.java:348] : data=[14416 bytes]
+timestamp = 09/04/2014 12:56:58
+2014-09-04 12:56:58,226 INFO  [VisualizerService.java:395] : Feed contains : 89 entities
+2014-09-04 12:56:58,226 INFO  [VisualizerService.java:477] : vehicles updated: 29
+ crumbsLength = 13
+2014-09-04 12:56:58,226 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 12:57:09,242 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:57:10,789 INFO  [VisualizerService.java:348] : data=[14358 bytes]
+2014-09-04 12:57:10,789 INFO  [VisualizerService.java:395] : Feed contains : 89 entities
+2014-09-04 12:57:10,789 INFO  [VisualizerService.java:479] : No Update - vehicles found: 89, vehicle Posns found: 29, trip updates found: 60
+timestamp = 09/04/2014 12:57:10
+2014-09-04 12:57:21,806 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:57:23,212 INFO  [VisualizerService.java:348] : data=[14278 bytes]
+timestamp = 09/04/2014 12:57:23
+2014-09-04 12:57:23,212 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+ crumbsLength = 14
+2014-09-04 12:57:23,212 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 12:57:23,212 INFO  [VisualizerService.java:633] : refresh interval: 12
+2014-09-04 12:57:35,228 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:57:36,775 INFO  [VisualizerService.java:348] : data=[14279 bytes]
+timestamp = 09/04/2014 12:57:36
+2014-09-04 12:57:36,775 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+ crumbsLength = 15
+2014-09-04 12:57:36,775 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 12:57:36,775 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 12:57:46,791 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:57:48,713 INFO  [VisualizerService.java:348] : data=[14366 bytes]
+2014-09-04 12:57:48,729 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+2014-09-04 12:57:48,729 INFO  [VisualizerService.java:479] : No Update - vehicles found: 88, vehicle Posns found: 28, trip updates found: 60
+timestamp = 09/04/2014 12:57:48
+2014-09-04 12:57:58,729 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:58:00,401 INFO  [VisualizerService.java:348] : data=[14323 bytes]
+2014-09-04 12:58:00,401 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+timestamp = 09/04/2014 12:58:00
+2014-09-04 12:58:00,401 INFO  [VisualizerService.java:477] : vehicles updated: 28
+ crumbsLength = 16
+2014-09-04 12:58:00,417 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 12:58:11,417 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:58:13,777 INFO  [VisualizerService.java:348] : data=[14231 bytes]
+timestamp = 09/04/2014 12:58:13
+2014-09-04 12:58:13,777 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+2014-09-04 12:58:13,793 INFO  [VisualizerService.java:479] : No Update - vehicles found: 88, vehicle Posns found: 28, trip updates found: 60
+2014-09-04 12:58:24,793 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:58:26,371 INFO  [VisualizerService.java:348] : data=[14117 bytes]
+timestamp = 09/04/2014 12:58:26
+2014-09-04 12:58:26,371 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+2014-09-04 12:58:26,371 INFO  [VisualizerService.java:477] : vehicles updated: 28
+ crumbsLength = 17
+2014-09-04 12:58:26,371 INFO  [VisualizerService.java:633] : refresh interval: 12
+2014-09-04 12:58:38,372 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 12:58:39,888 INFO  [VisualizerService.java:348] : data=[14174 bytes]
+2014-09-04 12:58:39,888 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+timestamp = 09/04/2014 12:58:39
+ crumbsLength = 18
+entities/create {"entities":[{"name":"VU-401043[401043]","type":"AUTOMOBILE"}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1ee9cc3
+{
+ "entityIds": [
+  "c80032d3b91e341e"
+ ]
+}
+collections/addentities {"entityIds":["c80032d3b91e341e"],"collectionId":"385442f0cd69f744"}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@da6d09
+{}
+collections/addentities {"entityIds":["003bc127f3e24591","fd839476a65f07cb","929169e323328d4b","c80032d3b91e341e","badb09e484fe8579","6d5f7c3fecebcb1e","28cecdf210af0bcf"],"collectionId":"385442f0cd69f744"}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@b6a5fb
+{}
+crumbs/record {"entityId":"003bc127f3e24591","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.04696655273438,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.04693603515625,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.0469512939453,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.04693603515625,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979948E9,"location":{"lng":153.04722595214844,"lat":-27.45115089416504},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.0487060546875,"lat":-27.45224952697754},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.04888916015625,"lat":-27.452049255371094},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1032cf5
+{}
+crumbs/record {"entityId":"28cecdf210af0bcf","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0029296875,"lat":-27.489749908447266},"confidenceRadius":"3.4","userData":{"trip":"4583013-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.00296020507812,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0029296875,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799395E9,"location":{"lng":153.0029296875,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0029296875,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.00262451171875,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@fe2509
+{}
+crumbs/record {"entityId":"6d5f7c3fecebcb1e","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0441131591797,"lat":-27.453632354736328},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.041259765625,"lat":-27.452917098999023},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.03921508789062,"lat":-27.454317092895508},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.03868103027344,"lat":-27.454866409301758},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0384979248047,"lat":-27.45501708984375},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.037353515625,"lat":-27.456132888793945},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.03395080566406,"lat":-27.45949935913086},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.03370666503906,"lat":-27.459699630737305},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.0323028564453,"lat":-27.461233139038086},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@9a5d54
+{}
+crumbs/record {"entityId":"929169e323328d4b","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.03135681152344,"lat":-27.463333129882812},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.02764892578125,"lat":-27.466617584228516},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.0269012451172,"lat":-27.467132568359375},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799321E9,"location":{"lng":153.02679443359375,"lat":-27.467182159423828},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.02639770507812,"lat":-27.46758270263672},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.02420043945312,"lat":-27.46915054321289},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979948E9,"location":{"lng":153.02420043945312,"lat":-27.469133377075195},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.0240478515625,"lat":-27.46933364868164},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@48bc3d
+{}
+crumbs/record {"entityId":"badb09e484fe8579","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.01878356933594,"lat":-27.473649978637695},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.01803588867188,"lat":-27.47410011291504},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.0158233642578,"lat":-27.47545051574707},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.01283264160156,"lat":-27.47711753845215},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.011474609375,"lat":-27.477100372314453},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0112762451172,"lat":-27.47705078125},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.00927734375,"lat":-27.475833892822266},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.00819396972656,"lat":-27.47683334350586},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@54cbb9
+{}
+crumbs/record {"entityId":"fd839476a65f07cb","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.02166748046875,"lat":-27.472000122070312},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.02413940429688,"lat":-27.469133377075195},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.0242156982422,"lat":-27.469200134277344},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.02450561523438,"lat":-27.469017028808594},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0258331298828,"lat":-27.467966079711914},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.02613830566406,"lat":-27.4677677154541},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.02859497070312,"lat":-27.465883255004883},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.02896118164062,"lat":-27.465900421142578},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.03021240234375,"lat":-27.464717864990234},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@77b794
+{}
+crumbs/record {"entityId":"c80032d3b91e341e","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0319366455078,"lat":-27.459800720214844},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.0337677001953,"lat":-27.457366943359375},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.03436279296875,"lat":-27.456850051879883},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.0343780517578,"lat":-27.456832885742188},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799321E9,"location":{"lng":153.0343475341797,"lat":-27.456817626953125},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.03575134277344,"lat":-27.45538330078125},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.03707885742188,"lat":-27.454099655151367},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.03897094726562,"lat":-27.452350616455078},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0391387939453,"lat":-27.452150344848633},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.0413818359375,"lat":-27.45021629333496},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.04156494140625,"lat":-27.45001792907715},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@14b43d
+{}
+2014-09-04 13:02:52,026 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 13:02:52,041 INFO  [VisualizerService.java:633] : refresh interval: 60
+2014-09-04 13:03:52,044 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:03:52,232 INFO  [VisualizerService.java:348] : data=[15355 bytes]
+timestamp = 09/04/2014 13:03:52
+2014-09-04 13:03:52,232 INFO  [VisualizerService.java:395] : Feed contains : 93 entities
+2014-09-04 13:03:52,232 INFO  [VisualizerService.java:477] : vehicles updated: 27
+ crumbsLength = 6
+2014-09-04 13:03:52,232 INFO  [VisualizerService.java:633] : refresh interval: 30
+2014-09-04 13:04:22,233 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:04:23,796 INFO  [VisualizerService.java:348] : data=[15402 bytes]
+timestamp = 09/04/2014 13:04:23
+2014-09-04 13:04:23,796 INFO  [VisualizerService.java:395] : Feed contains : 94 entities
+2014-09-04 13:04:23,796 INFO  [VisualizerService.java:477] : vehicles updated: 28
+ crumbsLength = 9
+2014-09-04 13:04:23,796 INFO  [VisualizerService.java:633] : refresh interval: 15
+2014-09-04 13:04:38,797 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:04:38,984 INFO  [VisualizerService.java:348] : data=[15402 bytes]
+timestamp = 09/04/2014 13:04:39
+2014-09-04 13:04:39,000 INFO  [VisualizerService.java:395] : Feed contains : 94 entities
+2014-09-04 13:04:39,000 INFO  [VisualizerService.java:477] : vehicles updated: 28
+2014-09-04 13:04:39,000 INFO  [VisualizerService.java:633] : refresh interval: 10
+ crumbsLength = 10
+2014-09-04 13:04:49,000 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:04:49,188 INFO  [VisualizerService.java:348] : data=[15333 bytes]
+timestamp = 09/04/2014 13:04:49
+2014-09-04 13:04:49,188 INFO  [VisualizerService.java:395] : Feed contains : 93 entities
+2014-09-04 13:04:49,188 INFO  [VisualizerService.java:479] : No Update - vehicles found: 93, vehicle Posns found: 28, trip updates found: 65
+2014-09-04 13:04:59,188 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:05:00,860 INFO  [VisualizerService.java:348] : data=[15333 bytes]
+2014-09-04 13:05:00,876 INFO  [VisualizerService.java:395] : Feed contains : 93 entities
+timestamp = 09/04/2014 13:05:00
+2014-09-04 13:05:00,876 INFO  [VisualizerService.java:477] : vehicles updated: 28
+ crumbsLength = 11
+2014-09-04 13:05:00,876 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:05:10,876 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:05:12,314 INFO  [VisualizerService.java:348] : data=[15079 bytes]
+2014-09-04 13:05:12,314 INFO  [VisualizerService.java:395] : Feed contains : 92 entities
+timestamp = 09/04/2014 13:05:12
+2014-09-04 13:05:12,314 INFO  [VisualizerService.java:479] : No Update - vehicles found: 92, vehicle Posns found: 28, trip updates found: 64
+2014-09-04 13:05:22,330 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:05:23,783 INFO  [VisualizerService.java:348] : data=[14856 bytes]
+timestamp = 09/04/2014 13:05:23
+2014-09-04 13:05:23,783 INFO  [VisualizerService.java:395] : Feed contains : 90 entities
+ crumbsLength = 12
+2014-09-04 13:05:23,783 INFO  [VisualizerService.java:477] : vehicles updated: 26
+2014-09-04 13:05:23,783 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:05:34,784 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:05:36,659 INFO  [VisualizerService.java:348] : data=[14959 bytes]
+timestamp = 09/04/2014 13:05:36
+ crumbsLength = 13
+2014-09-04 13:05:36,659 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:05:36,675 INFO  [VisualizerService.java:477] : vehicles updated: 27
+2014-09-04 13:05:36,675 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:05:46,675 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:05:48,347 INFO  [VisualizerService.java:348] : data=[15013 bytes]
+timestamp = 09/04/2014 13:05:482014-09-04 13:05:48,363 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:05:48,363 INFO  [VisualizerService.java:479] : No Update - vehicles found: 91, vehicle Posns found: 27, trip updates found: 64
+
+2014-09-04 13:05:58,363 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:06:00,191 INFO  [VisualizerService.java:348] : data=[15011 bytes]
+timestamp = 09/04/2014 13:06:002014-09-04 13:06:00,191 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:06:00,191 INFO  [VisualizerService.java:477] : vehicles updated: 27
+
+ crumbsLength = 14
+2014-09-04 13:06:00,191 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:06:11,192 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:06:11,380 INFO  [VisualizerService.java:348] : data=[14957 bytes]
+timestamp = 09/04/2014 13:06:11
+2014-09-04 13:06:11,380 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:06:11,380 INFO  [VisualizerService.java:479] : No Update - vehicles found: 91, vehicle Posns found: 27, trip updates found: 64
+2014-09-04 13:06:22,380 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:06:22,583 INFO  [VisualizerService.java:348] : data=[14917 bytes]
+timestamp = 09/04/2014 13:06:22
+2014-09-04 13:06:22,583 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:06:22,583 INFO  [VisualizerService.java:477] : vehicles updated: 27
+ crumbsLength = 15
+2014-09-04 13:06:22,583 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:06:33,584 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:06:35,365 INFO  [VisualizerService.java:348] : data=[14924 bytes]
+timestamp = 09/04/2014 13:06:35
+2014-09-04 13:06:35,365 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:06:35,365 INFO  [VisualizerService.java:477] : vehicles updated: 27
+ crumbsLength = 16
+2014-09-04 13:06:35,381 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:06:45,381 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:06:46,959 INFO  [VisualizerService.java:348] : data=[14998 bytes]
+timestamp = 09/04/2014 13:06:46
+2014-09-04 13:06:46,959 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:06:46,959 INFO  [VisualizerService.java:479] : No Update - vehicles found: 91, vehicle Posns found: 27, trip updates found: 64
+2014-09-04 13:06:56,960 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:06:57,148 INFO  [VisualizerService.java:348] : data=[15132 bytes]
+timestamp = 09/04/2014 13:06:57
+2014-09-04 13:06:57,148 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:06:57,163 INFO  [VisualizerService.java:477] : vehicles updated: 27
+ crumbsLength = 17
+2014-09-04 13:06:57,163 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:07:07,164 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:07:08,695 INFO  [VisualizerService.java:348] : data=[15078 bytes]
+timestamp = 09/04/2014 13:07:08
+2014-09-04 13:07:08,695 INFO  [VisualizerService.java:395] : Feed contains : 91 entities
+2014-09-04 13:07:08,695 INFO  [VisualizerService.java:479] : No Update - vehicles found: 91, vehicle Posns found: 27, trip updates found: 64
+2014-09-04 13:07:18,695 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:07:20,383 INFO  [VisualizerService.java:348] : data=[14892 bytes]
+timestamp = 09/04/2014 13:07:20
+ crumbsLength = 18
+crumbs/record {"entityId":"003bc127f3e24591","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.04696655273438,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.04693603515625,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.0469512939453,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.04693603515625,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979948E9,"location":{"lng":153.04722595214844,"lat":-27.45115089416504},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.0487060546875,"lat":-27.45224952697754},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.04888916015625,"lat":-27.452049255371094},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.04156494140625,"lat":-27.453033447265625},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.04132080078125,"lat":-27.452917098999023},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.4097999E9,"location":{"lng":153.0386505126953,"lat":-27.454883575439453},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.03846740722656,"lat":-27.45509910583496},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.0367889404297,"lat":-27.45673370361328},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.03504943847656,"lat":-27.458450317382812},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.03392028808594,"lat":-27.45949935913086},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}2014-09-04 13:07:20,399 INFO  [VisualizerService.java:395] : Feed contains : 89 entities
+
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@14e5d57
+{}
+crumbs/record {"entityId":"28cecdf210af0bcf","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0029296875,"lat":-27.489749908447266},"confidenceRadius":"3.4","userData":{"trip":"4583013-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.00296020507812,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0029296875,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799395E9,"location":{"lng":153.0029296875,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0029296875,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.00262451171875,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.00022888183594,"lat":-27.488100051879883},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.00262451171875,"lat":-27.484317779541016},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.4097999E9,"location":{"lng":153.00379943847656,"lat":-27.48236656188965},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.00393676757812,"lat":-27.48221778869629},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.0052490234375,"lat":-27.48015022277832},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.00778198242188,"lat":-27.47713279724121},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.00807189941406,"lat":-27.476816177368164},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.00833129882812,"lat":-27.47661781311035},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1e081c5
+{}
+crumbs/record {"entityId":"6d5f7c3fecebcb1e","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0441131591797,"lat":-27.453632354736328},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.041259765625,"lat":-27.452917098999023},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.03921508789062,"lat":-27.454317092895508},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.03868103027344,"lat":-27.454866409301758},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0384979248047,"lat":-27.45501708984375},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.037353515625,"lat":-27.456132888793945},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.03395080566406,"lat":-27.45949935913086},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.03370666503906,"lat":-27.459699630737305},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.0323028564453,"lat":-27.461233139038086},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.02432250976562,"lat":-27.469066619873047},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.4097999E9,"location":{"lng":153.0243377685547,"lat":-27.469066619873047},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.02420043945312,"lat":-27.46918296813965},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979996E9,"location":{"lng":153.02406311035156,"lat":-27.469266891479492},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@fe8c4
+{}
+crumbs/record {"entityId":"929169e323328d4b","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.03135681152344,"lat":-27.463333129882812},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.02764892578125,"lat":-27.466617584228516},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.0269012451172,"lat":-27.467132568359375},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799321E9,"location":{"lng":153.02679443359375,"lat":-27.467182159423828},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.02639770507812,"lat":-27.46758270263672},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.02420043945312,"lat":-27.46915054321289},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979948E9,"location":{"lng":153.02420043945312,"lat":-27.469133377075195},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.0240478515625,"lat":-27.46933364868164},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.0157012939453,"lat":-27.47551727294922},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.01283264160156,"lat":-27.47713279724121},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979996E9,"location":{"lng":153.01150512695312,"lat":-27.477100372314453},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.01138305664062,"lat":-27.477083206176758},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.00778198242188,"lat":-27.4771671295166},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@7ab89d
+{}
+crumbs/record {"entityId":"badb09e484fe8579","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.01878356933594,"lat":-27.473649978637695},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.01803588867188,"lat":-27.47410011291504},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.0158233642578,"lat":-27.47545051574707},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.01283264160156,"lat":-27.47711753845215},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.011474609375,"lat":-27.477100372314453},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0112762451172,"lat":-27.47705078125},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.00927734375,"lat":-27.475833892822266},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.00819396972656,"lat":-27.47683334350586},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.00296020507812,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.00294494628906,"lat":-27.48983383178711},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799879E9,"location":{"lng":153.0029296875,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.00294494628906,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.002685546875,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.00257873535156,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@5ad7b2
+{}
+crumbs/record {"entityId":"fd839476a65f07cb","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.02166748046875,"lat":-27.472000122070312},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.02413940429688,"lat":-27.469133377075195},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.0242156982422,"lat":-27.469200134277344},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.02450561523438,"lat":-27.469017028808594},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0258331298828,"lat":-27.467966079711914},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.02613830566406,"lat":-27.4677677154541},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.02859497070312,"lat":-27.465883255004883},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.02896118164062,"lat":-27.465900421142578},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.03021240234375,"lat":-27.464717864990234},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.03724670410156,"lat":-27.454099655151367},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.03890991210938,"lat":-27.452383041381836},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799879E9,"location":{"lng":153.03890991210938,"lat":-27.452350616455078},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.0388946533203,"lat":-27.452316284179688},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979996E9,"location":{"lng":153.04025268554688,"lat":-27.451066970825195},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.04144287109375,"lat":-27.450117111206055},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.04319763183594,"lat":-27.450050354003906},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.04348754882812,"lat":-27.449966430664062},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.04383850097656,"lat":-27.449966430664062},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@71a97
+{}
+crumbs/record {"entityId":"c80032d3b91e341e","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0319366455078,"lat":-27.459800720214844},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.0337677001953,"lat":-27.457366943359375},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.03436279296875,"lat":-27.456850051879883},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.0343780517578,"lat":-27.456832885742188},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799321E9,"location":{"lng":153.0343475341797,"lat":-27.456817626953125},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.03575134277344,"lat":-27.45538330078125},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.03707885742188,"lat":-27.454099655151367},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.03897094726562,"lat":-27.452350616455078},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0391387939453,"lat":-27.452150344848633},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.0413818359375,"lat":-27.45021629333496},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.04156494140625,"lat":-27.45001792907715},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.04881286621094,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799879E9,"location":{"lng":153.04881286621094,"lat":-27.452083587646484},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.04881286621094,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.04881286621094,"lat":-27.452083587646484},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1e4d6ef
+2014-09-04 13:07:36,587 INFO  [VisualizerService.java:477] : vehicles updated: 25
+{}
+2014-09-04 13:07:36,587 INFO  [VisualizerService.java:633] : refresh interval: 19
+2014-09-04 13:07:55,588 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:07:55,776 INFO  [VisualizerService.java:348] : data=[14669 bytes]
+timestamp = 09/04/2014 13:07:55
+2014-09-04 13:07:55,776 INFO  [VisualizerService.java:395] : Feed contains : 89 entities
+ crumbsLength = 1
+2014-09-04 13:07:55,776 INFO  [VisualizerService.java:477] : vehicles updated: 26
+2014-09-04 13:07:55,776 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:08:05,776 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:08:07,276 INFO  [VisualizerService.java:348] : data=[14615 bytes]
+timestamp = 09/04/2014 13:08:07
+2014-09-04 13:08:07,276 INFO  [VisualizerService.java:395] : Feed contains : 89 entities
+2014-09-04 13:08:07,276 INFO  [VisualizerService.java:479] : No Update - vehicles found: 89, vehicle Posns found: 26, trip updates found: 63
+2014-09-04 13:08:17,277 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:08:18,964 INFO  [VisualizerService.java:348] : data=[14438 bytes]
+timestamp = 09/04/2014 13:08:18
+2014-09-04 13:08:18,964 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+2014-09-04 13:08:18,964 INFO  [VisualizerService.java:477] : vehicles updated: 26
+ crumbsLength = 2
+2014-09-04 13:08:18,964 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:08:29,965 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:08:30,121 INFO  [VisualizerService.java:348] : data=[14484 bytes]
+timestamp = 09/04/2014 13:08:30
+2014-09-04 13:08:30,340 INFO  [VisualizerService.java:395] : Feed contains : 88 entities
+2014-09-04 13:08:30,340 INFO  [VisualizerService.java:479] : No Update - vehicles found: 88, vehicle Posns found: 26, trip updates found: 62
+2014-09-04 13:08:41,356 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:08:42,887 INFO  [VisualizerService.java:348] : data=[14390 bytes]
+2014-09-04 13:08:42,903 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+2014-09-04 13:08:42,903 INFO  [VisualizerService.java:477] : vehicles updated: 25
+timestamp = 09/04/2014 13:08:42
+ crumbsLength = 3
+2014-09-04 13:08:42,903 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:08:53,903 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:08:55,497 INFO  [VisualizerService.java:348] : data=[14390 bytes]
+timestamp = 09/04/2014 13:08:55
+ crumbsLength = 4
+2014-09-04 13:08:55,497 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+2014-09-04 13:08:55,497 INFO  [VisualizerService.java:477] : vehicles updated: 25
+2014-09-04 13:08:55,497 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:09:05,513 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:09:07,279 INFO  [VisualizerService.java:348] : data=[14336 bytes]
+timestamp = 09/04/2014 13:09:07
+2014-09-04 13:09:07,295 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+2014-09-04 13:09:07,295 INFO  [VisualizerService.java:479] : No Update - vehicles found: 87, vehicle Posns found: 25, trip updates found: 62
+2014-09-04 13:09:17,295 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:09:17,483 INFO  [VisualizerService.java:348] : data=[14296 bytes]
+timestamp = 09/04/2014 13:09:17
+ crumbsLength = 5
+2014-09-04 13:09:17,623 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+2014-09-04 13:09:17,623 INFO  [VisualizerService.java:477] : vehicles updated: 25
+2014-09-04 13:09:17,623 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:09:28,624 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:09:28,827 INFO  [VisualizerService.java:348] : data=[14116 bytes]
+timestamp = 09/04/2014 13:09:28
+2014-09-04 13:09:28,843 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:09:28,843 INFO  [VisualizerService.java:479] : No Update - vehicles found: 86, vehicle Posns found: 25, trip updates found: 61
+2014-09-04 13:09:39,843 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:09:41,562 INFO  [VisualizerService.java:348] : data=[13946 bytes]
+2014-09-04 13:09:41,562 INFO  [VisualizerService.java:395] : Feed contains : 85 entities
+timestamp = 09/04/2014 13:09:41
+2014-09-04 13:09:41,578 INFO  [VisualizerService.java:477] : vehicles updated: 24
+ crumbsLength = 6
+2014-09-04 13:09:41,578 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:09:52,578 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:09:54,125 INFO  [VisualizerService.java:348] : data=[13874 bytes]
+timestamp = 09/04/2014 13:09:54
+2014-09-04 13:09:54,125 INFO  [VisualizerService.java:395] : Feed contains : 85 entities
+2014-09-04 13:09:54,125 INFO  [VisualizerService.java:477] : vehicles updated: 24
+ crumbsLength = 7
+2014-09-04 13:09:54,141 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:10:04,141 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:10:04,329 INFO  [VisualizerService.java:348] : data=[13874 bytes]
+timestamp = 09/04/2014 13:10:04
+2014-09-04 13:10:04,329 INFO  [VisualizerService.java:395] : Feed contains : 85 entities
+2014-09-04 13:10:04,329 INFO  [VisualizerService.java:479] : No Update - vehicles found: 85, vehicle Posns found: 24, trip updates found: 61
+2014-09-04 13:10:14,329 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:10:16,111 INFO  [VisualizerService.java:348] : data=[14091 bytes]
+2014-09-04 13:10:16,111 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+timestamp = 09/04/2014 13:10:16
+ crumbsLength = 8
+2014-09-04 13:10:16,111 INFO  [VisualizerService.java:477] : vehicles updated: 24
+2014-09-04 13:10:16,111 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:10:26,111 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:10:27,705 INFO  [VisualizerService.java:348] : data=[14054 bytes]
+timestamp = 09/04/2014 13:10:27
+2014-09-04 13:10:27,721 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:10:27,721 INFO  [VisualizerService.java:479] : No Update - vehicles found: 86, vehicle Posns found: 24, trip updates found: 62
+2014-09-04 13:10:37,721 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:10:39,409 INFO  [VisualizerService.java:348] : data=[13981 bytes]
+timestamp = 09/04/2014 13:10:39
+ crumbsLength = 9
+2014-09-04 13:10:39,409 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:10:39,409 INFO  [VisualizerService.java:477] : vehicles updated: 25
+2014-09-04 13:10:39,409 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:10:50,409 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:10:50,659 INFO  [VisualizerService.java:348] : data=[14212 bytes]
+timestamp = 09/04/2014 13:10:50
+2014-09-04 13:10:50,659 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+2014-09-04 13:10:50,659 INFO  [VisualizerService.java:479] : No Update - vehicles found: 87, vehicle Posns found: 25, trip updates found: 62
+2014-09-04 13:11:01,660 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:11:01,848 INFO  [VisualizerService.java:348] : data=[14248 bytes]
+timestamp = 09/04/2014 13:11:012014-09-04 13:11:01,848 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+
+ crumbsLength = 10
+2014-09-04 13:11:01,863 INFO  [VisualizerService.java:477] : vehicles updated: 25
+2014-09-04 13:11:01,863 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:11:12,864 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+timestamp = 09/04/2014 13:11:14
+ crumbsLength = 11
+2014-09-04 13:11:14,520 INFO  [VisualizerService.java:348] : data=[13922 bytes]
+2014-09-04 13:11:14,520 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:11:14,520 INFO  [VisualizerService.java:477] : vehicles updated: 25
+2014-09-04 13:11:14,520 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:11:24,521 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:11:26,286 INFO  [VisualizerService.java:348] : data=[13960 bytes]
+timestamp = 09/04/2014 13:11:26
+2014-09-04 13:11:26,302 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:11:26,302 INFO  [VisualizerService.java:479] : No Update - vehicles found: 86, vehicle Posns found: 25, trip updates found: 61
+2014-09-04 13:11:36,302 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+timestamp = 09/04/2014 13:11:36
+2014-09-04 13:11:36,490 INFO  [VisualizerService.java:348] : data=[13935 bytes]
+2014-09-04 13:11:36,490 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+ crumbsLength = 12
+2014-09-04 13:11:36,490 INFO  [VisualizerService.java:477] : vehicles updated: 25
+2014-09-04 13:11:36,490 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:11:46,490 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:11:48,850 INFO  [VisualizerService.java:348] : data=[13967 bytes]
+timestamp = 09/04/2014 13:11:48
+2014-09-04 13:11:48,850 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:11:48,850 INFO  [VisualizerService.java:479] : No Update - vehicles found: 86, vehicle Posns found: 25, trip updates found: 61
+2014-09-04 13:11:58,850 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:12:00,460 INFO  [VisualizerService.java:348] : data=[13967 bytes]
+timestamp = 09/04/2014 13:12:00
+2014-09-04 13:12:00,460 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:12:00,460 INFO  [VisualizerService.java:477] : vehicles updated: 25
+ crumbsLength = 13
+2014-09-04 13:12:00,476 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:12:11,476 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:12:13,554 INFO  [VisualizerService.java:348] : data=[13723 bytes]
+timestamp = 09/04/2014 13:12:13
+ crumbsLength = 14
+2014-09-04 13:12:13,554 INFO  [VisualizerService.java:395] : Feed contains : 84 entities
+2014-09-04 13:12:13,554 INFO  [VisualizerService.java:477] : vehicles updated: 23
+2014-09-04 13:12:13,554 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:12:23,570 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:12:23,742 INFO  [VisualizerService.java:348] : data=[13687 bytes]
+timestamp = 09/04/2014 13:12:23
+ crumbsLength = 15
+2014-09-04 13:12:23,758 INFO  [VisualizerService.java:395] : Feed contains : 84 entities
+2014-09-04 13:12:23,758 INFO  [VisualizerService.java:477] : vehicles updated: 23
+2014-09-04 13:12:23,758 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:12:33,758 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:12:35,477 INFO  [VisualizerService.java:348] : data=[13648 bytes]
+timestamp = 09/04/2014 13:12:35
+ crumbsLength = 16
+2014-09-04 13:12:35,477 INFO  [VisualizerService.java:395] : Feed contains : 84 entities
+2014-09-04 13:12:35,477 INFO  [VisualizerService.java:477] : vehicles updated: 23
+2014-09-04 13:12:35,477 INFO  [VisualizerService.java:633] : refresh interval: 10
+2014-09-04 13:12:45,478 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:12:47,072 INFO  [VisualizerService.java:348] : data=[13652 bytes]
+timestamp = 09/04/2014 13:12:47
+2014-09-04 13:12:47,072 INFO  [VisualizerService.java:395] : Feed contains : 84 entities
+2014-09-04 13:12:47,072 INFO  [VisualizerService.java:479] : No Update - vehicles found: 84, vehicle Posns found: 23, trip updates found: 61
+2014-09-04 13:12:57,072 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:12:58,838 INFO  [VisualizerService.java:348] : data=[13945 bytes]
+2014-09-04 13:12:58,838 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+timestamp = 09/04/2014 13:12:58
+ crumbsLength = 17
+2014-09-04 13:12:58,838 INFO  [VisualizerService.java:477] : vehicles updated: 26
+2014-09-04 13:12:58,838 INFO  [VisualizerService.java:633] : refresh interval: 11
+2014-09-04 13:13:09,854 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:13:10,042 INFO  [VisualizerService.java:348] : data=[13761 bytes]
+timestamp = 09/04/2014 13:13:10
+2014-09-04 13:13:10,042 INFO  [VisualizerService.java:395] : Feed contains : 86 entities
+2014-09-04 13:13:10,042 INFO  [VisualizerService.java:479] : No Update - vehicles found: 86, vehicle Posns found: 26, trip updates found: 60
+2014-09-04 13:13:21,042 INFO  [VisualizerService.java:337] : refreshing vehicle positions
+2014-09-04 13:13:22,698 INFO  [VisualizerService.java:348] : data=[13911 bytes]
+timestamp = 09/04/2014 13:13:22
+ crumbsLength = 18
+2014-09-04 13:13:22,698 INFO  [VisualizerService.java:395] : Feed contains : 87 entities
+crumbs/record {"entityId":"003bc127f3e24591","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.04696655273438,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.04693603515625,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.0469512939453,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.04693603515625,"lat":-27.45111656188965},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.0469512939453,"lat":-27.451133728027344},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979948E9,"location":{"lng":153.04722595214844,"lat":-27.45115089416504},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.0487060546875,"lat":-27.45224952697754},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.04888916015625,"lat":-27.452049255371094},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.04156494140625,"lat":-27.453033447265625},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.04132080078125,"lat":-27.452917098999023},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.4097999E9,"location":{"lng":153.0386505126953,"lat":-27.454883575439453},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.03846740722656,"lat":-27.45509910583496},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.0367889404297,"lat":-27.45673370361328},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.03504943847656,"lat":-27.458450317382812},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.03392028808594,"lat":-27.45949935913086},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800075E9,"location":{"lng":153.03390502929688,"lat":-27.459482192993164},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800098E9,"location":{"lng":153.033935546875,"lat":-27.45949935913086},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800122E9,"location":{"lng":153.03378295898438,"lat":-27.45965003967285},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800239E9,"location":{"lng":153.03126525878906,"lat":-27.462949752807617},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800261E9,"location":{"lng":153.03012084960938,"lat":-27.464567184448242},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980032E9,"location":{"lng":153.0275115966797,"lat":-27.466550827026367},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800333E9,"location":{"lng":153.02688598632812,"lat":-27.467166900634766},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800355E9,"location":{"lng":153.0269317626953,"lat":-27.46739959716797},"confidenceRadius":"3.4","userData":{"trip":"4583025-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1dc7b3e
+{}
+crumbs/record {"entityId":"28cecdf210af0bcf","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0029296875,"lat":-27.489749908447266},"confidenceRadius":"3.4","userData":{"trip":"4583013-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.00296020507812,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0029296875,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799395E9,"location":{"lng":153.0029296875,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0029296875,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.00262451171875,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.00022888183594,"lat":-27.488100051879883},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.00262451171875,"lat":-27.484317779541016},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.4097999E9,"location":{"lng":153.00379943847656,"lat":-27.48236656188965},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.00393676757812,"lat":-27.48221778869629},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.0052490234375,"lat":-27.48015022277832},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.00778198242188,"lat":-27.47713279724121},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.00807189941406,"lat":-27.476816177368164},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.00833129882812,"lat":-27.47661781311035},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800157E9,"location":{"lng":153.01148986816406,"lat":-27.47698211669922},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800194E9,"location":{"lng":153.0115509033203,"lat":-27.476999282836914},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800274E9,"location":{"lng":153.01185607910156,"lat":-27.477083206176758},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800378E9,"location":{"lng":153.01535034179688,"lat":-27.47553253173828},"confidenceRadius":"3.4","userData":{"trip":"4583026-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@50ed02
+{}
+crumbs/record {"entityId":"6d5f7c3fecebcb1e","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0441131591797,"lat":-27.453632354736328},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.041259765625,"lat":-27.452917098999023},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.03921508789062,"lat":-27.454317092895508},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.03868103027344,"lat":-27.454866409301758},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0384979248047,"lat":-27.45501708984375},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.037353515625,"lat":-27.456132888793945},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.03395080566406,"lat":-27.45949935913086},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.03370666503906,"lat":-27.459699630737305},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.0323028564453,"lat":-27.461233139038086},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.02432250976562,"lat":-27.469066619873047},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.4097999E9,"location":{"lng":153.0243377685547,"lat":-27.469066619873047},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.02420043945312,"lat":-27.46918296813965},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979996E9,"location":{"lng":153.02406311035156,"lat":-27.469266891479492},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800075E9,"location":{"lng":153.02120971679688,"lat":-27.47228240966797},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800098E9,"location":{"lng":153.0190887451172,"lat":-27.473499298095703},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800135E9,"location":{"lng":153.018798828125,"lat":-27.4736328125},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800216E9,"location":{"lng":153.01661682128906,"lat":-27.474899291992188},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800261E9,"location":{"lng":153.01576232910156,"lat":-27.475482940673828},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800378E9,"location":{"lng":153.0128631591797,"lat":-27.47711753845215},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800402E9,"location":{"lng":153.01150512695312,"lat":-27.477100372314453},"confidenceRadius":"3.4","userData":{"trip":"4583022-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@e6f711
+{}
+crumbs/record {"entityId":"929169e323328d4b","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.03135681152344,"lat":-27.463333129882812},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.02764892578125,"lat":-27.466617584228516},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.0269012451172,"lat":-27.467132568359375},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799321E9,"location":{"lng":153.02679443359375,"lat":-27.467182159423828},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.02639770507812,"lat":-27.46758270263672},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.02420043945312,"lat":-27.46915054321289},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979948E9,"location":{"lng":153.02420043945312,"lat":-27.469133377075195},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.0240478515625,"lat":-27.46933364868164},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.0157012939453,"lat":-27.47551727294922},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.01283264160156,"lat":-27.47713279724121},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979996E9,"location":{"lng":153.01150512695312,"lat":-27.477100372314453},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.01138305664062,"lat":-27.477083206176758},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.00778198242188,"lat":-27.4771671295166},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800075E9,"location":{"lng":153.00546264648438,"lat":-27.479900360107422},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800122E9,"location":{"lng":153.00384521484375,"lat":-27.48248291015625},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800135E9,"location":{"lng":153.003662109375,"lat":-27.482717514038086},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800157E9,"location":{"lng":153.00257873535156,"lat":-27.48444938659668},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800194E9,"location":{"lng":153.00125122070312,"lat":-27.4865665435791},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800216E9,"location":{"lng":153.0001983642578,"lat":-27.488300323486328},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800239E9,"location":{"lng":153.00001525878906,"lat":-27.488500595092773},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800261E9,"location":{"lng":153.0003662109375,"lat":-27.489599227905273},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800274E9,"location":{"lng":153.00234985351562,"lat":-27.489717483520508},"confidenceRadius":"3.4","userData":{"trip":"4583020-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980032E9,"location":{"lng":153.00259399414062,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583033-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800355E9,"location":{"lng":153.00259399414062,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583033-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@16686c8
+{}
+crumbs/record {"entityId":"badb09e484fe8579","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.01878356933594,"lat":-27.473649978637695},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.01803588867188,"lat":-27.47410011291504},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.0158233642578,"lat":-27.47545051574707},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.01283264160156,"lat":-27.47711753845215},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.011474609375,"lat":-27.477100372314453},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0112762451172,"lat":-27.47705078125},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.00927734375,"lat":-27.475833892822266},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799519E9,"location":{"lng":153.00819396972656,"lat":-27.47683334350586},"confidenceRadius":"3.4","userData":{"trip":"4583017-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.00296020507812,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.00294494628906,"lat":-27.48983383178711},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799879E9,"location":{"lng":153.0029296875,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.00294494628906,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799936E9,"location":{"lng":153.00294494628906,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.00294494628906,"lat":-27.489816665649414},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.002685546875,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.00257873535156,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800075E9,"location":{"lng":153.00259399414062,"lat":-27.48979949951172},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800135E9,"location":{"lng":153.00259399414062,"lat":-27.489782333374023},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800274E9,"location":{"lng":153.00181579589844,"lat":-27.489700317382812},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800333E9,"location":{"lng":153.0000457763672,"lat":-27.488317489624023},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800355E9,"location":{"lng":153.00022888183594,"lat":-27.488082885742188},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800402E9,"location":{"lng":153.00283813476562,"lat":-27.483966827392578},"confidenceRadius":"3.4","userData":{"trip":"4583029-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@1af2bc
+{}
+crumbs/record {"entityId":"fd839476a65f07cb","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.02166748046875,"lat":-27.472000122070312},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.02413940429688,"lat":-27.469133377075195},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.0242156982422,"lat":-27.469200134277344},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799297E9,"location":{"lng":153.02450561523438,"lat":-27.469017028808594},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.0258331298828,"lat":-27.467966079711914},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799381E9,"location":{"lng":153.02613830566406,"lat":-27.4677677154541},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.02859497070312,"lat":-27.465883255004883},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.02896118164062,"lat":-27.465900421142578},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.03021240234375,"lat":-27.464717864990234},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.03724670410156,"lat":-27.454099655151367},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799863E9,"location":{"lng":153.03890991210938,"lat":-27.452383041381836},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799879E9,"location":{"lng":153.03890991210938,"lat":-27.452350616455078},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.0388946533203,"lat":-27.452316284179688},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979996E9,"location":{"lng":153.04025268554688,"lat":-27.451066970825195},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799982E9,"location":{"lng":153.04144287109375,"lat":-27.450117111206055},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799995E9,"location":{"lng":153.04319763183594,"lat":-27.450050354003906},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800017E9,"location":{"lng":153.04348754882812,"lat":-27.449966430664062},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.04383850097656,"lat":-27.449966430664062},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800075E9,"location":{"lng":153.04739379882812,"lat":-27.451417922973633},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800098E9,"location":{"lng":153.0482635498047,"lat":-27.452516555786133},"confidenceRadius":"3.4","userData":{"trip":"4583021-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800122E9,"location":{"lng":153.04859924316406,"lat":-27.452299118041992},"confidenceRadius":"3.4","userData":{"trip":"4583032-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800194E9,"location":{"lng":153.04859924316406,"lat":-27.452316284179688},"confidenceRadius":"3.4","userData":{"trip":"4583032-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800355E9,"location":{"lng":153.04861450195312,"lat":-27.452316284179688},"confidenceRadius":"3.4","userData":{"trip":"4583032-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800402E9,"location":{"lng":153.04864501953125,"lat":-27.452266693115234},"confidenceRadius":"3.4","userData":{"trip":"4583032-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@a574b2
+{}
+crumbs/record {"entityId":"c80032d3b91e341e","crumbs":[{"timestamp":1.409799172E9,"location":{"lng":153.0319366455078,"lat":-27.459800720214844},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799248E9,"location":{"lng":153.0337677001953,"lat":-27.457366943359375},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40979926E9,"location":{"lng":153.03436279296875,"lat":-27.456850051879883},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799284E9,"location":{"lng":153.0343780517578,"lat":-27.456832885742188},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799321E9,"location":{"lng":153.0343475341797,"lat":-27.456817626953125},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799333E9,"location":{"lng":153.03575134277344,"lat":-27.45538330078125},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799357E9,"location":{"lng":153.03707885742188,"lat":-27.454099655151367},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799418E9,"location":{"lng":153.03897094726562,"lat":-27.452350616455078},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799443E9,"location":{"lng":153.0391387939453,"lat":-27.452150344848633},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799456E9,"location":{"lng":153.0413818359375,"lat":-27.45021629333496},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799506E9,"location":{"lng":153.04156494140625,"lat":-27.45001792907715},"confidenceRadius":"3.4","userData":{"trip":"4583019-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799832E9,"location":{"lng":153.04881286621094,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799879E9,"location":{"lng":153.04881286621094,"lat":-27.452083587646484},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409799923E9,"location":{"lng":153.04881286621094,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.40980004E9,"location":{"lng":153.04881286621094,"lat":-27.452083587646484},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800135E9,"location":{"lng":153.04881286621094,"lat":-27.45206642150879},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800261E9,"location":{"lng":153.04881286621094,"lat":-27.452083587646484},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}},{"timestamp":1.409800355E9,"location":{"lng":153.0489501953125,"lat":-27.452232360839844},"confidenceRadius":"3.4","userData":{"trip":"4583027-BT2014-AUG-FUL-Weekday-00","rte":"60-470"}}]}
+{accept-encoding=[gzip], content-type=[application/json]}
+com.google.api.client.http.ByteArrayContent@114f313
+{}
+2014-09-04 13:13:37,418 INFO  [VisualizerService.java:477] : vehicles updated: 26
+2014-09-04 13:13:37,418 INFO  [VisualizerService.java:633] : refresh interval: 19

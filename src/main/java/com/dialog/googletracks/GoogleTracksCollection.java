@@ -3,6 +3,7 @@ package com.dialog.googletracks;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,7 +15,7 @@ public class GoogleTracksCollection {
 	private String _ID;
 	private String _Name;
 	private List<GoogleTracksEntity>   _Entities;
-	
+	private JSONObject belongsToCollection; // indicates true/false for entity id has been added to collection
 	
 	public String getID() {
 		return _ID;
@@ -42,15 +43,71 @@ public class GoogleTracksCollection {
 	}
 	
 	
-	public GoogleTracksCollection() {
+	/**
+     * @return the belongsToCollection
+     */
+    public JSONObject getBelongsToCollection() {
+        return belongsToCollection;
+    }
+    /**
+     * @param belongsToCollection the belongsToCollection to set
+     */
+    public void setBelongsToCollection(JSONObject belongsToCollection) {
+        this.belongsToCollection = belongsToCollection;
+    }
+    
+    public boolean doesEntityBelongToCollection(String entId) {
+        if (entId == null || entId.trim().length()==0) {
+            return false;
+        }
+        if (!belongsToCollection.containsKey(entId)) {
+            return false;
+        }
+        return ((Boolean) belongsToCollection.get(entId)).booleanValue();
+    }
+    
+    public boolean needToAddEntities() {
+        for (int i = 0; i< _Entities.size(); i++) {
+            if (!doesEntityBelongToCollection(_Entities.get(i).getID())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    /*
+     * Assumption. This entity has just been created  
+     * We add it into the collection object if it hasn't been added already.
+     * 
+     * We do not set the belongsToCollection flag here,
+     * is is done in confirmAddEntitiesToCollection
+     *
+     */
+    
+    
+    public void addEntityToCollection(GoogleTracksEntity gtEnt) {
+        if (!_Entities.contains(gtEnt)) {
+            _Entities.add(gtEnt);
+        }
+        
+    }
+    
+    //** constructors **//
+    
+    public GoogleTracksCollection() {
 		super();
 		_ID = "";
 		_Name = "";
 		_Entities = new ArrayList<GoogleTracksEntity>();
+		belongsToCollection = new JSONObject();
 	}
 
 	public GoogleTracksCollection(JSONObject jsonColl) {
 		super();
+        _ID = "";
+        _Name = "";
+        _Entities = new ArrayList<GoogleTracksEntity>();
+        belongsToCollection = new JSONObject();
 		loadFromJSONObject(jsonColl);
 	}
 	public GoogleTracksCollection(String ID, String Name, List Entities) {
@@ -58,15 +115,20 @@ public class GoogleTracksCollection {
 		setID(ID);
 		setName(Name);
 		setEntities(Entities);
+        belongsToCollection = new JSONObject();
 	}
 	public GoogleTracksCollection(String tracksString) {
 		super();
+        _ID = "";
+        _Name = "";
+        _Entities = new ArrayList<GoogleTracksEntity>();
+        belongsToCollection = new JSONObject();
 		loadFromTracksString(tracksString);
 	}
 
 	/**
 	 *  a json collection will look something like this
-	 *         {
+	 *  {
      *       "entityIds": [
      *           "0ff3a55f94e954ee",
      *           "fc6053f142ade5c9"
@@ -86,6 +148,7 @@ public class GoogleTracksCollection {
         		GoogleTracksEntity gtEntity = new GoogleTracksEntity();
         		gtEntity.setID(entId);
         		ents.add(gtEntity);
+        		belongsToCollection.put(entId, true);
         	}
         }
         setName((String) jsonColl.get(GoogleTracksConstants.NAME_LIT));
@@ -156,21 +219,46 @@ public class GoogleTracksCollection {
      *	        "ec6053f142ade5c9"
      *	    ]
      *	}
+     *
+     * we ignore ones with empty ids - they need to be created first
+     * 
 	 */
 	
 	public JSONObject addEntitiesToJSONObject() {
         JSONObject jObj = new JSONObject();
         JSONArray jArray = new JSONArray();
-		
+		String sId;
         for (int i=0; i<_Entities.size(); i++) {
-        	jArray.add(_Entities.get(i).getID());
+            sId = _Entities.get(i).getID();
+            if (!doesEntityBelongToCollection(sId) && sId.trim().length()>0) {
+                jArray.add(sId);
+            }
         }
         jObj.put(GoogleTracksConstants.ENTITY_IDS, jArray);
         jObj.put(GoogleTracksConstants.COLLECTION_ID, _ID);
         
         return jObj;
 	}
+	
+	public void confirmAddEntitiesToCollection(String tracksString) {
+        JSONParser jsonParser=new JSONParser();
+        try {
+            JSONObject json = (JSONObject) jsonParser.parse( tracksString );
+            confirmAddEntitiesToCollection(json);
+        } catch (ParseException e) {
+            System.out.println("position: " + e.getPosition());
+            System.out.println(e);
+        }
+	}
 
+	// the collection/addentities request is parsed to confirm the added entities
+	public void confirmAddEntitiesToCollection(JSONObject json) {
+        JSONArray jsonEntities = (JSONArray) json.get(GoogleTracksConstants.ENTITY_IDS);
+        for(int i=0; i<jsonEntities.size(); i++){
+            belongsToCollection.put((String) jsonEntities.get(i), true);
+        }
+	    
+	}
     /* Create entity. They are created as a group:
      * {
      *       "entities": [

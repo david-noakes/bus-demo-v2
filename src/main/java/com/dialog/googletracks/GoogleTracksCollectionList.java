@@ -165,6 +165,11 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	}
 	
     /* check each collection for an entityID that matches
+     * 
+     * Assumption - we have loaded a collection, with a list of entity ids
+     * 
+     * We are now adding the entities. 
+     * This is why we ignore the ones that are not in the list
      *  
      */
 	public void putEntityIntoCollections(GoogleTracksEntity gtEnt) {
@@ -193,6 +198,15 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         return null;
     }
     
+    public GoogleTracksEntity findEntityByName(String entityName) {
+        for (int i=0;i<allEntities.size();i++) {
+            if (allEntities.get(i).getName().equals(entityName)) {
+                return allEntities.get(i);
+            }    
+        }
+        return null;
+    }
+    
     public GoogleTracksEntity findEntityByNameAndType(GoogleTracksEntity gtOther) {
         for (int i=0;i<allEntities.size();i++) {
             // Note equals must test TO the list to be able to handle
@@ -214,7 +228,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         
         for (int i=0;i<allEntities.size();i++) {
             //TODO - Remove limit on entities
-            if (i<11) { // avoid google entity limit of 20
+            if (i<15) { // avoid google entity limit of 20
             if (allEntities.get(i).getID().trim().length()==0) {
                 jArray.add(allEntities.get(i).storeToJSONObject());
             }
@@ -244,7 +258,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
                     gtEnt.setID(entID);
                     break;
                 }
-                // PutEntityIntoCollections(gtEnt);
+                putEntityIntoCollections(gtEnt);
             }
         }
     }

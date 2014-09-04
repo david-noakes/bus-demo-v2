@@ -213,7 +213,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
   @PreDestroy
   public void stop() throws Exception {
       try {
-          putTracksDataToGoogle(true, true); // force any updates out
+          putTracksDataToGoogle(true); // force any updates out
       } catch (IOException e) {
            // TODO Auto-generated catch block
            e.printStackTrace();
@@ -465,7 +465,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
         if (_tracksUpdate) {
             
            try {
-               putTracksDataToGoogle(addVehicleIntoTracks, false); // batch them
+               putTracksDataToGoogle(false); // batch them
            } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -495,14 +495,16 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       if (newData.getRouteId().startsWith(tracksRoute)) {
           if (existingData != null) {
               newData.setTracksEntityId(existingData.getTracksEntityId());
-              if ((existingData.getTracksEntityId() == null) || 
-                 ((gtEnt=gtcList.findEntityById(existingData.getTracksEntityId())) == null)) {
+              if (existingData.getTracksEntityId() == null) { 
+                   gtEnt=gtcList.findEntityByName(existingData.generateTracksName());
+              }
+              if (gtEnt == null) {
                   addVehicletoTracks(newData);
                   created = true;
               } else {
                 recordNewCrumb(gtEnt, newData);  
               }
-          } else {
+          } else { //existingData is null, so doesn't exist
               created = true;
               addVehicletoTracks(newData);
           }
@@ -515,8 +517,7 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
        * add to collection
        * add crumb
        */
-      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.getEntityId()+"[" +
-              newData.getId() + "]", 
+      GoogleTracksEntity gtEnt = new GoogleTracksEntity(newData.generateTracksName(), 
               GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
       if (!gtcList.getAllEntities().contains(gtEnt)) {
           gtcList.getAllEntities().add(gtEnt);
@@ -548,10 +549,15 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       userData.put(GoogleTracksConstants.USER_TRIP,newData.getTripId());
                     
       gtCrumb.setUserData(userData);
-      gtEnt.get_Crumbs().add(gtCrumb);
+      gtEnt.getCrumbs().add(gtCrumb);
+      // check whether we need to add this entity to the collection
+      GoogleTracksCollection gtColl = gtcList.get(0);
+      if (!gtColl.getEntities().contains(gtEnt)) {
+          gtColl.getEntities().add(gtEnt);
+      }
   }
   
-  private void putTracksDataToGoogle(boolean addVehicle, boolean forceUpdate) throws IOException, GeneralSecurityException {
+  private void putTracksDataToGoogle(boolean forceUpdate) throws IOException, GeneralSecurityException {
       String requestBody; 
       String tracksString;
       int increm = _refreshInterval / 10;
@@ -563,7 +569,8 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
       // batch up the calls to google tracks to minimise our footprint on the daily quota
       if (forceUpdate || gtcList.getCrumbsLength() > tracksBurst) {
           gtcList.setCrumbsLength(0);
-          if (addVehicle) { 
+          if (gtcList.get(0).needToAddEntities()) {
+              //1. add newly created entities (id is blank)
               //because of limits on entities, we may omit some, leading to an empty entity list
               requestBody = gtcList.storeNewEntitiesToTracksString();
               if (!requestBody.startsWith("{\"entities\":[]}")) { 
@@ -582,11 +589,19 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
                   }
                   tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_ADD_ENTITIES_TO_COLLECTION, requestBody);
               }
+              //2. add in existing entities not yet added to collection
+              // this may have changed if we added the new ones
+              if (gtcList.get(0).needToAddEntities()) {
+                  requestBody = gtcList.get(0).addEntitiesToTracksString();
+                  tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_ADD_ENTITIES_TO_COLLECTION, requestBody);
+                  gtcList.get(0).confirmAddEntitiesToCollection(requestBody);
+              }
           }
-          //This may error, and require a loop
+          //This requires a loop - can add crumbs to 1 entity at a time
           for (int i=0; i<gtcList.getAllEntities().size(); i++) {
               GoogleTracksEntity gtEnt = gtcList.getAllEntities().get(i);
-              if (gtEnt.get_Crumbs().size()>0 && gtEnt.getID().trim().length() > 0) { // avoid google limit of 20 entities
+              if (gtEnt.getCrumbs().size()>0 && gtEnt.getID().trim().length() > 0) { // avoid google limit of 20 entities
+                  gtcList.get(0).addEntityToCollection(gtEnt); // checks if already there
                   requestBody = gtEnt.storeCrumbsToTracksString();
                   tracksString = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CRUMBS_RECORD, requestBody);
               }
@@ -613,7 +628,8 @@ public void setGtcList(GoogleTracksCollectionList gtcList) {
     long t = System.currentTimeMillis();
     if (_mostRecentRefresh != -1) {
       int refreshInterval = (int) ((t - _mostRecentRefresh) / (2 * 1000));
-      _refreshInterval = Math.max(10, refreshInterval);
+      refreshInterval = Math.max(10, refreshInterval);
+      _refreshInterval = Math.min(60, refreshInterval);
       _log.info("refresh interval: " + _refreshInterval);
     }
     _mostRecentRefresh = t;

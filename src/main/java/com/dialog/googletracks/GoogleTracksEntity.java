@@ -78,19 +78,20 @@ public class GoogleTracksEntity {
     /**
      * @return the _Crumbs
      */
-    public List<GoogleTracksCrumb> get_Crumbs() {
+    public List<GoogleTracksCrumb> getCrumbs() {
         return _Crumbs;
     }
     /**
      * @param _Crumbs the _Crumbs to set
      */
-    public void set_Crumbs(List<GoogleTracksCrumb> _Crumbs) {
+    public void setCrumbs(List<GoogleTracksCrumb> _Crumbs) {
         if (_Crumbs == null) {
             this._Crumbs = new ArrayList<GoogleTracksCrumb>();
         } else {
             this._Crumbs = _Crumbs;
         }    
     }
+    
     
     
     /* The entities will be listed as: 
@@ -115,6 +116,9 @@ public class GoogleTracksEntity {
         setID((String) json.get(GoogleTracksConstants.ID_LIT));
         setName((String) json.get(GoogleTracksConstants.NAME_LIT));
         setType((String) json.get(GoogleTracksConstants.TYPE_LIT));
+        if (_Type.length() == 0) {
+            setType(GoogleTracksConstants.ENTITY_TYPE_AUTOMOBILE);
+        }
     }
 
     public void loadFromTracksString(String tracksString) {
@@ -156,7 +160,7 @@ public class GoogleTracksEntity {
 	public JSONObject storeToJSONObject() {
         JSONObject jObj = new JSONObject();
         jObj.put(GoogleTracksConstants.NAME_LIT, _Name);
-        if (_ID.trim().length()>0) {
+        if (_Type.trim().length()>0) {
             jObj.put(GoogleTracksConstants.TYPE_LIT, _Type);
         }
         return jObj;
