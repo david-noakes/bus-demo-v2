@@ -4,7 +4,7 @@
 
   <groupId>com.dialog.gtfs_realtime</groupId>
   <artifactId>Bus-gtfs-realtime-visualiser</artifactId>
-  <version>Alpha.2.0.002.005</version>
+  <version>Alpha.2.0.002.006</version>
   <packaging>jar</packaging>
 
   <name>Bus-gtfs-realtime-visualiser</name>

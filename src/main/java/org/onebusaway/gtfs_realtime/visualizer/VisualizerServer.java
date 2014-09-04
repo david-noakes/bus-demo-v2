@@ -61,12 +61,15 @@ public class VisualizerServer {
     resourceHandler.setWelcomeFiles(new String[] {"index.html"});
     resourceHandler.setBaseResource(Resource.newClassPathResource("org/onebusaway/gtfs_realtime/visualizer"));
 
+    ResourceHandler dialogResHandler = new ResourceHandler();
+    dialogResHandler.setBaseResource(Resource.newClassPathResource("com/dialog/googletracks"));
+    
     ServletHandler servletHandler = new ServletHandler();
     servletHandler.addServletWithMapping(new ServletHolder(_dataServlet),
         "/data.json");
 
     HandlerList handlers = new HandlerList();
-    handlers.setHandlers(new Handler[] {resourceHandler, servletHandler});
+    handlers.setHandlers(new Handler[] {resourceHandler, dialogResHandler, servletHandler});
 
     _server.setHandler(handlers);
 
