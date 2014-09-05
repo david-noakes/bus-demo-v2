@@ -91,7 +91,7 @@ public class VisualizerMain {
         service.setTracksSimulate(true);
         TracksServiceRequest.setSimulateTracks(true);
     }
-    injector.getInstance(VisualizerServer.class);
+    VisualizerServer vs = injector.getInstance(VisualizerServer.class);
 
     LifecycleService lifecycleService = injector.getInstance(LifecycleService.class);
     lifecycleService.start();

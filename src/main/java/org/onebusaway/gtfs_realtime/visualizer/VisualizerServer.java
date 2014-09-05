@@ -25,9 +25,12 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.servlet.ServletMapping;
 import org.eclipse.jetty.util.resource.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.dialog.googletracks.TracksJSONServlet;
 
 public class VisualizerServer {
 
@@ -35,6 +38,8 @@ public class VisualizerServer {
 
   private DataServlet _dataServlet;
 
+  private TracksJSONServlet _tracksServlet;  
+  
   private static int _port = 8080;
 
   private Server _server;
@@ -42,6 +47,19 @@ public class VisualizerServer {
   @Inject
   public void setDataServlet(DataServlet dataServlet) {
     _dataServlet = dataServlet;
+  }
+  
+  public DataServlet getDataServlet() {
+      return _dataServlet;
+  }
+  
+  @Inject
+  public void setTracksJSONServlet(TracksJSONServlet tracksServlet) {
+      _tracksServlet = tracksServlet;
+  }
+  
+  public TracksJSONServlet getTracksJSONServlet() {
+      return _tracksServlet;
   }
 
   public static void setPort(int port) {
@@ -67,14 +85,17 @@ public class VisualizerServer {
     ServletHandler servletHandler = new ServletHandler();
     servletHandler.addServletWithMapping(new ServletHolder(_dataServlet),
         "/data.json");
+    
+    ServletHandler tracksServletHandler = new ServletHandler();
+    tracksServletHandler.addServletWithMapping(new ServletHolder(_tracksServlet), "/tracksjsonservlet");
 
     HandlerList handlers = new HandlerList();
-    handlers.setHandlers(new Handler[] {resourceHandler, dialogResHandler, servletHandler});
+    handlers.setHandlers(new Handler[] {resourceHandler, dialogResHandler, servletHandler, tracksServletHandler});
+//    handlers.setHandlers(new Handler[] {resourceHandler, dialogResHandler, servletHandler});
 
     _server.setHandler(handlers);
 
     _server.start();
-
     StringBuilder b = new StringBuilder();
     b.append("\n");
     b.append("=======================================================\n");

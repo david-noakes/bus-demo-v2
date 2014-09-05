@@ -1,33 +1,48 @@
 {
  "collections": [
   {
-   "id": "3f962d2559a601f8",
-   "name": "SEA rental fleet - midsize",
+   "id": "299f248d031c36df",
+   "name": "20140905 Route: 60-470",
    "entityIds": [
-    "174919bd798ce5cb",
-    "eb27bbe02496d603"
+    "003bc127f3e24591",
+    "10d087d7781c509d",
+    "1348026c4558a395",
+    "28cecdf210af0bcf",
+    "6d5f7c3fecebcb1e",
+    "7323d31630310cec",
+    "d00fe8a845e66492",
+    "e1bb37bedd3ce021",
+    "fd839476a65f07cb"
    ]
   },
   {
-   "id": "ba8d11e45e71554c",
-   "name": "SEA rental fleet - compact",
+   "id": "385442f0cd69f744",
+   "name": "20140904 Route: 60-470",
    "entityIds": [
-    "174919bd798ce5cb",
-    "eb27bbe02496d603"
+    "003bc127f3e24591",
+    "28cecdf210af0bcf",
+    "6d5f7c3fecebcb1e",
+    "929169e323328d4b",
+    "badb09e484fe8579",
+    "c80032d3b91e341e",
+    "e1bb37bedd3ce021",
+    "fd839476a65f07cb"
    ]
   },
   {
-   "id": "c439743b513f3b7a",
-   "name": "20140902 Route: 60-470",
+   "id": "767a7c198d4954c5",
+   "name": "20140903 Route: 60-470",
    "entityIds": [
-    "2884f22f0cfad3e9",
-    "9a87c1e09a5f7158",
-    "a8c217e53fd6c6fc",
-    "02fb26970d3f3114",
-    "7a8c0feeb89e9380",
-    "abb09cc69af59587",
-    "09f9c41d6aa0fb10",
-    "191fe5c77ab11845"
+    "003bc127f3e24591",
+    "10d087d7781c509d",
+    "1eb4b0f5bca380b0",
+    "28cecdf210af0bcf",
+    "6d5f7c3fecebcb1e",
+    "929169e323328d4b",
+    "badb09e484fe8579",
+    "e1d5b6fb30454212",
+    "fd7b7988113b9d40",
+    "fd839476a65f07cb"
    ]
   }
  ]

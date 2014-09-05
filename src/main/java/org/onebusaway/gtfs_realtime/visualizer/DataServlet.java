@@ -98,7 +98,7 @@ public class DataServlet extends WebSocketServlet implements VehicleListener {
   public void removeSocket(DataWebSocket dataWebSocket) {
     _sockets.remove(dataWebSocket);
   }
-
+  
   private String getVehiclesAsString(List<Vehicle> vehicles) {
     try {
       JSONArray array = new JSONArray();

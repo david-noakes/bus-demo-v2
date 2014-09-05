@@ -146,20 +146,64 @@
         }
         
         function getCollections() {
-        	// get JSON data from server
-$.get( hostandport, '"collections/list"', handleCollectionList() )        	
-//         	gapi.client.request({
-//         		method:'POST', 
-//         		 path: '/tracks/v1/collections/list',
-//         		 params: { }
-//         	})
+        	sendAjax("collections/list");
         }
-        
-        function handleCollectionList(data, status, xhr) {
+        function sendAjax(method) {
+        	 
+            // get inputs
+//             var article = new Object();
+//             article.title = $('#title').val();
+//             article.url = $('#url').val();
+//             article.categories = $('#categories').val().split(";");
+//             article.tags = $('#tags').val().split(";");
+         
+            $.ajax({
+                url: "tracksjsonservlet",
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(method),
+                contentType: 'application/json',
+                mimeType: 'application/json',
+         
+                success: function (data) {
+     				
+                	handleCollectionList(data);
+
+     				$("tr:has(td)").remove();
+         
+//                     $.each(data, function (index, article) {
+         
+//                         var td_categories = $("<td/>");
+//                         $.each(article.categories, function (i, tag) {
+//                             var span = $("<span class='label label-info' style='margin:4px;padding:4px' />");
+//                             span.text(tag);
+//                             td_categories.append(span);
+//                         });
+         
+//                         var td_tags = $("<td/>");
+//                         $.each(article.tags, function (i, tag) {
+//                             var span = $("<span class='label' style='margin:4px;padding:4px' />");
+//                             span.text(tag);
+//                             td_tags.append(span);
+//                         });
+         
+//                         $("#added-articles").append($('<tr/>')
+//                                 .append($('<td/>').html("<a href='"+article.url+"'>"+article.title+"</a>"))
+//                                 .append(td_categories)
+//                                 .append(td_tags)
+//                         );
+//                     }); 
+                },
+                error:function(data,status,er) {
+                    alert("error: "+data+" status: "+status+" er:"+er);
+                }
+            });
+        }        
+        function handleCollectionList(data) {
         	//data is returned
         	//status want "success"
         	//type should be json
-        	
+			console.log('/tracksjsonservlet: ' + data);
         }
     </script>
   </head>
@@ -172,7 +216,7 @@ $.get( hostandport, '"collections/list"', handleCollectionList() )
       <input onclick="setFerry();" type=button value="New Marker is ferry">
       <input onclick="getCollections();" type=button value="get collections">
       <label id="demo"></label>
-      <label id="trace">version 0005</label>
+      <label id="trace">version 0008</label>
     </div>
     <div id="map-canvas"/>
   </body>

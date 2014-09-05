@@ -330,6 +330,18 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         this.crumbsLength++;
     }
 
+    /*
+     * write out the collections list response
+     */
+    public String writeCollectionsAsJSONString() {
+        return writeCollectionsAsJSONObject().toJSONString();
+    }
+    
+    public JSONObject writeCollectionsAsJSONObject() {
+        JSONObject jObj = new JSONObject();
+
+        return jObj;
+    }
     @Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer("GoogleTracksCollectionList [size()=");

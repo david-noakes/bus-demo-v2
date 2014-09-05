@@ -1,0 +1,316 @@
+{
+ "crumbs": [
+  {
+   "timestamp": 1.409787089E9,
+   "location": {
+    "lat": -27.452299118041992,
+    "lng": 153.048583984375
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.40978722E9,
+   "location": {
+    "lat": -27.452350616455078,
+    "lng": 153.04574584960938
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787305E9,
+   "location": {
+    "lat": -27.4515323638916,
+    "lng": 153.04750061035156
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787411E9,
+   "location": {
+    "lat": -27.4515323638916,
+    "lng": 153.04745483398438
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787466E9,
+   "location": {
+    "lat": -27.45151710510254,
+    "lng": 153.04750061035156
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787504E9,
+   "location": {
+    "lat": -27.4515323638916,
+    "lng": 153.04751586914062
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787575E9,
+   "location": {
+    "lat": -27.45151710510254,
+    "lng": 153.04750061035156
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787619E9,
+   "location": {
+    "lat": -27.45151710510254,
+    "lng": 153.0474853515625
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787683E9,
+   "location": {
+    "lat": -27.451499938964844,
+    "lng": 153.04750061035156
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787842E9,
+   "location": {
+    "lat": -27.451683044433594,
+    "lng": 153.04757690429688
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787922E9,
+   "location": {
+    "lat": -27.451650619506836,
+    "lng": 153.04762268066406
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787968E9,
+   "location": {
+    "lat": -27.45166778564453,
+    "lng": 153.04762268066406
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409787991E9,
+   "location": {
+    "lat": -27.451683044433594,
+    "lng": 153.047607421875
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788016E9,
+   "location": {
+    "lat": -27.45166778564453,
+    "lng": 153.04762268066406
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788121E9,
+   "location": {
+    "lat": -27.451650619506836,
+    "lng": 153.04762268066406
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788236E9,
+   "location": {
+    "lat": -27.45166778564453,
+    "lng": 153.04762268066406
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788359E9,
+   "location": {
+    "lat": -27.451900482177734,
+    "lng": 153.0478057861328
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788383E9,
+   "location": {
+    "lat": -27.452449798583984,
+    "lng": 153.0484619140625
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788397E9,
+   "location": {
+    "lat": -27.452083587646484,
+    "lng": 153.04884338378906
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788421E9,
+   "location": {
+    "lat": -27.45224952697754,
+    "lng": 153.048828125
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788483E9,
+   "location": {
+    "lat": -27.4542179107666,
+    "lng": 153.0467987060547
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788497E9,
+   "location": {
+    "lat": -27.453750610351562,
+    "lng": 153.04466247558594
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.40978852E9,
+   "location": {
+    "lat": -27.453149795532227,
+    "lng": 153.042236328125
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788546E9,
+   "location": {
+    "lat": -27.45305061340332,
+    "lng": 153.04168701171875
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.40978856E9,
+   "location": {
+    "lat": -27.452917098999023,
+    "lng": 153.04135131835938
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409788622E9,
+   "location": {
+    "lat": -27.454166412353516,
+    "lng": 153.03933715820312
+   },
+   "userData": {
+    "trip": "4582966-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "crumbs": [
+  {
+   "timestamp": 1.409720042E9,
+   "location": {
+    "lat": -27.4515323638916,
+    "lng": 153.04751586914062
+   },
+   "userData": {
+    "trip": "4583069-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409720091E9,
+   "location": {
+    "lat": -27.452533721923828,
+    "lng": 153.0484161376953
+   },
+   "userData": {
+    "trip": "4583069-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  },
+  {
+   "timestamp": 1.409720147E9,
+   "location": {
+    "lat": -27.452199935913086,
+    "lng": 153.0487060546875
+   },
+   "userData": {
+    "trip": "4583069-BT2014-AUG-FUL-Weekday-00",
+    "rte": "60-470"
+   },
+   "confidenceRadius": 3.4
+  }
+ ]
+}
