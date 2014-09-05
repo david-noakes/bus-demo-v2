@@ -189,6 +189,12 @@ public class GoogleTracksCollection {
 		return jObj;
 	}
 	
+	
+	public JSONObject storeEntireCollectionToJSONObject() {
+	    JSONObject jObj = storeToJSONObject();
+	    jObj.put(GoogleTracksConstants.ENTITIES_LIT, addAllEntitiesToJSONArray());
+	    return jObj;
+	}
 	public String generateCollectionIdToTracksString() {
 	    return generateCollectionIdToJSONObject().toJSONString();
 	}
@@ -240,6 +246,30 @@ public class GoogleTracksCollection {
         return jObj;
 	}
 	
+	/*
+	 * generates entity list for appending to collection
+	 *   [
+     *     {
+     *      "id": "003bc127f3e24591",
+     *      "name": "VU-401030[401030]"
+     *      "type": "AUTOMOBILE"
+     *     },
+     *     {
+     *      "id": "10d087d7781c509d",
+     *      "name": "VU-401047[401047]"
+     *      "type": "AUTOMOBILE"
+     *     },
+     *
+	 */
+    public JSONArray addAllEntitiesToJSONArray() {
+        JSONArray jArray = new JSONArray();
+        for (int i=0; i<_Entities.size(); i++) {
+            GoogleTracksEntity gtEnt = _Entities.get(i);
+            jArray.add(gtEnt.storeToJSONObject());
+        }
+        return jArray;
+    }
+    
 	public void confirmAddEntitiesToCollection(String tracksString) {
         JSONParser jsonParser=new JSONParser();
         try {

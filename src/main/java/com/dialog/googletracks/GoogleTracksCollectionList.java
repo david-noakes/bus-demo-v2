@@ -278,7 +278,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
         return storeAllCrumbsToJSONObject().toJSONString();
     }
  
-     public JSONObject storeAllCrumbsToJSONObject(){
+    public JSONObject storeAllCrumbsToJSONObject(){
          JSONObject jObj = new JSONObject();
          JSONArray jArray = new JSONArray();
          
@@ -292,7 +292,23 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
     
          return jObj;
          
-     }
+    }
+     
+     /*
+      * is this entity not in any collection (= orphaned)
+      */
+     
+    public boolean isThisEntityOrphaned(GoogleTracksEntity gtEnt) {
+        for (int i = 0; i < size(); i++) {
+            GoogleTracksCollection gtColl = this.get(i);
+            if (gtColl.getEntities().contains(gtEnt)) {
+                return false;
+            }
+        }
+        return true;
+    }
+     
+     
 	/**
      * @return the allEntities
      */
@@ -331,7 +347,7 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
     }
 
     /*
-     * write out the collections list response
+     * write out the collections list and their entities as response
      */
     public String writeCollectionsAsJSONString() {
         return writeCollectionsAsJSONObject().toJSONString();
@@ -339,7 +355,13 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
     
     public JSONObject writeCollectionsAsJSONObject() {
         JSONObject jObj = new JSONObject();
+        JSONArray jArray = new JSONArray();
+        for (int i = 0; i < size(); i++) {
+            GoogleTracksCollection gtColl = this.get(i);
+            jArray.add(gtColl.storeEntireCollectionToJSONObject());
+        }
 
+        jObj.put(GoogleTracksConstants.JSON_COLLECTION_SET, jArray);
         return jObj;
     }
     @Override

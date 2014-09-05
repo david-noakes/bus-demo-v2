@@ -163,6 +163,7 @@ public class GoogleTracksEntity {
         if (_Type.trim().length()>0) {
             jObj.put(GoogleTracksConstants.TYPE_LIT, _Type);
         }
+        jObj.put(GoogleTracksConstants.ID_LIT, _ID);
         return jObj;
 	    
 	}

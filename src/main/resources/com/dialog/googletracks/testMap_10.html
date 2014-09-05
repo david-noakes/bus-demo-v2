@@ -146,7 +146,7 @@
         }
         
         function getCollections() {
-        	sendAjax("collections/list");
+        	sendAjax("get_collection_crumbs");
         }
         function sendAjax(method) {
         	 
@@ -216,7 +216,7 @@
       <input onclick="setFerry();" type=button value="New Marker is ferry">
       <input onclick="getCollections();" type=button value="get collections">
       <label id="demo"></label>
-      <label id="trace">version 0008</label>
+      <label id="trace">version 0009</label>
     </div>
     <div id="map-canvas"/>
   </body>
