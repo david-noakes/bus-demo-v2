@@ -12,12 +12,13 @@ import java.util.ArrayList;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.onebusaway.gtfs_realtime.visualizer.VisualizerService;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.google.common.io.Files;
  
@@ -54,6 +55,14 @@ public class TracksJSONServlet extends HttpServlet {
         if(br != null){
             json = br.readLine();
         }
+        JSONParser jsonParser=new JSONParser();
+
+//        try {
+//            JSONObject jObj = (JSONObject) jsonParser.parse( json );
+//        } catch (ParseException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
         if (json.equals(GoogleTracksConstants.METHOD_LIST_COLLECTIONS) || 
             json.equals(GoogleTracksConstants.JSONSERVLET_GET_COLLECTIONS) ||
             json.length() == 0 ||

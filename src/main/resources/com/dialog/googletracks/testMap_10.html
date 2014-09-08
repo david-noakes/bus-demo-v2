@@ -36,6 +36,7 @@
         var theImage = imageBus;
         var vclLatLng = new google.maps.LatLng(-27.47351399999997, 153.0204856);
         var dialogLatLng = new google.maps.LatLng(-27.47351399999997, 153.013136);
+        var tracksCollections;
 
         function initialize() {
             var brisbaneLatLng = new google.maps.LatLng(-27.4775067, 153.0281366);
@@ -146,9 +147,9 @@
         }
         
         function getCollections() {
-        	sendAjax("get_collection_crumbs");
+        	sendAjax("get_collections", handleCollectionList);
         }
-        function sendAjax(method) {
+        function sendAjax(method, successFunction) {
         	 
             // get inputs
 //             var article = new Object();
@@ -166,33 +167,9 @@
                 mimeType: 'application/json',
          
                 success: function (data) {
+                	
+                	successFunction(data);
      				
-                	handleCollectionList(data);
-
-     				$("tr:has(td)").remove();
-         
-//                     $.each(data, function (index, article) {
-         
-//                         var td_categories = $("<td/>");
-//                         $.each(article.categories, function (i, tag) {
-//                             var span = $("<span class='label label-info' style='margin:4px;padding:4px' />");
-//                             span.text(tag);
-//                             td_categories.append(span);
-//                         });
-         
-//                         var td_tags = $("<td/>");
-//                         $.each(article.tags, function (i, tag) {
-//                             var span = $("<span class='label' style='margin:4px;padding:4px' />");
-//                             span.text(tag);
-//                             td_tags.append(span);
-//                         });
-         
-//                         $("#added-articles").append($('<tr/>')
-//                                 .append($('<td/>').html("<a href='"+article.url+"'>"+article.title+"</a>"))
-//                                 .append(td_categories)
-//                                 .append(td_tags)
-//                         );
-//                     }); 
                 },
                 error:function(data,status,er) {
                     alert("error: "+data+" status: "+status+" er:"+er);
@@ -200,10 +177,16 @@
             });
         }        
         function handleCollectionList(data) {
-        	//data is returned
-        	//status want "success"
-        	//type should be json
-			console.log('/tracksjsonservlet: ' + data);
+        	//data is returned. Create a new collection from this data
+        	tracksCollections = jQuery.parseJSON(JSON.stringify(data));
+        	tracksCollections.collectionSet.forEach( function( collSetItem ){
+        		entities = collSetItem.entities;
+    			console.log("handleCollectionList: " + collSetItem.name +
+    			            " , size:"+ entities.length);
+    			entities.forEach( function ( entity ) {
+    				console.log("Vehicle: "+entity.id+", name:"+entity.name+", type:"+entity.type);
+    			})
+        	})
         }
     </script>
   </head>
@@ -216,7 +199,7 @@
       <input onclick="setFerry();" type=button value="New Marker is ferry">
       <input onclick="getCollections();" type=button value="get collections">
       <label id="demo"></label>
-      <label id="trace">version 0009</label>
+      <label id="trace">version 0016</label>
     </div>
     <div id="map-canvas"/>
   </body>
