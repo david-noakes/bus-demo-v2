@@ -189,6 +189,15 @@ public class GoogleTracksCollectionList extends ArrayList<GoogleTracksCollection
 	    }
 	}
 
+    public GoogleTracksCollection findCollectionById(String collectionId) {
+        for (int i=0;i<size();i++) {
+            if (get(i).getID().equals(collectionId)) {
+                return get(i);
+            }    
+        }
+        return null;
+    }
+    
     public GoogleTracksEntity findEntityById(String entityId) {
         for (int i=0;i<allEntities.size();i++) {
             if (allEntities.get(i).getID().equals(entityId)) {

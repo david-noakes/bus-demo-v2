@@ -192,6 +192,7 @@ public class GoogleTracksCollection {
 	
 	public JSONObject storeEntireCollectionToJSONObject() {
 	    JSONObject jObj = storeToJSONObject();
+	    jObj.put(GoogleTracksConstants.COLLECTION_ID, _ID);
 	    jObj.put(GoogleTracksConstants.ENTITIES_LIT, addAllEntitiesToJSONArray());
 	    return jObj;
 	}

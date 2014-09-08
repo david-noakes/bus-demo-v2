@@ -53,10 +53,10 @@ public class GoogleTracksConstants {
     
     public static final String GOOGLE_TRACKS_API       = "https://www.googleapis.com/tracks/v1/";
     
-    // javascript calls to tracksJSONServlet. Note these are embedded in quotes
-    public static final String JSONSERVLET_GET_COLLECTIONS = "\"get_collections\"";
-    public static final String JSONSERVLET_GET_ENTITY_CRUMBS = "\"get_entity_crumbs\"";
-    public static final String JSONSERVLET_GET_COLLECTION_CRUMBS = "\"get_collection_crumbs\"";
+    // javascript calls to tracksJSONServlet. 
+    public static final String JSONSERVLET_GET_COLLECTIONS = "get_collections";
+    public static final String JSONSERVLET_GET_ENTITY_CRUMBS = "get_entity_crumbs";
+    public static final String JSONSERVLET_GET_COLLECTION_CRUMBS = "get_collection_crumbs";
     
     // values for the json object passed from tracksJSONServlet
     public static final String JSON_COLLECTION_SET = "collectionSet";

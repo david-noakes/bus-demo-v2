@@ -64,6 +64,8 @@
 
             var transitLayer = new google.maps.TransitLayer();
             transitLayer.setMap(map);
+            
+            getCollections();
         }
 
         function setBus() {
@@ -124,28 +126,14 @@
         var myVar=setInterval(function(){myTimer()},1000);
         var xmlhttp = new XMLHttpRequest();
         var xmlCounter = 0;
-
+		var collectionDropdown = document.getElementById("Collection_List");
+		var vehicleDropdown = document.getElementById("Vehicle_List");
+        
         function myTimer() {
             var d = new Date();
             document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-            xmlCounter++;
-            if (xmlCounter > 20) {
-                xmlCounter = 0;
-              //  xmlhttp.onreadystatechange = requestHandler;
-              //  xmlhttp.open("GET", "https://gtfsrt.api.translink.com.au/Feed/SEQ", false);
-              //  xmlhttp.send();
-            }
         }
 
-        function requestHandler() {
-            if (xmlhttp.readyState == 4) {
-                // process the data
-                //document.getElementById("trace").innerHTML = "t="+ xmlhttp.responseText;
-                //document.getElementById("trace").innerHTML = "tracing";  //xmlhttp.toString;
-                //document.getElementById("demo").innerHTML = d.toLocaleTimeString() + " tracing";
-            }
-        }
-        
         function getCollections() {
         	sendAjax("get_collections", handleCollectionList);
         }
@@ -162,7 +150,8 @@
                 url: "tracksjsonservlet",
                 type: 'POST',
                 dataType: 'json',
-                data: JSON.stringify(method),
+               // data: JSON.stringify(method),
+                data: method,  // already stringify'd
                 contentType: 'application/json',
                 mimeType: 'application/json',
          
@@ -179,14 +168,55 @@
         function handleCollectionList(data) {
         	//data is returned. Create a new collection from this data
         	tracksCollections = jQuery.parseJSON(JSON.stringify(data));
+        	collectionDropdown = document.getElementById("Collection_List");
+        	clearOptions(collectionDropdown);
         	tracksCollections.collectionSet.forEach( function( collSetItem ){
         		entities = collSetItem.entities;
     			console.log("handleCollectionList: " + collSetItem.name +
     			            " , size:"+ entities.length);
+    			addOption(collectionDropdown, collSetItem.name, collSetItem.collectionId);
     			entities.forEach( function ( entity ) {
     				console.log("Vehicle: "+entity.id+", name:"+entity.name+", type:"+entity.type);
     			})
         	})
+        }
+        function addOption(selectbox,text,value )
+        {
+	        var optn = document.createElement("OPTION");
+	        optn.text = text;
+	        optn.value = value;
+	        selectbox.options.add(optn);
+        }
+
+        function clearOptions(selectbox) {
+        	for (var i = selectbox.childElementCount - 1; i>=0; i--) {
+        		selectbox.remove(i);
+        	}
+        }
+        
+        function showVehicles() {
+        	var entityArray = tracksCollections.collectionSet[collectionDropdown.selectedIndex].entities;
+        	vehicleDropdown = document.getElementById("Vehicle_List");
+        	clearOptions(vehicleDropdown);
+        	for (var i=0; i<entityArray.length;i++) {
+        		addOption(vehicleDropdown, entityArray[i].name, entityArray[i].id);
+        	}
+        	
+        }
+        
+        function getCrumbs() {
+        	var entityArray = tracksCollections.collectionSet[collectionDropdown.selectedIndex].entities;
+        	var entity = entityArray[vehicleDropdown.selectedIndex];
+        	var entArray = [ entity.id]; 
+        	var jObj = {};
+        	jObj["entityIds"] = entArray;
+        	jObj["collectionId"] = tracksCollections.collectionSet[collectionDropdown.selectedIndex].collectionId;
+        	var request = "get_entity_crumbs " + JSON.stringify(jObj); 
+        	sendAjax(request, handleEntityCrumbs);
+        }
+        
+        function handleEntityCrumbs(data) {
+        	
         }
     </script>
   </head>
@@ -195,11 +225,18 @@
       <input onclick="clearMarkers();" type=button value="Hide Markers">
       <input onclick="showMarkers();" type=button value="Show All Markers">
       <input onclick="deleteMarkers();" type=button value="Delete Markers">
-      <input onclick="setBus();" type=button value="New Marker is bus">
-      <input onclick="setFerry();" type=button value="New Marker is ferry">
-      <input onclick="getCollections();" type=button value="get collections">
+<!--       <input onclick="setBus();" type=button value="New Marker is bus"> -->
+<!--       <input onclick="setFerry();" type=button value="New Marker is ferry"> -->
+<!--       <input onclick="getCollections();" type=button value="get collections"> -->
+  	  <SELECT id="Collection_List" onChange="showVehicles();">  
+	    <option value="" >List of days and routes</option>  
+	  </SELECT>  
+  	  <SELECT id="Vehicle_List" >  
+	    <option value="" >List of vehicles</option>  
+	  </SELECT>  
+      <input onclick="getCrumbs();" type=button value="get crumbs">
       <label id="demo"></label>
-      <label id="trace">version 0016</label>
+      <label id="trace">version 0025</label>
     </div>
     <div id="map-canvas"/>
   </body>

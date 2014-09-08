@@ -7,7 +7,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -71,6 +74,30 @@ public class TracksJSONServlet extends HttpServlet {
             writer.write(tracksData.writeCollectionsAsJSONString());
             return;
         }
+        if (json.startsWith(GoogleTracksConstants.JSONSERVLET_GET_ENTITY_CRUMBS)) {
+            String tracksString = json.substring(GoogleTracksConstants.JSONSERVLET_GET_ENTITY_CRUMBS.length());
+            // expect collectionId and entityIds []
+            // use collectionId to determine the posix date
+            JSONObject jObj ;
+            try {
+              jObj = (JSONObject) jsonParser.parse( json );
+              String collectionId = (String) jObj.get(GoogleTracksConstants.COLLECTION_ID);
+              JSONArray jsonEntities = (JSONArray) jObj.get(GoogleTracksConstants.ENTITY_IDS);
+              if (collectionId != null && collectionId.trim().length() > 0 &&
+                      jsonEntities != null && jsonEntities.size() > 0 ) {
+                  writer.write(getEntityHistories(collectionId, jsonEntities));
+                  return;
+              }
+              
+            } catch (ParseException e) {
+                System.out.println("position: " + e.getPosition());
+                System.out.println(e);
+            }
+            
+            writer.write("{\"error\": \"bad request \", " + json + " }");
+             
+            return;
+        }
         // temporary - read collection list from disk
         String userDir = System.getProperty("user.dir");
         String collFileName = userDir + "/target/classes/com/dialog/googletracks/collections_List.txt";
@@ -96,6 +123,49 @@ public class TracksJSONServlet extends HttpServlet {
         //writer.write(tracksData.writeCollectionsAsJSONString());
         writer.write(tracksString);
 
+    }
+    
+    private String getEntityHistories(String collectionId, JSONArray jsonEntities) {
+        // we allow multiple entities
+        // package as {entityId: xxx crumbs: []}, ... 
+        // {get_entity_crumbs: [] }
+        String response = "";
+        JSONParser jsonParser=new JSONParser();
+        JSONArray jArray = new JSONArray();
+        
+        GoogleTracksCollection gtColl = tracksData.findCollectionById(collectionId);
+        String sDate = gtColl.getName().substring(0, 8);
+        int year = Integer.parseInt(sDate.substring(0, 4));
+        int month = Integer.parseInt(sDate.substring(4, 6));
+        int day = Integer.parseInt(sDate.substring(6, 8));
+        Date tStamp = new Date(year, month, day, 22, 0)  ; // make it in the evening
+        int timestamp = (int) (tStamp.getTime() / 1000L);
+        
+        for (int i = 0;i<jsonEntities.size();i++) {
+            GoogleTracksEntity gtEnt = gtColl.findEntityById((String) jsonEntities.get(i));
+            try {
+                response = TracksServiceRequest.serviceRequest(GoogleTracksConstants.METHOD_CRUMBS_GET_HISTORY, gtEnt.generateCrumbsHistoryRequest(timestamp, -160));
+                try { // add the entityId to the crumbs array
+                    JSONObject jObj = (JSONObject) jsonParser.parse( response );
+                    jObj.put(GoogleTracksConstants.ENTITY_ID, gtEnt.getID());
+                    jArray.add(jObj);
+                  } catch (ParseException e) {
+                      System.out.println("position: " + e.getPosition());
+                      System.out.println(e);
+                  }
+               
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                
+            } catch (GeneralSecurityException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        JSONObject jObj = new JSONObject();
+        jObj.put(GoogleTracksConstants.JSONSERVLET_GET_ENTITY_CRUMBS, jArray);
+        return jObj.toJSONString();
     }
     
     private void loadCollectionsAndEntities() {
