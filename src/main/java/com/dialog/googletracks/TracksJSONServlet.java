@@ -80,7 +80,7 @@ public class TracksJSONServlet extends HttpServlet {
             // use collectionId to determine the posix date
             JSONObject jObj ;
             try {
-              jObj = (JSONObject) jsonParser.parse( json );
+              jObj = (JSONObject) jsonParser.parse( tracksString );
               String collectionId = (String) jObj.get(GoogleTracksConstants.COLLECTION_ID);
               JSONArray jsonEntities = (JSONArray) jObj.get(GoogleTracksConstants.ENTITY_IDS);
               if (collectionId != null && collectionId.trim().length() > 0 &&
